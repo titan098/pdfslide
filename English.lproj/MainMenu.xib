@@ -8,8 +8,8 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="371"/>
 			<integer value="72"/>
+			<integer value="371"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1631,10 +1631,10 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 										<bool key="EncodedWithXMLCoder">YES</bool>
 										<object class="NSCustomView" id="326382082">
 											<reference key="NSNextResponder" ref="32351411"/>
-											<int key="NSvFlags">268</int>
+											<int key="NSvFlags">274</int>
 											<string key="NSFrame">{{18, 14}, {377, 348}}</string>
 											<reference key="NSSuperview" ref="32351411"/>
-											<string key="NSClassName">NSView</string>
+											<string key="NSClassName">PDFSlideView</string>
 										</object>
 									</object>
 									<string key="NSFrame">{{1, 1}, {413, 372}}</string>
@@ -1685,10 +1685,10 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 										<bool key="EncodedWithXMLCoder">YES</bool>
 										<object class="NSCustomView" id="303442232">
 											<reference key="NSNextResponder" ref="403181586"/>
-											<int key="NSvFlags">268</int>
+											<int key="NSvFlags">274</int>
 											<string key="NSFrame">{{18, 14}, {377, 348}}</string>
 											<reference key="NSSuperview" ref="403181586"/>
-											<string key="NSClassName">NSView</string>
+											<string key="NSClassName">PDFSlideView</string>
 										</object>
 									</object>
 									<string key="NSFrame">{{1, 1}, {413, 372}}</string>
@@ -1725,7 +1725,7 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 								<int key="NSCellFlags">-2147353088</int>
 								<int key="NSCellFlags2">0</int>
 								<reference key="NSControlView" ref="693763408"/>
-								<double key="NSMaxValue">2.000000e+00</double>
+								<double key="NSMaxValue">1.000000e+00</double>
 								<double key="NSWarningValue">2.000000e+00</double>
 								<double key="NSCriticalValue">2.000000e+00</double>
 								<int key="NSIndicatorStyle">2</int>
@@ -4105,6 +4105,14 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">PDFSlideController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">PDFSlideView</string>
+					<string key="superclassName">NSView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">PDFSlideView.h</string>
 					</object>
 				</object>
 			</object>
