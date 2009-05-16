@@ -1,0 +1,8 @@
+#xcode stuff
+build/*
+*.pbxuser
+*.mode1v3
+
+#osx stuff
+.DS_Store
+profile
