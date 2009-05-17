@@ -8,11 +8,15 @@
 
 #import <Cocoa/Cocoa.h>
 #import "Slide.h"
+#import "PDFSlideView.h"
 
 @interface PDFSlideController : NSObject {
 	IBOutlet NSWindow *window;
 	IBOutlet NSLevelIndicator *pageLevel;
 	IBOutlet NSTextView	*tvNotes;
+	
+	IBOutlet PDFSlideView *currentSlide;
+	IBOutlet PDFSlideView *nextSlide;
 	
 	Slide *slides;
 }

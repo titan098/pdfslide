@@ -17,5 +17,6 @@
 
 - (void)openPDF:(NSString *)filename;
 - (NSUInteger)pageCount;
+- (PDFPage *)pageAtIndex:(NSUInteger)index;
 
 @end

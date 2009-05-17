@@ -30,4 +30,10 @@
 	return [document pageCount];
 }
 
+//return the PDFPage listed at the current index
+- (PDFPage *)pageAtIndex:(NSUInteger)index {
+	PDFPage *page = [document pageAtIndex:index];
+	return page;
+}
+
 @end

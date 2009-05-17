@@ -56,6 +56,16 @@
 	//setup the level indicator
 	[pageLevel setMaxValue:((double)[slides pageCount])];
 	[pageLevel setIntValue:1];
+	
+	//view the slide access to the slides object
+	[currentSlide setSlide:slides];
+	[currentSlide setSlideNumber:0];
+	[nextSlide setSlide:slides];
+	[nextSlide setSlideNumber:1];
+
+	//redraw the slides
+	[currentSlide setNeedsDisplay:YES];
+	[nextSlide setNeedsDisplay:YES];
 }
 
 @end

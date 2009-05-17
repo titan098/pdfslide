@@ -9,10 +9,16 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "Slide.h"
 
 
 @interface PDFSlideView : NSView {
-
+	Slide *slide;
+	NSUInteger slideNumber;
 }
+
+@property(readwrite) NSUInteger slideNumber;
+
+- (void)setSlide:(Slide *)newSlide;
 
 @end
