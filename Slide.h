@@ -7,10 +7,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
+#import <Quartz/Quartz.h>
 
 @interface Slide : NSObject {
-
+	PDFDocument *document;
 }
+
+- (id)initWithURL:(NSURL *)url;
+
+- (void)openPDF:(NSString *)filename;
+- (NSUInteger)pageCount;
 
 @end

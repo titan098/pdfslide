@@ -8,8 +8,8 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<integer value="372"/>
 			<integer value="72"/>
-			<integer value="371"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1722,12 +1722,15 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 							<reference key="NSSuperview" ref="439893737"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSLevelIndicatorCell" key="NSCell" id="118765387">
-								<int key="NSCellFlags">-2147353088</int>
+								<int key="NSCellFlags">-2080244224</int>
 								<int key="NSCellFlags2">0</int>
+								<object class="NSFont" key="NSSupport" id="794751857">
+									<string key="NSName">LucidaGrande</string>
+									<double key="NSSize">1.300000e+01</double>
+									<int key="NSfFlags">1044</int>
+								</object>
 								<reference key="NSControlView" ref="693763408"/>
 								<double key="NSMaxValue">1.000000e+00</double>
-								<double key="NSWarningValue">2.000000e+00</double>
-								<double key="NSCriticalValue">2.000000e+00</double>
 								<int key="NSIndicatorStyle">2</int>
 								<int key="NSTickMarkPosition">1</int>
 							</object>
@@ -1916,11 +1919,7 @@ ELIAAAAAAAgACAAIAAgAAQABAAEAAQ</bytes>
 								</object>
 							</object>
 							<reference key="NSSelectedTabViewItem" ref="549012184"/>
-							<object class="NSFont" key="NSFont">
-								<string key="NSName">LucidaGrande</string>
-								<double key="NSSize">1.300000e+01</double>
-								<int key="NSfFlags">1044</int>
-							</object>
+							<reference key="NSFont" ref="794751857"/>
 							<int key="NSTvFlags">0</int>
 							<bool key="NSAllowTruncatedLabels">YES</bool>
 							<bool key="NSDrawsBackground">YES</bool>

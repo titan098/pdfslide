@@ -20,9 +20,14 @@
 
 	//was the OK Button pushed
 	if (returnCode == NSOKButton) {
-		NSLog(@"Open Dialog OK Button Pushed");
+		NSString *filename = [openPanel filename];
+
+		slides = [[Slide alloc] initWithURL:[NSURL fileURLWithPath:filename]];
+		
+		[self initiliseWindow];
 	}
 }
+
 
 /*
  * Show the open dialog button to allow the user to select a PDF file to open
@@ -42,6 +47,15 @@
 					modalDelegate:self
 					didEndSelector:@selector(openPanelDidEnd:returnCode:contextInfo:) 
 					  contextInfo:NULL];
+}
+
+/*
+ * Setup all the window components
+ */
+- (void) initiliseWindow {
+	//setup the level indicator
+	[pageLevel setMaxValue:((double)[slides pageCount])];
+	[pageLevel setIntValue:1];
 }
 
 @end
