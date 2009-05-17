@@ -31,7 +31,7 @@
 	[[NSColor blackColor] set];	//set the drawing color
 	[NSBezierPath fillRect:bounds];
 	
-	if (slide != NULL) {
+	if ((slide != NULL) && (slideNumber < [slide pageCount])) {
 		//draw the current slide as indicated by the slide object
 		NSAffineTransform *xform = [NSAffineTransform transform];
 		//[xform translateXBy:50.0 yBy:20.0];
@@ -40,7 +40,7 @@
 				
 		//calculate the correct transformation and scaling values
 		NSRect pagebounds = [slidePage boundsForBox:kPDFDisplayBoxMediaBox];
-				
+		
 		CGFloat xscale = bounds.size.width / pagebounds.size.width;
 		CGFloat yscale = bounds.size.height / pagebounds.size.height;
 		CGFloat scale = (xscale < yscale ? xscale : yscale);
@@ -55,6 +55,9 @@
 		[xform scaleBy:scale];
 		[xform concat];
 		
+		//set the background color (of the page) to white
+		[[NSColor whiteColor] set];
+		[NSBezierPath fillRect:pagebounds];
 		[slidePage drawWithBox:kPDFDisplayBoxMediaBox];
 	}
 	
