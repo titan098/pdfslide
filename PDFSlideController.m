@@ -43,7 +43,7 @@
 	[openPanel beginSheetForDirectory:nil
 							 file:nil 
 							types:fileTypes 
-				   modalForWindow:window
+				   modalForWindow:[self window]
 					modalDelegate:self
 					didEndSelector:@selector(openPanelDidEnd:returnCode:contextInfo:) 
 					  contextInfo:NULL];
@@ -54,7 +54,7 @@
  */
 - (void) initiliseWindow {
 	//setup the level indicator
-	[pageLevel setMaxValue:((double)[slides pageCount])];
+	[pageLevel setMaxValue:((double)[slides pageCount]+1)];
 	[pageLevel setIntValue:1];
 	
 	//view the slide access to the slides object
@@ -62,10 +62,64 @@
 	[currentSlide setSlideNumber:0];
 	[nextSlide setSlide:slides];
 	[nextSlide setSlideNumber:1];
-
+	
 	//redraw the slides
 	[currentSlide setNeedsDisplay:YES];
 	[nextSlide setNeedsDisplay:YES];
+}
+
+/*
+ * Move to the next slide
+ */
+- (void)advanceSlides {
+	[currentSlide incrSlide];
+	[nextSlide setSlideNumber:([currentSlide slideNumber]+1)];
+	
+	//move the level indicator
+	if ([pageLevel intValue] < [pageLevel maxValue])
+		[pageLevel setIntValue:[pageLevel intValue]+1];
+	
+	//redraw the views
+	[currentSlide setNeedsDisplay:YES];
+	[nextSlide setNeedsDisplay:YES];
+}
+
+/*
+ * Move back to the previous slide
+ */
+- (void)reverseSlides {
+	[currentSlide decrSlide];
+	[nextSlide setSlideNumber:([currentSlide slideNumber]+1)];
+	
+	//move the level indicator
+	if ([pageLevel intValue] > 1)
+		[pageLevel setIntValue:[pageLevel intValue]-1];
+	
+	//redraw the views
+	[currentSlide setNeedsDisplay:YES];
+	[nextSlide setNeedsDisplay:YES];
+}
+
+/*
+ *	Handle the keydown events on the main window
+ */
+- (void)keyDown:(NSEvent *)theEvent {
+	unsigned int keycode = [theEvent keyCode];
+	switch (keycode) {
+		case 123:
+			//Left arrow
+			NSLog(@"Keydown Event - Left Arrow");
+			[self reverseSlides];
+			break;
+		case 124:
+			//Right arrow
+			NSLog(@"Keydown Event - Right Arrow");
+			[self advanceSlides];
+			break;
+		default:
+			NSLog(@"Keydown Event - %d", keycode);
+			break;
+	}
 }
 
 @end

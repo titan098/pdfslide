@@ -10,8 +10,8 @@
 #import "Slide.h"
 #import "PDFSlideView.h"
 
-@interface PDFSlideController : NSObject {
-	IBOutlet NSWindow *window;
+@interface PDFSlideController : NSWindowController {
+	//IBOutlet NSWindow *window;
 	IBOutlet NSLevelIndicator *pageLevel;
 	IBOutlet NSTextView	*tvNotes;
 	
@@ -25,5 +25,9 @@
 - (IBAction)openDocument:(id)sender;
 
 - (void)initiliseWindow;
+- (void)advanceSlides;
+- (void)reverseSlides;
+
+- (void)keyDown:(NSEvent *)theEvent;
 
 @end

@@ -65,8 +65,29 @@
 	[NSGraphicsContext restoreGraphicsState];
 }
 
+/**
+ * Sets the Slide object to display from
+ */
 - (void)setSlide:(Slide *)newSlide {
 	slide = newSlide;
 }
 
+
+/**
+ * Increase the slide number to display
+ */
+- (void)incrSlide {
+	if (slideNumber < [slide pageCount]) {
+		slideNumber++;	
+	}
+}
+
+/**
+ * Decrement the slide number to display
+ */
+-(void)decrSlide {
+	if (slideNumber > 0) {
+		slideNumber--;
+	}
+}
 @end
