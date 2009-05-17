@@ -40,14 +40,21 @@
 				
 		//calculate the correct transformation and scaling values
 		NSRect pagebounds = [slidePage boundsForBox:kPDFDisplayBoxMediaBox];
-		
+				
 		CGFloat xscale = bounds.size.width / pagebounds.size.width;
 		CGFloat yscale = bounds.size.height / pagebounds.size.height;
+		CGFloat scale = (xscale < yscale ? xscale : yscale);
+		
+		//draw the pdf page in the middle of the view
+		CGFloat deltaX = (bounds.size.width - (pagebounds.size.width*scale))/2;
+		CGFloat deltaY = (bounds.size.height - (pagebounds.size.height*scale))/2;
+		[xform translateXBy:deltaX
+						yBy:deltaY];
 		
 		//scale the pdf by the smallest scaling value - retain the aspect
-		[xform scaleBy:(xscale < yscale ? xscale : yscale)];
-		
+		[xform scaleBy:scale];
 		[xform concat];
+		
 		[slidePage drawWithBox:kPDFDisplayBoxMediaBox];
 	}
 	
