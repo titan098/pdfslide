@@ -11,6 +11,8 @@
 		631039FA0FC01F2100355C3D /* Slide.m in Sources */ = {isa = PBXBuildFile; fileRef = 631039F90FC01F2100355C3D /* Slide.m */; };
 		6365A3C90FBF2C0F00895D69 /* PDFSlideController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6365A3C80FBF2C0F00895D69 /* PDFSlideController.m */; };
 		6365A4150FBF355000895D69 /* PDFSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6365A4140FBF355000895D69 /* PDFSlideView.m */; };
+		63F6E9930FC09FB0006BC158 /* PDFDisplay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F6E9920FC09FB0006BC158 /* PDFDisplay.xib */; };
+		63F6E9990FC0A06A006BC158 /* PDFDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F6E9980FC0A06A006BC158 /* PDFDisplayController.m */; };
 		63FCE6540FC02634001E634B /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63FCE6530FC02634001E634B /* Quartz.framework */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -32,6 +34,9 @@
 		6365A3C80FBF2C0F00895D69 /* PDFSlideController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFSlideController.m; sourceTree = "<group>"; };
 		6365A4130FBF355000895D69 /* PDFSlideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFSlideView.h; sourceTree = "<group>"; };
 		6365A4140FBF355000895D69 /* PDFSlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFSlideView.m; sourceTree = "<group>"; };
+		63F6E9920FC09FB0006BC158 /* PDFDisplay.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PDFDisplay.xib; sourceTree = "<group>"; };
+		63F6E9970FC0A06A006BC158 /* PDFDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFDisplayController.h; sourceTree = "<group>"; };
+		63F6E9980FC0A06A006BC158 /* PDFDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFDisplayController.m; sourceTree = "<group>"; };
 		63FCE6530FC02634001E634B /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = /System/Library/Frameworks/Quartz.framework; sourceTree = "<absolute>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* PDFSlide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PDFSlide.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,6 +64,8 @@
 				6365A4140FBF355000895D69 /* PDFSlideView.m */,
 				631039F80FC01F2100355C3D /* Slide.h */,
 				631039F90FC01F2100355C3D /* Slide.m */,
+				63F6E9970FC0A06A006BC158 /* PDFDisplayController.h */,
+				63F6E9980FC0A06A006BC158 /* PDFDisplayController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -116,6 +123,7 @@
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
+				63F6E9920FC09FB0006BC158 /* PDFDisplay.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -175,6 +183,7 @@
 			files = (
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
+				63F6E9930FC09FB0006BC158 /* PDFDisplay.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,6 +198,7 @@
 				6365A3C90FBF2C0F00895D69 /* PDFSlideController.m in Sources */,
 				6365A4150FBF355000895D69 /* PDFSlideView.m in Sources */,
 				631039FA0FC01F2100355C3D /* Slide.m in Sources */,
+				63F6E9990FC0A06A006BC158 /* PDFDisplayController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

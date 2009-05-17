@@ -76,7 +76,7 @@
 /**
  * Increase the slide number to display
  */
-- (void)incrSlide {
+- (IBAction)incrSlide:(id)sender {
 	if (slideNumber < [slide pageCount]) {
 		slideNumber++;	
 	}
@@ -85,7 +85,7 @@
 /**
  * Decrement the slide number to display
  */
--(void)decrSlide {
+-(IBAction)decrSlide:(id)sender {
 	if (slideNumber > 0) {
 		slideNumber--;
 	}

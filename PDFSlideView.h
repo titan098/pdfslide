@@ -20,7 +20,8 @@
 @property(readwrite) NSUInteger slideNumber;
 
 - (void)setSlide:(Slide *)newSlide;
-- (void)incrSlide;
-- (void)decrSlide;
+
+- (IBAction)incrSlide:(id)sender;
+- (IBAction)decrSlide:(id)sender;
 
 @end

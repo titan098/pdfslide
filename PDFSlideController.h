@@ -25,8 +25,9 @@
 - (IBAction)openDocument:(id)sender;
 
 - (void)initiliseWindow;
-- (void)advanceSlides;
-- (void)reverseSlides;
+
+- (IBAction)advanceSlides:(id)sender;
+- (IBAction)reverseSlides:(id)sender;
 
 - (void)keyDown:(NSEvent *)theEvent;
 

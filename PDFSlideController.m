@@ -71,8 +71,8 @@
 /*
  * Move to the next slide
  */
-- (void)advanceSlides {
-	[currentSlide incrSlide];
+- (IBAction)advanceSlides:(id)sender {
+	[currentSlide incrSlide:self];
 	[nextSlide setSlideNumber:([currentSlide slideNumber]+1)];
 	
 	//move the level indicator
@@ -87,8 +87,8 @@
 /*
  * Move back to the previous slide
  */
-- (void)reverseSlides {
-	[currentSlide decrSlide];
+- (IBAction)reverseSlides:(id)sender {
+	[currentSlide decrSlide:self];
 	[nextSlide setSlideNumber:([currentSlide slideNumber]+1)];
 	
 	//move the level indicator
@@ -109,12 +109,12 @@
 		case 123:
 			//Left arrow
 			NSLog(@"Keydown Event - Left Arrow");
-			[self reverseSlides];
+			[self reverseSlides:self];
 			break;
 		case 124:
 			//Right arrow
 			NSLog(@"Keydown Event - Right Arrow");
-			[self advanceSlides];
+			[self advanceSlides:self];
 			break;
 		default:
 			NSLog(@"Keydown Event - %d", keycode);
