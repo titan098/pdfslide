@@ -9,6 +9,11 @@
 #import <Cocoa/Cocoa.h>
 #import "Slide.h"
 #import "PDFSlideView.h"
+#import "PDFDisplayController.h"
+
+//define notifications
+extern NSString * const ControllerSlideNumberNotification;
+extern NSString * const ControllerRedrawSlideNotification;
 
 @interface PDFSlideController : NSWindowController {
 	//IBOutlet NSWindow *window;
@@ -19,6 +24,7 @@
 	IBOutlet PDFSlideView *nextSlide;
 	
 	Slide *slides;
+	PDFSlideController *pdfDisplay;
 }
 
 - (void)openPanelDidEnd:(NSOpenPanel *)openPanel returnCode:(int)returnCode	contextInfo:(void *)x;
@@ -26,8 +32,11 @@
 
 - (void)initiliseWindow;
 
+- (IBAction)playSlides:(id)sender;
 - (IBAction)advanceSlides:(id)sender;
 - (IBAction)reverseSlides:(id)sender;
+
+- (void)postSlideChangeNotification;
 
 - (void)keyDown:(NSEvent *)theEvent;
 

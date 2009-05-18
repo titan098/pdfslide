@@ -8,6 +8,9 @@
 
 #import "PDFSlideController.h"
 
+//define the notifications
+NSString * const ControllerSlideNumberNotification = @"ControllerSlideNumberChanged";
+NSString * const ControllerRedrawSlideNotification = @"ControllerSlideRedraw";
 
 @implementation PDFSlideController
 
@@ -69,6 +72,40 @@
 }
 
 /*
+ * Post a notification informating objservers that the slide has changed.
+ */
+- (void)postSlideChangeNotification {
+	//Send a notification to the main window that the slide has changed
+	if (pdfDisplay) {
+		NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+		NSLog(@"Notify - Slide Changed");
+		
+		NSDictionary *d = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:[currentSlide slideNumber]] 
+																			  forKey:@"SlideNumber"];
+		
+		[nc postNotificationName:ControllerSlideNumberNotification
+						  object:self
+						userInfo:d];	
+	}
+}
+
+/*
+ * Play the slide show in the primary or secondary screen
+ */
+- (IBAction)playSlides:(id)sender {
+	//show the display window
+	if (!pdfDisplay) {
+		pdfDisplay = [[PDFDisplayController alloc] initWithSlides:slides];
+	}
+	
+	NSLog(@"Showing the PDFDisplay Window");
+	[pdfDisplay showWindow:self];
+	
+	//display the current slide
+	[self postSlideChangeNotification];
+}
+
+/*
  * Move to the next slide
  */
 - (IBAction)advanceSlides:(id)sender {
@@ -82,6 +119,8 @@
 	//redraw the views
 	[currentSlide setNeedsDisplay:YES];
 	[nextSlide setNeedsDisplay:YES];
+	
+	[self postSlideChangeNotification];
 }
 
 /*
@@ -98,6 +137,8 @@
 	//redraw the views
 	[currentSlide setNeedsDisplay:YES];
 	[nextSlide setNeedsDisplay:YES];
+
+	[self postSlideChangeNotification];
 }
 
 /*

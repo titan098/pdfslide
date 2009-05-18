@@ -7,10 +7,27 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "Slide.h"
+#import "PDFSlideView.h"
+#import "PDFSlideController.h"
 
+@class PDFSlideController;
 
 @interface PDFDisplayController : NSWindowController {
-
+	IBOutlet PDFSlideView *pdfSlides;
+	
+	Slide *slides;
 }
 
+- (id)init;
+- (id)initWithSlides:(id)slidesObj;
+- (void)dealloc;
+
+- (void)handleSlideChange:(NSNotification *)note;
+
+- (IBAction)advanceSlides:(id)sender;
+- (IBAction)reverseSlides:(id)sender;
+
+- (void)setSlideNumber:(NSUInteger)num;
+- (void)redrawSlide;
 @end
