@@ -10,7 +10,7 @@
 
 //define the notifications
 NSString * const ControllerSlideNumberNotification = @"ControllerSlideNumberChanged";
-NSString * const ControllerRedrawSlideNotification = @"ControllerSlideRedraw";
+NSString * const ControllerSlideObjectNotification = @"ControllerSlideObjectChange";
 
 @implementation PDFSlideController
 
@@ -75,6 +75,10 @@ NSString * const ControllerRedrawSlideNotification = @"ControllerSlideRedraw";
 	//redraw the slides
 	[currentSlide setNeedsDisplay:YES];
 	[nextSlide setNeedsDisplay:YES];
+	
+	//if the display window is open then notify it of the new slides
+	[self postSlideObjectChangeNotification];
+	[self postSlideChangeNotification];
 }
 
 /*
@@ -88,6 +92,25 @@ NSString * const ControllerRedrawSlideNotification = @"ControllerSlideRedraw";
 	[self displaySlide:[slideNum intValue]];
 }
 
+/*
+ * Post a notification that the slide object has changed
+ */
+- (void)postSlideObjectChangeNotification {
+	//nofity the display that the slide obj has changed
+	if (pdfDisplay) {
+		NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+		NSLog(@"Notify Controller: Slide Object Changed");
+		
+		NSDictionary *d = [NSDictionary dictionaryWithObject:slides
+													  forKey:@"SlideObject"];
+		
+		[nc postNotificationName:ControllerSlideObjectNotification
+						  object:self
+						userInfo:d];
+	}
+}
+	
+		
 /*
  * Post a notification informating objservers that the slide has changed.
  */

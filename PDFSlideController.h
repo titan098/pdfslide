@@ -13,7 +13,7 @@
 
 //define notifications
 extern NSString * const ControllerSlideNumberNotification;
-extern NSString * const ControllerRedrawSlideNotification;
+extern NSString * const ControllerSlideObjectNotification;
 
 @interface PDFSlideController : NSWindowController {
 	//IBOutlet NSWindow *window;
@@ -40,6 +40,7 @@ extern NSString * const ControllerRedrawSlideNotification;
 - (IBAction)reverseSlides:(id)sender;
 
 - (void)postSlideChangeNotification;
+- (void)postSlideObjectChangeNotification;
 
 - (void)keyDown:(NSEvent *)theEvent;
 

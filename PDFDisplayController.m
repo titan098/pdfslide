@@ -23,6 +23,13 @@ NSString * const DisplaySlideNumberNotification = @"DisplaySlideNumberChanged";
 		   selector:@selector(handleSlideChange:)
 			   name:ControllerSlideNumberNotification
 			 object:nil];
+	
+	//register observer to listen for slide obj changes
+	[nc addObserver:self
+		   selector:@selector(handleSlideObjChange:)
+			   name:ControllerSlideObjectNotification
+			 object:nil];
+	
 	NSLog(@"Notify Display: Slide Notification Observer Registered");
 	
 	return self;
@@ -50,6 +57,14 @@ NSString * const DisplaySlideNumberNotification = @"DisplaySlideNumberChanged";
 	[pdfSlides setNeedsDisplay:YES];
 }
 
+- (void)handleSlideObjChange:(NSNotification *)note {
+	NSLog(@"Notify Display: Slide Object Change Notification Recieved");
+	Slide *newSlides = [[note userInfo] objectForKey:@"SlideObject"];
+	
+	slides = newSlides;
+	[pdfSlides setSlide:slides];
+}
+	 
 /*
  * Post a notification informating objservers that the slide has changed.
  */

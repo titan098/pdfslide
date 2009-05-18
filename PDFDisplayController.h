@@ -27,6 +27,7 @@ extern NSString * const DisplaySlideNumberNotification;
 - (void)dealloc;
 
 - (void)handleSlideChange:(NSNotification *)note;
+- (void)handleSlideObjChange:(NSNotification *)note;
 
 - (IBAction)advanceSlides:(id)sender;
 - (IBAction)reverseSlides:(id)sender;
