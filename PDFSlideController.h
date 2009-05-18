@@ -27,6 +27,8 @@ extern NSString * const ControllerRedrawSlideNotification;
 	PDFSlideController *pdfDisplay;
 }
 
+- (void)dealloc;
+
 - (void)openPanelDidEnd:(NSOpenPanel *)openPanel returnCode:(int)returnCode	contextInfo:(void *)x;
 - (IBAction)openDocument:(id)sender;
 

@@ -11,6 +11,9 @@
 #import "PDFSlideView.h"
 #import "PDFSlideController.h"
 
+//define notifications
+extern NSString * const DisplaySlideNumberNotification;
+
 @class PDFSlideController;
 
 @interface PDFDisplayController : NSWindowController {

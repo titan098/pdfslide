@@ -14,6 +14,12 @@ NSString * const ControllerRedrawSlideNotification = @"ControllerSlideRedraw";
 
 @implementation PDFSlideController
 
+- (void)dealloc {
+	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+	[nc removeObserver:self];
+	[super dealloc];
+}
+
 /*
  * Control how the open dialog sheet will perform
  */
@@ -71,6 +77,14 @@ NSString * const ControllerRedrawSlideNotification = @"ControllerSlideRedraw";
 	[nextSlide setNeedsDisplay:YES];
 }
 
+- (void)handleSlideChange:(NSNotification *)note {
+	NSLog(@"Display Change Notification Recieved");
+	NSNumber *slideNum = [[note userInfo] objectForKey:@"SlideNumber"];
+	
+//	[pdfSlides setSlideNumber:[slideNum intValue]];
+//	[pdfSlides setNeedsDisplay:YES];
+}
+
 /*
  * Post a notification informating objservers that the slide has changed.
  */
@@ -98,11 +112,27 @@ NSString * const ControllerRedrawSlideNotification = @"ControllerSlideRedraw";
 		pdfDisplay = [[PDFDisplayController alloc] initWithSlides:slides];
 	}
 	
+	//register as an observer to listen for notifications
+	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+	[nc addObserver:self
+		   selector:@selector(handleSlideChange:)
+			   name:DisplaySlideNumberNotification
+			 object:nil];
+	NSLog(@"Display Notification Observer Registered");
+	
 	NSLog(@"Showing the PDFDisplay Window");
 	[pdfDisplay showWindow:self];
 	
 	//display the current slide
 	[self postSlideChangeNotification];
+}
+
+/*
+ * Display a specific slide number
+ */
+- (void) displaySlide:(NSUInteger)slideNum {
+	[currentSlide setSlideNumber:slideNum];
+	//[nextSlide setSlideNumber:()];
 }
 
 /*
