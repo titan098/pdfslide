@@ -77,12 +77,15 @@ NSString * const ControllerRedrawSlideNotification = @"ControllerSlideRedraw";
 	[nextSlide setNeedsDisplay:YES];
 }
 
+/*
+ * Callback - handle a slide change notification
+ */
 - (void)handleSlideChange:(NSNotification *)note {
-	NSLog(@"Display Change Notification Recieved");
+	NSLog(@"Nofity Controller: Display Change Notification Recieved");
 	NSNumber *slideNum = [[note userInfo] objectForKey:@"SlideNumber"];
 	
-//	[pdfSlides setSlideNumber:[slideNum intValue]];
-//	[pdfSlides setNeedsDisplay:YES];
+	//display the slide
+	[self displaySlide:[slideNum intValue]];
 }
 
 /*
@@ -92,7 +95,7 @@ NSString * const ControllerRedrawSlideNotification = @"ControllerSlideRedraw";
 	//Send a notification to the main window that the slide has changed
 	if (pdfDisplay) {
 		NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-		NSLog(@"Notify - Slide Changed");
+		NSLog(@"Notify Controller: Slide Changed");
 		
 		NSDictionary *d = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:[currentSlide slideNumber]] 
 																			  forKey:@"SlideNumber"];
@@ -118,7 +121,7 @@ NSString * const ControllerRedrawSlideNotification = @"ControllerSlideRedraw";
 		   selector:@selector(handleSlideChange:)
 			   name:DisplaySlideNumberNotification
 			 object:nil];
-	NSLog(@"Display Notification Observer Registered");
+	NSLog(@"Nofity Controller: PDFDisplay Notification Observer Registered");
 	
 	NSLog(@"Showing the PDFDisplay Window");
 	[pdfDisplay showWindow:self];
@@ -130,9 +133,17 @@ NSString * const ControllerRedrawSlideNotification = @"ControllerSlideRedraw";
 /*
  * Display a specific slide number
  */
-- (void) displaySlide:(NSUInteger)slideNum {
+- (void)displaySlide:(NSUInteger)slideNum {
 	[currentSlide setSlideNumber:slideNum];
-	//[nextSlide setSlideNumber:()];
+	[nextSlide setSlideNumber:([currentSlide slideNumber]+1)];
+	
+	//set the level indicator
+	if ([pageLevel intValue] < [pageLevel maxValue])
+		[pageLevel setIntValue:(slideNum+1)];
+	
+	//redraw the views
+	[currentSlide setNeedsDisplay:YES];
+	[nextSlide setNeedsDisplay:YES];
 }
 
 /*

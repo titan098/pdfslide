@@ -35,6 +35,7 @@ extern NSString * const ControllerRedrawSlideNotification;
 - (void)initiliseWindow;
 
 - (IBAction)playSlides:(id)sender;
+- (void)displaySlide:(NSUInteger)slideNum;
 - (IBAction)advanceSlides:(id)sender;
 - (IBAction)reverseSlides:(id)sender;
 
