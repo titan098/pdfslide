@@ -58,6 +58,10 @@ NSString * const DisplaySlideNumberNotification = @"DisplaySlideNumberChanged";
 	//NSScreen
 	NSScreen *screen = [[NSScreen screens] objectAtIndex:displayScreen];
 	
+	//move the window to the right screen
+	NSWindow *window = [self window];
+	[window setFrame:[screen frame] display:YES];
+
 	//enter fullscreen
 	NSDictionary *d = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO]
 												  forKey:NSFullScreenModeAllScreens];
