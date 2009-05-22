@@ -35,10 +35,11 @@ NSString * const DisplaySlideNumberNotification = @"DisplaySlideNumberChanged";
 	return self;
 }
 
-- (id)initWithSlides:(id)slidesObj {
+- (id)initWithSlidesScreen:(id)slidesObj screen:(NSUInteger)screen{
 	if (![self init])
 		return nil;
 	slides = slidesObj;
+	displayScreen = screen;
 	return self;
 }
 
@@ -47,6 +48,21 @@ NSString * const DisplaySlideNumberNotification = @"DisplaySlideNumberChanged";
 	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
 	[nc removeObserver:self];
 	[super dealloc];
+}
+
+
+/*
+ * Display the View in fullscreen mode
+ */
+- (void)enterFullScreen {
+	//NSScreen
+	NSScreen *screen = [[NSScreen screens] objectAtIndex:displayScreen];
+	
+	//enter fullscreen
+	NSDictionary *d = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO]
+												  forKey:NSFullScreenModeAllScreens];
+	[pdfSlides enterFullScreenMode:screen
+					   withOptions:d];
 }
 
 - (void)handleSlideChange:(NSNotification *)note {
@@ -84,6 +100,9 @@ NSString * const DisplaySlideNumberNotification = @"DisplaySlideNumberChanged";
 - (void) windowDidLoad {
 	//NSLog(@"Nib file is loaded");
 	[pdfSlides setSlide:slides];
+	
+	[self enterFullScreen];
+	//[pdfSlides enterFullScreenMode:[NSScreen mainScreen] withOptions:nil];
 }
 
 //Advance the slides

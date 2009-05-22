@@ -20,11 +20,14 @@ extern NSString * const DisplaySlideNumberNotification;
 	IBOutlet PDFSlideView *pdfSlides;
 	
 	Slide *slides;
+	NSUInteger displayScreen;
 }
 
 - (id)init;
-- (id)initWithSlides:(id)slidesObj;
+- (id)initWithSlidesScreen:(id)slidesObj screen:(NSUInteger)screen;
 - (void)dealloc;
+
+- (void)enterFullScreen;
 
 - (void)handleSlideChange:(NSNotification *)note;
 - (void)handleSlideObjChange:(NSNotification *)note;

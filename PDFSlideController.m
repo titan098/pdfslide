@@ -135,7 +135,8 @@ NSString * const ControllerSlideObjectNotification = @"ControllerSlideObjectChan
 - (IBAction)playSlides:(id)sender {
 	//show the display window
 	if (!pdfDisplay) {
-		pdfDisplay = [[PDFDisplayController alloc] initWithSlides:slides];
+		pdfDisplay = [[PDFDisplayController alloc] initWithSlidesScreen:slides
+																 screen:1];
 	}
 	
 	//register as an observer to listen for notifications
