@@ -10,6 +10,7 @@
 
 //The notifications
 NSString * const DisplaySlideNumberNotification = @"DisplaySlideNumberChanged";
+NSString * const DisplayKeyPressNotification = @"DisplayKeyPressed";
 
 @implementation PDFDisplayController
 
@@ -101,6 +102,22 @@ NSString * const DisplaySlideNumberNotification = @"DisplaySlideNumberChanged";
 						userInfo:d];
 }
 
+/*
+ * Post a notification informating objservers that a key was pressed.
+ */
+- (void)postKeyPressedNotification:(NSUInteger)keycode {
+	//Send a notification to the main window that the slide has changed
+	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+	NSLog(@"Notify Display: Key Pressed");
+	
+	NSDictionary *d = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:keycode] 
+												  forKey:@"KeyCode"];
+	
+	[nc postNotificationName:DisplayKeyPressNotification
+					  object:self
+					userInfo:d];
+}
+
 - (void) windowDidLoad {
 	//NSLog(@"Nib file is loaded");
 	[pdfSlides setSlide:slides];
@@ -142,6 +159,7 @@ NSString * const DisplaySlideNumberNotification = @"DisplaySlideNumberChanged";
  */
 - (void)keyDown:(NSEvent *)theEvent {
 	unsigned int keycode = [theEvent keyCode];
+	/*
 	switch (keycode) {
 		case 123:
 			//Left arrow
@@ -156,6 +174,8 @@ NSString * const DisplaySlideNumberNotification = @"DisplaySlideNumberChanged";
 		default:
 			NSLog(@"Keydown Event - %d", keycode);
 			break;
-	}
+	 }
+	 */
+	[self postKeyPressedNotification:keycode];
 }
 @end

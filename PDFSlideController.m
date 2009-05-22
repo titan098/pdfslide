@@ -93,6 +93,14 @@ NSString * const ControllerSlideObjectNotification = @"ControllerSlideObjectChan
 }
 
 /*
+ * Callback - handle a key press notification
+ */
+- (void)handleKeyPress:(NSNotification *)note {
+	NSLog(@"Nofity Controller: Display key pressed");
+	[self manageKeyDown:[[[note userInfo] objectForKey:@"KeyCode"] intValue]];
+}
+
+/*
  * Post a notification that the slide object has changed
  */
 - (void)postSlideObjectChangeNotification {
@@ -142,10 +150,10 @@ NSString * const ControllerSlideObjectNotification = @"ControllerSlideObjectChan
 	//register as an observer to listen for notifications
 	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
 	[nc addObserver:self
-		   selector:@selector(handleSlideChange:)
-			   name:DisplaySlideNumberNotification
+		   selector:@selector(handleKeyPress:)
+			   name:DisplayKeyPressNotification
 			 object:nil];
-	NSLog(@"Nofity Controller: PDFDisplay Notification Observer Registered");
+	NSLog(@"Nofity Controller: Key Press PDFDisplay Notification Observer Registered");
 	
 	NSLog(@"Showing the PDFDisplay Window");
 	[pdfDisplay showWindow:self];
@@ -207,10 +215,9 @@ NSString * const ControllerSlideObjectNotification = @"ControllerSlideObjectChan
 }
 
 /*
- *	Handle the keydown events on the main window
+ * Manage the keydown event.
  */
-- (void)keyDown:(NSEvent *)theEvent {
-	unsigned int keycode = [theEvent keyCode];
+- (void)manageKeyDown:(NSUInteger)keycode {
 	switch (keycode) {
 		case 123:
 			//Left arrow
@@ -226,6 +233,14 @@ NSString * const ControllerSlideObjectNotification = @"ControllerSlideObjectChan
 			NSLog(@"Keydown Event - %d", keycode);
 			break;
 	}
+}
+
+/*
+ *	Handle the keydown events on the main window
+ */
+- (void)keyDown:(NSEvent *)theEvent {
+	unsigned int keycode = [theEvent keyCode];
+	[self manageKeyDown:keycode];
 }
 
 @end

@@ -39,9 +39,13 @@ extern NSString * const ControllerSlideObjectNotification;
 - (IBAction)advanceSlides:(id)sender;
 - (IBAction)reverseSlides:(id)sender;
 
+- (void)handleSlideChange:(NSNotification *)note;
+- (void)handleKeyPress:(NSNotification *)note;
+
 - (void)postSlideChangeNotification;
 - (void)postSlideObjectChangeNotification;
 
+- (void)manageKeyDown:(NSUInteger)keycode;
 - (void)keyDown:(NSEvent *)theEvent;
 
 @end

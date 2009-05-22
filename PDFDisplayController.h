@@ -13,6 +13,7 @@
 
 //define notifications
 extern NSString * const DisplaySlideNumberNotification;
+extern NSString * const DisplayKeyPressNotification;
 
 @class PDFSlideController;
 
@@ -31,6 +32,9 @@ extern NSString * const DisplaySlideNumberNotification;
 
 - (void)handleSlideChange:(NSNotification *)note;
 - (void)handleSlideObjChange:(NSNotification *)note;
+
+- (void)postSlideChangeNotification; 
+- (void)postKeyPressedNotification:(NSUInteger)keycode;
 
 - (IBAction)advanceSlides:(id)sender;
 - (IBAction)reverseSlides:(id)sender;
