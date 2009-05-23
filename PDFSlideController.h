@@ -19,6 +19,7 @@ extern NSString * const ControllerSlideObjectNotification;
 	//IBOutlet NSWindow *window;
 	IBOutlet NSLevelIndicator *pageLevel;
 	IBOutlet NSTextView	*tvNotes;
+	IBOutlet NSPopUpButton *displayMenu;
 	
 	IBOutlet PDFSlideView *currentSlide;
 	IBOutlet PDFSlideView *nextSlide;
@@ -35,6 +36,8 @@ extern NSString * const ControllerSlideObjectNotification;
 - (void)initiliseWindow;
 
 - (IBAction)playSlides:(id)sender;
+- (IBAction)stopSlides:(id)sender;
+
 - (void)displaySlide:(NSUInteger)slideNum;
 - (IBAction)advanceSlides:(id)sender;
 - (IBAction)reverseSlides:(id)sender;

@@ -20,6 +20,20 @@ NSString * const ControllerSlideObjectNotification = @"ControllerSlideObjectChan
 	[super dealloc];
 }
 
+/**
+ * Will execute once the nib file has loaded
+ */
+- (void) awakeFromNib {
+	//get the screen information in the display toolbar item
+	NSArray *screens = [NSScreen screens];
+	
+	NSUInteger i, count = [screens count];
+	for (i = 0; i < count; i++) {
+		//NSScreen *obj = [screens objectAtIndex:i];
+		[displayMenu addItemWithTitle:[NSString stringWithFormat:@"Screen %u",i]];
+	}
+}
+
 /*
  * Control how the open dialog sheet will perform
  */
@@ -59,7 +73,7 @@ NSString * const ControllerSlideObjectNotification = @"ControllerSlideObjectChan
 }
 
 /*
- * Setup all the window components
+ * Setup all the window components once a slide has been opened
  */
 - (void) initiliseWindow {
 	//setup the level indicator
@@ -141,10 +155,13 @@ NSString * const ControllerSlideObjectNotification = @"ControllerSlideObjectChan
  * Play the slide show in the primary or secondary screen
  */
 - (IBAction)playSlides:(id)sender {
+	//do nothing if the pdfdisplay is already loaded
 	//show the display window
 	if (!pdfDisplay) {
 		pdfDisplay = [[PDFDisplayController alloc] initWithSlidesScreen:slides
 																 screen:1];
+	} else {
+		return; 
 	}
 	
 	//register as an observer to listen for notifications
@@ -160,6 +177,23 @@ NSString * const ControllerSlideObjectNotification = @"ControllerSlideObjectChan
 	
 	//display the current slide
 	[self postSlideChangeNotification];
+}
+
+/**
+ * Stop the slide show and kill the slideshow windoe
+ */
+- (IBAction)stopSlides:(id)sender {
+	//close the display, it is exists, and set to nil
+	if (pdfDisplay) {
+		[pdfDisplay close];
+		pdfDisplay = nil;	//gc will clean up!
+		
+		//unregister the notification observer
+		NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+		[nc removeObserver:self
+					  name:PDFViewKeyPressNotification
+					object:nil];
+	}
 }
 
 /*
@@ -229,6 +263,11 @@ NSString * const ControllerSlideObjectNotification = @"ControllerSlideObjectChan
 			NSLog(@"Keydown Event - Right Arrow");
 			[self advanceSlides:self];
 			break;
+		case 12:
+			//q button - stop the slide show
+			[self stopSlides:self];
+			break;
+
 		default:
 			NSLog(@"Keydown Event - %d", keycode);
 			break;
