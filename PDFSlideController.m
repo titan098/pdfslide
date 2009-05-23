@@ -151,7 +151,7 @@ NSString * const ControllerSlideObjectNotification = @"ControllerSlideObjectChan
 	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
 	[nc addObserver:self
 		   selector:@selector(handleKeyPress:)
-			   name:DisplayKeyPressNotification
+			   name:PDFViewKeyPressNotification
 			 object:nil];
 	NSLog(@"Nofity Controller: Key Press PDFDisplay Notification Observer Registered");
 	

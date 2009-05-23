@@ -10,6 +10,7 @@
 
 #import "PDFSlideView.h"
 
+NSString * const PDFViewKeyPressNotification = @"PDFViewKeyPressed";
 
 @implementation PDFSlideView
 
@@ -90,4 +91,29 @@
 		slideNumber--;
 	}
 }
+
+/*
+ * Post a notification informating objservers that a key was pressed.
+ */
+- (void)postKeyPressedNotification:(NSUInteger)keycode {
+	//Send a notification to the main window that the slide has changed
+	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+	NSLog(@"Notify Display: Key Pressed");
+	
+	NSDictionary *d = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:keycode] 
+												  forKey:@"KeyCode"];
+	
+	[nc postNotificationName:PDFViewKeyPressNotification
+					  object:self
+					userInfo:d];
+}
+
+/*
+ * Handle any keypresses that are sent to the view
+ */
+- (void)keyDown:(NSEvent *)theEvent {
+	NSUInteger keycode = [theEvent keyCode];
+	[self postKeyPressedNotification:keycode];
+}
+
 @end

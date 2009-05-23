@@ -10,7 +10,6 @@
 
 //The notifications
 NSString * const DisplaySlideNumberNotification = @"DisplaySlideNumberChanged";
-NSString * const DisplayKeyPressNotification = @"DisplayKeyPressed";
 
 @implementation PDFDisplayController
 
@@ -70,6 +69,9 @@ NSString * const DisplayKeyPressNotification = @"DisplayKeyPressed";
 					   withOptions:d];
 }
 
+/**
+ * Handle if a SlideChange notification arrives
+ */
 - (void)handleSlideChange:(NSNotification *)note {
 	NSLog(@"Nofity Display: Slide Change Notification Recieved");
 	NSNumber *slideNum = [[note userInfo] objectForKey:@"SlideNumber"];
@@ -78,6 +80,9 @@ NSString * const DisplayKeyPressNotification = @"DisplayKeyPressed";
 	[pdfSlides setNeedsDisplay:YES];
 }
 
+/**
+ * Handle Slide Object Change notification
+ */
 - (void)handleSlideObjChange:(NSNotification *)note {
 	NSLog(@"Notify Display: Slide Object Change Notification Recieved");
 	Slide *newSlides = [[note userInfo] objectForKey:@"SlideObject"];
@@ -113,20 +118,27 @@ NSString * const DisplayKeyPressNotification = @"DisplayKeyPressed";
 	NSDictionary *d = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:keycode] 
 												  forKey:@"KeyCode"];
 	
-	[nc postNotificationName:DisplayKeyPressNotification
+	[nc postNotificationName:PDFViewKeyPressNotification
 					  object:self
 					userInfo:d];
 }
 
+/**
+ * Perform any window components initialisation
+ */
 - (void) windowDidLoad {
 	//NSLog(@"Nib file is loaded");
 	[pdfSlides setSlide:slides];
 	
 	[self enterFullScreen];
-	//[pdfSlides enterFullScreenMode:[NSScreen mainScreen] withOptions:nil];
+	
+	//make the view respond to events passed in this window
+	[[self window] makeFirstResponder:pdfSlides];
 }
 
-//Advance the slides
+/**
+ * Advance the slides and post a notification
+ */
 - (IBAction)advanceSlides:(id)sender {
 	[pdfSlides incrSlide:self];
 	[pdfSlides setNeedsDisplay:YES];
@@ -134,7 +146,9 @@ NSString * const DisplayKeyPressNotification = @"DisplayKeyPressed";
 	[self postSlideChangeNotification];
 }
 
-//Reverse the slides
+/**
+ * Reverse the slides and post a notification
+ */
 - (IBAction)reverseSlides:(id)sender {
 	[pdfSlides decrSlide:self];
 	[pdfSlides setNeedsDisplay:YES];
@@ -142,40 +156,28 @@ NSString * const DisplayKeyPressNotification = @"DisplayKeyPressed";
 	[self postSlideChangeNotification];
 }
 
-//set the slides number to display
+/**
+ * set the slides number to display
+ */
 - (void)setSlideNumber:(NSUInteger)num {
 	[pdfSlides setSlideNumber:num];
 	//return Nil;
 }
 
-//tell the slide window to redraw
+/**
+ * tell the slide window to redraw
+ */
 - (void)redrawSlide {
 	[pdfSlides setNeedsDisplay:YES];
 	//return Nil;
 }
 
 /*
- *	Handle the keydown events on the main window
+ * Handle any keypresses that are sent to the view
  */
 - (void)keyDown:(NSEvent *)theEvent {
-	unsigned int keycode = [theEvent keyCode];
-	/*
-	switch (keycode) {
-		case 123:
-			//Left arrow
-			NSLog(@"Keydown Event - Left Arrow");
-			[self reverseSlides:self];
-			break;
-		case 124:
-			//Right arrow
-			NSLog(@"Keydown Event - Right Arrow");
-			[self advanceSlides:self];
-			break;
-		default:
-			NSLog(@"Keydown Event - %d", keycode);
-			break;
-	 }
-	 */
+	NSUInteger keycode = [theEvent keyCode];
 	[self postKeyPressedNotification:keycode];
 }
+
 @end

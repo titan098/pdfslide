@@ -11,6 +11,7 @@
 #import <Cocoa/Cocoa.h>
 #import "Slide.h"
 
+extern NSString * const PDFViewKeyPressNotification;
 
 @interface PDFSlideView : NSView {
 	Slide *slide;
@@ -23,5 +24,7 @@
 
 - (IBAction)incrSlide:(id)sender;
 - (IBAction)decrSlide:(id)sender;
+
+- (void)postKeyPressedNotification:(NSUInteger)keycode;
 
 @end
