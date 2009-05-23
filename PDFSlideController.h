@@ -14,6 +14,7 @@
 //define notifications
 extern NSString * const ControllerSlideNumberNotification;
 extern NSString * const ControllerSlideObjectNotification;
+extern NSString * const ControllerSlideStopNotification;
 
 @interface PDFSlideController : NSWindowController {
 	//IBOutlet NSWindow *window;
@@ -47,6 +48,7 @@ extern NSString * const ControllerSlideObjectNotification;
 
 - (void)postSlideChangeNotification;
 - (void)postSlideObjectChangeNotification;
+- (void)postSlideStopNotification;
 
 - (void)manageKeyDown:(NSUInteger)keycode;
 - (void)keyDown:(NSEvent *)theEvent;

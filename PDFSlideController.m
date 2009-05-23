@@ -11,6 +11,7 @@
 //define the notifications
 NSString * const ControllerSlideNumberNotification = @"ControllerSlideNumberChanged";
 NSString * const ControllerSlideObjectNotification = @"ControllerSlideObjectChange";
+NSString * const ControllerSlideStopNotification = @"ControllerSlideStop";
 
 @implementation PDFSlideController
 
@@ -152,14 +153,31 @@ NSString * const ControllerSlideObjectNotification = @"ControllerSlideObjectChan
 }
 
 /*
+ * Post a notification informating objservers that the slide has changed.
+ */
+- (void)postSlideStopNotification {
+	//Send a notification to the main window that the slide has changed
+	if (pdfDisplay) {
+		NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+		NSLog(@"Notify Controller: Slide Stopped");
+		
+		[nc postNotificationName:ControllerSlideStopNotification
+						  object:self
+						userInfo:nil];	
+	}
+}
+
+/*
  * Play the slide show in the primary or secondary screen
  */
 - (IBAction)playSlides:(id)sender {
 	//do nothing if the pdfdisplay is already loaded
 	//show the display window
 	if (!pdfDisplay) {
+		//get the selected display window
+		
 		pdfDisplay = [[PDFDisplayController alloc] initWithSlidesScreen:slides
-																 screen:1];
+																 screen:[displayMenu indexOfSelectedItem]];
 	} else {
 		return; 
 	}
@@ -185,6 +203,7 @@ NSString * const ControllerSlideObjectNotification = @"ControllerSlideObjectChan
 - (IBAction)stopSlides:(id)sender {
 	//close the display, it is exists, and set to nil
 	if (pdfDisplay) {
+		[self postSlideStopNotification];
 		[pdfDisplay close];
 		pdfDisplay = nil;	//gc will clean up!
 		

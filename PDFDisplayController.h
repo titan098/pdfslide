@@ -31,6 +31,7 @@ extern NSString * const DisplaySlideNumberNotification;
 
 - (void)handleSlideChange:(NSNotification *)note;
 - (void)handleSlideObjChange:(NSNotification *)note;
+- (void)handleSlideStop:(NSNotification *)note;
 
 - (void)postSlideChangeNotification; 
 - (void)postKeyPressedNotification:(NSUInteger)keycode;

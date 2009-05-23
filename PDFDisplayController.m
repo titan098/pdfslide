@@ -30,6 +30,11 @@ NSString * const DisplaySlideNumberNotification = @"DisplaySlideNumberChanged";
 			   name:ControllerSlideObjectNotification
 			 object:nil];
 	
+	//register observer to listen for slide stop events
+	[nc addObserver:self
+		   selector:@selector(handleSlideStop:)
+			   name:ControllerSlideStopNotification
+			 object:nil];
 	NSLog(@"Notify Display: Slide Notification Observer Registered");
 	
 	return self;
@@ -90,7 +95,18 @@ NSString * const DisplaySlideNumberNotification = @"DisplaySlideNumberChanged";
 	slides = newSlides;
 	[pdfSlides setSlide:slides];
 }
-	 
+	
+/**
+ * Handle Slide Object Change notification
+ */
+- (void)handleSlideStop:(NSNotification *)note {
+	NSLog(@"Notify Display: Slide Stop Notification Recieved");
+	//Slide *newSlides = [[note userInfo] objectForKey:@"SlideStop"];
+	
+	//tell the view to exit fullscreen mode - then window can close
+	[pdfSlides exitFullScreenModeWithOptions:nil];
+}
+
 /*
  * Post a notification informating objservers that the slide has changed.
  */
