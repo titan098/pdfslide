@@ -212,6 +212,10 @@ NSString * const ControllerSlideStopNotification = @"ControllerSlideStop";
 		[nc removeObserver:self
 					  name:PDFViewKeyPressNotification
 					object:nil];
+		
+		//hint for the garbage collector to run
+		NSGarbageCollector *gc = [NSGarbageCollector defaultCollector];
+		[gc collectIfNeeded];
 	}
 }
 
