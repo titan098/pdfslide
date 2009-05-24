@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "Slide.h"
 #import "PDFSlideView.h"
+#import "TimerView.h"
 #import "PDFDisplayController.h"
 
 //define notifications
@@ -22,6 +23,7 @@ extern NSString * const ControllerSlideStopNotification;
 	IBOutlet NSTextView	*tvNotes;
 	IBOutlet NSPopUpButton *displayMenu;
 	
+	IBOutlet TimerView *currentTime;
 	IBOutlet PDFSlideView *currentSlide;
 	IBOutlet PDFSlideView *nextSlide;
 	

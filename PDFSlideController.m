@@ -91,6 +91,9 @@ NSString * const ControllerSlideStopNotification = @"ControllerSlideStop";
 	[currentSlide setNeedsDisplay:YES];
 	[nextSlide setNeedsDisplay:YES];
 	
+	//start the timer
+	[currentTime startTimer:1];
+	
 	//if the display window is open then notify it of the new slides
 	[self postSlideObjectChangeNotification];
 	[self postSlideChangeNotification];
