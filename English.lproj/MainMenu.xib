@@ -8,8 +8,8 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="83"/>
 			<integer value="603"/>
+			<integer value="83"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1535,7 +1535,7 @@
 															<bool key="EncodedWithXMLCoder">YES</bool>
 															<object class="NSCustomView" id="334638393">
 																<reference key="NSNextResponder" ref="946828521"/>
-																<int key="NSvFlags">268</int>
+																<int key="NSvFlags">274</int>
 																<string key="NSFrame">{{18, 14}, {366, 85}}</string>
 																<reference key="NSSuperview" ref="946828521"/>
 																<string key="NSClassName">TimerView</string>
