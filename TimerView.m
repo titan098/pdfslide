@@ -21,9 +21,32 @@
 
 - (void)drawRect:(NSRect)rect {
 	//create timer is does not exit
-	if (timer) {
-		NSDate* now = [NSDate date];
+	if (timer) {		
+		NSRect bounds = [self bounds];
+		[[NSColor blackColor] set];
+		displayTime = [[NSDate date] descriptionWithCalendarFormat:@"%H:%M:%S"
+																	timeZone:nil
+																	  locale:nil];
+		//Apply the font attributes
+		font = [NSFont fontWithName:@"Helvetica"
+							   size:36.0];		
+
+		fontAttr = [NSDictionary dictionaryWithObjectsAndKeys:font, NSFontAttributeName];
+		NSSize fontSize = [displayTime sizeWithAttributes:fontAttr];
 		
+		//apply a transformation to get the text in the center of the rectangle
+		NSAffineTransform *xform = [NSAffineTransform transform];
+		CGFloat deltaX = (bounds.size.width - fontSize.width)/2.0;
+		CGFloat deltaY = (bounds.size.height - fontSize.height)/2.0;
+		[xform translateXBy:deltaX
+						yBy:deltaY];
+		[xform concat];
+		
+		//draw only in the space occupied by the font
+		bounds.size = fontSize;
+		
+		[displayTime drawInRect:bounds withAttributes:fontAttr];
+		//NSRectFill(bounds);
 	}
 }
 

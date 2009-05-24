@@ -33,6 +33,9 @@ NSString * const ControllerSlideStopNotification = @"ControllerSlideStop";
 		//NSScreen *obj = [screens objectAtIndex:i];
 		[displayMenu addItemWithTitle:[NSString stringWithFormat:@"Screen %u",i]];
 	}
+	
+	//start the current time timer
+	[currentTime startTimer:1];
 }
 
 /*
@@ -90,9 +93,6 @@ NSString * const ControllerSlideStopNotification = @"ControllerSlideStop";
 	//redraw the slides
 	[currentSlide setNeedsDisplay:YES];
 	[nextSlide setNeedsDisplay:YES];
-	
-	//start the timer
-	[currentTime startTimer:1];
 	
 	//if the display window is open then notify it of the new slides
 	[self postSlideObjectChangeNotification];

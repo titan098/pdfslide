@@ -10,7 +10,11 @@
 
 
 @interface TimerView : NSView {
+	NSFont* font;
 	NSTimer* timer;
+	
+	NSString* displayTime;
+	NSDictionary* fontAttr;
 }
 
 - (void)startTimer:(NSUInteger)interval;

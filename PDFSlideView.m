@@ -47,8 +47,8 @@ NSString * const PDFViewKeyPressNotification = @"PDFViewKeyPressed";
 		CGFloat scale = (xscale < yscale ? xscale : yscale);
 		
 		//draw the pdf page in the middle of the view
-		CGFloat deltaX = (bounds.size.width - (pagebounds.size.width*scale))/2;
-		CGFloat deltaY = (bounds.size.height - (pagebounds.size.height*scale))/2;
+		CGFloat deltaX = (bounds.size.width - (pagebounds.size.width*scale))/2.0;
+		CGFloat deltaY = (bounds.size.height - (pagebounds.size.height*scale))/2.0;
 		[xform translateXBy:deltaX
 						yBy:deltaY];
 		
