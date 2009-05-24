@@ -13,12 +13,19 @@
 	NSFont* font;
 	NSTimer* timer;
 	
+	NSUInteger elapsed;
 	NSString* displayTime;
 	NSDictionary* fontAttr;
+	NSDate* viewTime;
 }
+
+- (void)setAsCounter:(BOOL)yesno;
 
 - (void)startTimer:(NSUInteger)interval;
 - (void)stopTimer;
+
+- (BOOL)isCounting;
+
 - (void)handleTimerFire:(NSTimer*)thetimer;
 
 @end

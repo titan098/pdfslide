@@ -15,21 +15,33 @@
     self = [super initWithFrame:frame];
     if (self) {
 		timer = nil;
+		viewTime = nil;
 	}
     return self;
 }
 
 - (void)drawRect:(NSRect)rect {
 	//create timer is does not exit
-	if (timer) {		
+	//display if working with a timer or a counter
+	if (timer || viewTime != nil) {		
 		NSRect bounds = [self bounds];
 		[[NSColor blackColor] set];
-		displayTime = [[NSDate date] descriptionWithCalendarFormat:@"%H:%M:%S"
-																	timeZone:nil
-																	  locale:nil];
+		
+		if (viewTime == nil)
+			//display the current time
+			displayTime = [[NSDate date] descriptionWithCalendarFormat:@"%H:%M:%S"
+															  timeZone:nil
+																locale:nil];
+		else {
+			//display a counter
+			displayTime = [[viewTime addTimeInterval:elapsed] descriptionWithCalendarFormat:@"%H:%M:%S"
+														 timeZone:[NSTimeZone timeZoneWithName:@"GMT"]
+														   locale:nil];
+		}
+			
 		//Apply the font attributes
 		font = [NSFont fontWithName:@"Helvetica"
-							   size:36.0];		
+							   size:40.0];		
 
 		fontAttr = [NSDictionary dictionaryWithObjectsAndKeys:font, NSFontAttributeName];
 		NSSize fontSize = [displayTime sizeWithAttributes:fontAttr];
@@ -51,14 +63,29 @@
 }
 
 /**
+ * Specifies whether this is a counter or not
+ */
+- (void)setAsCounter:(BOOL)yesno {
+	if (yesno == YES) {
+		viewTime = [NSDate dateWithString:@"1970-01-01 00:00:00 +0000"];
+	} else {
+		viewTime = nil;
+	}
+	elapsed = 0;
+}
+
+/**
  * Start the timer
  */
 - (void)startTimer:(NSUInteger)interval {
-	timer = [NSTimer scheduledTimerWithTimeInterval:1
-											 target:self
-										   selector:@selector(handleTimerFire:)
-										   userInfo:nil
-											repeats:YES];
+	if (!timer) {
+		timer = [NSTimer scheduledTimerWithTimeInterval:1
+												 target:self
+											   selector:@selector(handleTimerFire:)
+											   userInfo:nil
+												repeats:YES];
+		elapsed = 0;
+	}
 }
 
 /**
@@ -68,9 +95,21 @@
 	if (timer)
 		[timer invalidate];
 	timer = nil;
+	elapsed = 0;
+}
+
+/**
+ * Returns YES if the timer is active
+ */
+- (BOOL)isCounting {
+	if (timer)
+		return YES;
+	return NO;
 }
 
 - (void)handleTimerFire:(NSTimer*)thetimer {
+	if (viewTime != nil)
+		elapsed++;
 	[self setNeedsDisplay:YES];
 }
 

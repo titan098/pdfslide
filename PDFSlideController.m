@@ -94,6 +94,11 @@ NSString * const ControllerSlideStopNotification = @"ControllerSlideStop";
 	[currentSlide setNeedsDisplay:YES];
 	[nextSlide setNeedsDisplay:YES];
 	
+	//restart the counter
+	//set the counter to zero and display
+	[counterView setAsCounter:YES];
+	[counterView setNeedsDisplay:YES];
+	
 	//if the display window is open then notify it of the new slides
 	[self postSlideObjectChangeNotification];
 	[self postSlideChangeNotification];
@@ -178,7 +183,6 @@ NSString * const ControllerSlideStopNotification = @"ControllerSlideStop";
 	//show the display window
 	if (!pdfDisplay) {
 		//get the selected display window
-		
 		pdfDisplay = [[PDFDisplayController alloc] initWithSlidesScreen:slides
 																 screen:[displayMenu indexOfSelectedItem]];
 	} else {
@@ -209,6 +213,9 @@ NSString * const ControllerSlideStopNotification = @"ControllerSlideStop";
 		[self postSlideStopNotification];
 		[pdfDisplay close];
 		pdfDisplay = nil;	//gc will clean up!
+		
+		//stop the counter
+		[counterView stopTimer];
 		
 		//unregister the notification observer
 		NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
@@ -253,6 +260,10 @@ NSString * const ControllerSlideStopNotification = @"ControllerSlideStop";
 	[currentSlide setNeedsDisplay:YES];
 	[nextSlide setNeedsDisplay:YES];
 	
+	//start the counter if needed
+	if (![counterView isCounting] && pdfDisplay)
+		[counterView startTimer:1];
+	
 	[self postSlideChangeNotification];
 }
 
@@ -271,6 +282,10 @@ NSString * const ControllerSlideStopNotification = @"ControllerSlideStop";
 	[currentSlide setNeedsDisplay:YES];
 	[nextSlide setNeedsDisplay:YES];
 
+	//start the counter if needed only if the display is active
+	if (![counterView isCounting] && pdfDisplay)
+		[counterView startTimer:1];
+	
 	[self postSlideChangeNotification];
 }
 

@@ -24,6 +24,7 @@ extern NSString * const ControllerSlideStopNotification;
 	IBOutlet NSPopUpButton *displayMenu;
 	
 	IBOutlet TimerView *currentTime;
+	IBOutlet TimerView *counterView;
 	IBOutlet PDFSlideView *currentSlide;
 	IBOutlet PDFSlideView *nextSlide;
 	

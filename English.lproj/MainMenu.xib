@@ -9,7 +9,7 @@
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="83"/>
-			<integer value="599"/>
+			<integer value="603"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1531,6 +1531,16 @@
 													<object class="NSView" id="946828521">
 														<reference key="NSNextResponder" ref="494897940"/>
 														<int key="NSvFlags">256</int>
+														<object class="NSMutableArray" key="NSSubviews">
+															<bool key="EncodedWithXMLCoder">YES</bool>
+															<object class="NSCustomView" id="334638393">
+																<reference key="NSNextResponder" ref="946828521"/>
+																<int key="NSvFlags">268</int>
+																<string key="NSFrame">{{18, 14}, {366, 85}}</string>
+																<reference key="NSSuperview" ref="946828521"/>
+																<string key="NSClassName">TimerView</string>
+															</object>
+														</object>
 														<string key="NSFrame">{{1, 1}, {402, 109}}</string>
 														<reference key="NSSuperview" ref="494897940"/>
 													</object>
@@ -2198,6 +2208,14 @@
 						<reference key="destination" ref="193332437"/>
 					</object>
 					<int key="connectionID">602</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">counterView</string>
+						<reference key="source" ref="35896722"/>
+						<reference key="destination" ref="334638393"/>
+					</object>
+					<int key="connectionID">604</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -3264,12 +3282,21 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">600</int>
 						<reference key="object" ref="494897940"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="334638393"/>
+						</object>
 						<reference key="parent" ref="332721403"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">601</int>
 						<reference key="object" ref="193332437"/>
 						<reference key="parent" ref="143137638"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">603</int>
+						<reference key="object" ref="334638393"/>
+						<reference key="parent" ref="494897940"/>
 					</object>
 				</object>
 			</object>
@@ -3499,6 +3526,7 @@
 					<string>599.IBPluginDependency</string>
 					<string>600.IBPluginDependency</string>
 					<string>601.IBPluginDependency</string>
+					<string>603.IBPluginDependency</string>
 					<string>72.IBPluginDependency</string>
 					<string>72.ImportedFromIB2</string>
 					<string>73.IBPluginDependency</string>
@@ -3751,6 +3779,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
@@ -3798,7 +3827,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">602</int>
+			<int key="maxID">604</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3829,6 +3858,7 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSMutableArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>counterView</string>
 							<string>currentSlide</string>
 							<string>currentTime</string>
 							<string>displayMenu</string>
@@ -3838,6 +3868,7 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>TimerView</string>
 							<string>PDFSlideView</string>
 							<string>TimerView</string>
 							<string>NSPopUpButton</string>
