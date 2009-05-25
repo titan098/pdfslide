@@ -29,9 +29,17 @@ NSString * const ControllerSlideStopNotification = @"ControllerSlideStop";
 	NSArray *screens = [NSScreen screens];
 	
 	NSUInteger i, count = [screens count];
+	NSMenu *popup = [displayMenu menu];
 	for (i = 0; i < count; i++) {
 		//NSScreen *obj = [screens objectAtIndex:i];
-		[displayMenu addItemWithTitle:[NSString stringWithFormat:@"Screen %u",i]];
+		//[displayMenu addItemWithTitle:[NSString stringWithFormat:@"Screen %u",i]];
+		//NSMenuItem *mi = [[NSMenuItem alloc] initWithTitle:[NSString stringWithFormat:@"Screen %u",i]
+		//											action:@selector(handleDisplayScreenChange:)
+		//									 keyEquivalent:@""];
+		//[mi setTag:i];
+		[popup addItemWithTitle:[NSString stringWithFormat:@"Screen %u",i]
+						action:nil 
+				 keyEquivalent:@""];
 	}
 	
 	//start the current time timer
@@ -121,6 +129,14 @@ NSString * const ControllerSlideStopNotification = @"ControllerSlideStop";
 - (void)handleKeyPress:(NSNotification *)note {
 	NSLog(@"Nofity Controller: Display key pressed");
 	[self manageKeyDown:[[[note userInfo] objectForKey:@"KeyCode"] intValue]];
+}
+
+/**
+ * Callback - handle when the display screen pop-up is changed
+ */
+- (void)handleDisplayScreenChange:(id)sender {
+	//NSString *test = [sender title];
+	NSUInteger test = [displayMenu indexOfSelectedItem];
 }
 
 /*

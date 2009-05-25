@@ -48,6 +48,7 @@ extern NSString * const ControllerSlideStopNotification;
 
 - (void)handleSlideChange:(NSNotification *)note;
 - (void)handleKeyPress:(NSNotification *)note;
+- (void)handleDisplayScreenChange:(id)sender;
 
 - (void)postSlideChangeNotification;
 - (void)postSlideObjectChangeNotification;
