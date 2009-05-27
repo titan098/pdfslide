@@ -42,6 +42,10 @@ NSString * const ControllerSlideStopNotification = @"ControllerSlideStop";
 				 keyEquivalent:@""];
 	}
 	
+	//listen for apple remote events
+	remoteControl = [[AppleRemote alloc] initWithDelegate: self];
+	[remoteControl startListening: self];
+	
 	//start the current time timer
 	[currentTime startTimer:1];
 }
@@ -63,6 +67,13 @@ NSString * const ControllerSlideStopNotification = @"ControllerSlideStop";
 	}
 }
 
+// implementation file
+- (void) sendRemoteButtonEvent: (RemoteControlEventIdentifier) event 
+                   pressedDown: (BOOL) pressedDown 
+                 remoteControl: (RemoteControl*) remoteControl 
+{
+    NSLog(@"Button %d pressed down %d", event, pressedDown);
+}
 
 /*
  * Show the open dialog button to allow the user to select a PDF file to open
@@ -131,13 +142,6 @@ NSString * const ControllerSlideStopNotification = @"ControllerSlideStop";
 	[self manageKeyDown:[[[note userInfo] objectForKey:@"KeyCode"] intValue]];
 }
 
-/**
- * Callback - handle when the display screen pop-up is changed
- */
-- (void)handleDisplayScreenChange:(id)sender {
-	//NSString *test = [sender title];
-	NSUInteger test = [displayMenu indexOfSelectedItem];
-}
 
 /*
  * Post a notification that the slide object has changed

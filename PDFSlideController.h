@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "AppleRemote/AppleRemote.h"
 #import "Slide.h"
 #import "PDFSlideView.h"
 #import "TimerView.h"
@@ -30,6 +31,7 @@ extern NSString * const ControllerSlideStopNotification;
 	
 	Slide *slides;
 	PDFSlideController *pdfDisplay;
+	AppleRemote* remoteControl;
 }
 
 - (void)dealloc;
@@ -48,7 +50,6 @@ extern NSString * const ControllerSlideStopNotification;
 
 - (void)handleSlideChange:(NSNotification *)note;
 - (void)handleKeyPress:(NSNotification *)note;
-- (void)handleDisplayScreenChange:(id)sender;
 
 - (void)postSlideChangeNotification;
 - (void)postSlideObjectChangeNotification;
