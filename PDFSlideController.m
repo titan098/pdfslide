@@ -67,12 +67,30 @@ NSString * const ControllerSlideStopNotification = @"ControllerSlideStop";
 	}
 }
 
-// implementation file
+/**
+ * Handles any actions from the Apple Remote
+ */
 - (void) sendRemoteButtonEvent: (RemoteControlEventIdentifier) event 
                    pressedDown: (BOOL) pressedDown 
                  remoteControl: (RemoteControl*) remoteControl 
 {
     NSLog(@"Button %d pressed down %d", event, pressedDown);
+	
+	if (!pressedDown) {
+		//the button has been released
+		switch (event) {
+			case kRemoteButtonLeft:
+				[self reverseSlides:self];
+				break;
+			case kRemoteButtonRight:
+				[self advanceSlides:self];
+				break;
+			default:
+				break;
+		}
+	} else {
+		//the button is being held down
+	}
 }
 
 /*

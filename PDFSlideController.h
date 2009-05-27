@@ -31,6 +31,7 @@ extern NSString * const ControllerSlideStopNotification;
 	
 	Slide *slides;
 	PDFSlideController *pdfDisplay;
+
 	AppleRemote* remoteControl;
 }
 

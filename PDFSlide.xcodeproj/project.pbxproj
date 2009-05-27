@@ -22,6 +22,8 @@
 		63C2A7EA0FCDBDB7009DE783 /* GlobalKeyboardDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C2A7E40FCDBDB7009DE783 /* GlobalKeyboardDevice.m */; };
 		63C2A7EB0FCDBDB7009DE783 /* KeyspanFrontRowControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C2A7E60FCDBDB7009DE783 /* KeyspanFrontRowControl.m */; };
 		63C2A7EC0FCDBDB7009DE783 /* RemoteControlContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C2A7E80FCDBDB7009DE783 /* RemoteControlContainer.m */; };
+		63C2A81D0FCDC1AA009DE783 /* license.txt in Resources */ = {isa = PBXBuildFile; fileRef = 63C2A81B0FCDC1AA009DE783 /* license.txt */; };
+		63C2A81E0FCDC1AA009DE783 /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 63C2A81C0FCDC1AA009DE783 /* readme.txt */; };
 		63F6E9930FC09FB0006BC158 /* PDFDisplay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F6E9920FC09FB0006BC158 /* PDFDisplay.xib */; };
 		63F6E9990FC0A06A006BC158 /* PDFDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F6E9980FC0A06A006BC158 /* PDFDisplayController.m */; };
 		63FCE6540FC02634001E634B /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63FCE6530FC02634001E634B /* Quartz.framework */; };
@@ -64,6 +66,8 @@
 		63C2A7E60FCDBDB7009DE783 /* KeyspanFrontRowControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeyspanFrontRowControl.m; path = AppleRemote/KeyspanFrontRowControl.m; sourceTree = "<group>"; };
 		63C2A7E70FCDBDB7009DE783 /* RemoteControlContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RemoteControlContainer.h; path = AppleRemote/RemoteControlContainer.h; sourceTree = "<group>"; };
 		63C2A7E80FCDBDB7009DE783 /* RemoteControlContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RemoteControlContainer.m; path = AppleRemote/RemoteControlContainer.m; sourceTree = "<group>"; };
+		63C2A81B0FCDC1AA009DE783 /* license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = license.txt; path = AppleRemote/license.txt; sourceTree = "<group>"; };
+		63C2A81C0FCDC1AA009DE783 /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = readme.txt; path = AppleRemote/readme.txt; sourceTree = "<group>"; };
 		63F6E9920FC09FB0006BC158 /* PDFDisplay.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PDFDisplay.xib; sourceTree = "<group>"; };
 		63F6E9970FC0A06A006BC158 /* PDFDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFDisplayController.h; sourceTree = "<group>"; };
 		63F6E9980FC0A06A006BC158 /* PDFDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFDisplayController.m; sourceTree = "<group>"; };
@@ -177,6 +181,7 @@
 		63C2A7570FCDB9D6009DE783 /* AppleRemote */ = {
 			isa = PBXGroup;
 			children = (
+				63C2A81F0FCDC1B2009DE783 /* Misc */,
 				63C2A77B0FCDBA86009DE783 /* Frameworks */,
 				63C2A75B0FCDB9FD009DE783 /* Devices */,
 				63C2A75A0FCDB9F7009DE783 /* Base Classes */,
@@ -230,6 +235,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		63C2A81F0FCDC1B2009DE783 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				63C2A81B0FCDC1AA009DE783 /* license.txt */,
+				63C2A81C0FCDC1AA009DE783 /* readme.txt */,
+			);
+			name = Misc;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -276,6 +290,8 @@
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				63F6E9930FC09FB0006BC158 /* PDFDisplay.xib in Resources */,
+				63C2A81D0FCDC1AA009DE783 /* license.txt in Resources */,
+				63C2A81E0FCDC1AA009DE783 /* readme.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
