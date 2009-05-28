@@ -13,6 +13,9 @@ NSString * const ControllerSlideNumberNotification = @"ControllerSlideNumberChan
 NSString * const ControllerSlideObjectNotification = @"ControllerSlideObjectChange";
 NSString * const ControllerSlideStopNotification = @"ControllerSlideStop";
 
+/* Globals for screen fades */
+CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, blueMax, blueGamma;
+
 @implementation PDFSlideController
 
 - (void)dealloc {
@@ -38,8 +41,8 @@ NSString * const ControllerSlideStopNotification = @"ControllerSlideStop";
 		//									 keyEquivalent:@""];
 		//[mi setTag:i];
 		[popup addItemWithTitle:[NSString stringWithFormat:@"Screen %u",i]
-						action:nil 
-				 keyEquivalent:@""];
+						 action:nil 
+				  keyEquivalent:@""];
 	}
 	
 	//listen for apple remote events
@@ -56,11 +59,11 @@ NSString * const ControllerSlideStopNotification = @"ControllerSlideStop";
 - (void)openPanelDidEnd:(NSOpenPanel *)openPanel
 			 returnCode:(int)returnCode
 			contextInfo:(void *)x {
-
+	
 	//was the OK Button pushed
 	if (returnCode == NSOKButton) {
 		NSString *filename = [openPanel filename];
-
+		
 		slides = [[Slide alloc] initWithURL:[NSURL fileURLWithPath:filename]];
 		
 		[self initiliseWindow];
@@ -105,12 +108,12 @@ NSString * const ControllerSlideStopNotification = @"ControllerSlideStop";
 	
 	//show the panel in a sheet
 	[openPanel beginSheetForDirectory:nil
-							 file:nil 
-							types:fileTypes 
-				   modalForWindow:[self window]
-					modalDelegate:self
-					didEndSelector:@selector(openPanelDidEnd:returnCode:contextInfo:) 
-					  contextInfo:NULL];
+								 file:nil 
+								types:fileTypes 
+					   modalForWindow:[self window]
+						modalDelegate:self
+					   didEndSelector:@selector(openPanelDidEnd:returnCode:contextInfo:) 
+						  contextInfo:NULL];
 }
 
 /*
@@ -178,8 +181,8 @@ NSString * const ControllerSlideStopNotification = @"ControllerSlideStop";
 						userInfo:d];
 	}
 }
-	
-		
+
+
 /*
  * Post a notification informating objservers that the slide has changed.
  */
@@ -190,7 +193,7 @@ NSString * const ControllerSlideStopNotification = @"ControllerSlideStop";
 		NSLog(@"Notify Controller: Slide Changed");
 		
 		NSDictionary *d = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:[currentSlide slideNumber]] 
-																			  forKey:@"SlideNumber"];
+													  forKey:@"SlideNumber"];
 		
 		[nc postNotificationName:ControllerSlideNumberNotification
 						  object:self
@@ -211,6 +214,65 @@ NSString * const ControllerSlideStopNotification = @"ControllerSlideStop";
 						  object:self
 						userInfo:nil];	
 	}
+}
+
+/**
+ * Tell the screen to fade to black
+ */
+- (void)fadeOut {
+	const double kMyFadeTime = 1.0; /* fade time in seconds */
+	const int kMyFadeSteps = 100;
+	const double kMyFadeInterval = (kMyFadeTime / (double) kMyFadeSteps);
+	const useconds_t kMySleepTime = (1000000 * kMyFadeInterval); /* delay in microseconds */
+	
+	int step;
+	double fade;
+	CGDisplayErr err;
+	NSUInteger displayScreen = [displayMenu indexOfSelectedItem];
+	
+	err = CGGetDisplayTransferByFormula (displayScreen,
+										 &redMin, &redMax, &redGamma,
+										 &greenMin, &greenMax, &greenGamma,
+										 &blueMin, &blueMax, &blueGamma);
+	
+	for (step = 0; step < kMyFadeSteps; ++step) {
+		fade = 1.0 - (step * kMyFadeInterval);
+		err = CGSetDisplayTransferByFormula (displayScreen,
+											 redMin, fade*redMax, redGamma,
+											 greenMin, fade*greenMax, greenGamma,
+											 blueMin, fade*blueMax, blueGamma);
+		usleep (kMySleepTime);
+	}
+	
+	err = CGDisplayCapture ([displayMenu indexOfSelectedItem]);
+}
+
+/**
+ * Tell the screen to fade to normal
+ */
+- (void)fadeIn {
+	//These fades are ugly and hacky... but they are from the apple docs
+	// the fade-in effect "flickers" as the coloursync profile is restored
+	// but it works quite nicely
+	const double kMyFadeTime = 1.0; /* fade time in seconds */
+	const int kMyFadeSteps = 100;
+	const double kMyFadeInterval = (kMyFadeTime / (double) kMyFadeSteps);
+	const useconds_t kMySleepTime = (1000000 * kMyFadeInterval); /* delay in microseconds */
+	
+	int step;
+	double fade;
+	CGDisplayErr err;
+	NSUInteger displayScreen = [displayMenu indexOfSelectedItem];
+	
+	for (step = 0; step < kMyFadeSteps; ++step) {
+		fade = (step * kMyFadeInterval);
+		err = CGSetDisplayTransferByFormula (displayScreen,
+											 redMin, fade*redMax, redGamma,
+											 greenMin, fade*greenMax, greenGamma,
+											 blueMin, fade*blueMax, blueGamma);
+		usleep (kMySleepTime);
+	}
+	CGDisplayRestoreColorSyncSettings(); 
 }
 
 /*
@@ -236,11 +298,12 @@ NSString * const ControllerSlideStopNotification = @"ControllerSlideStop";
 	NSLog(@"Nofity Controller: Key Press PDFDisplay Notification Observer Registered");
 	
 	NSLog(@"Showing the PDFDisplay Window");
+	[self fadeOut];	//fade out the correct screen
 	[pdfDisplay showWindow:self];
-	
 	
 	//display the current slide
 	[self postSlideChangeNotification];
+	[self fadeIn];	//fade in the correct screen
 }
 
 /**
@@ -249,11 +312,11 @@ NSString * const ControllerSlideStopNotification = @"ControllerSlideStop";
 - (IBAction)stopSlides:(id)sender {
 	//close the display, it is exists, and set to nil
 	if (pdfDisplay) {
-		//tell the display to exit fullscreen mode
-		
+		[self fadeOut]; //fade out the correct screen
 		[self postSlideStopNotification];
 		[pdfDisplay close];
 		pdfDisplay = nil;	//gc will clean up!
+		[self fadeIn];	//fade in the correct screen
 		
 		//stop the counter
 		[counterView stopTimer];
@@ -322,7 +385,7 @@ NSString * const ControllerSlideStopNotification = @"ControllerSlideStop";
 	//redraw the views
 	[currentSlide setNeedsDisplay:YES];
 	[nextSlide setNeedsDisplay:YES];
-
+	
 	//start the counter if needed only if the display is active
 	if (![counterView isCounting] && pdfDisplay)
 		[counterView startTimer:1];
@@ -349,7 +412,7 @@ NSString * const ControllerSlideStopNotification = @"ControllerSlideStop";
 			//q button - stop the slide show
 			[self stopSlides:self];
 			break;
-
+			
 		default:
 			NSLog(@"Keydown Event - %d", keycode);
 			break;

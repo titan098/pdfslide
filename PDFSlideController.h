@@ -42,6 +42,9 @@ extern NSString * const ControllerSlideStopNotification;
 
 - (void)initiliseWindow;
 
+- (void)fadeOut;
+- (void)fadeIn;
+
 - (IBAction)playSlides:(id)sender;
 - (IBAction)stopSlides:(id)sender;
 

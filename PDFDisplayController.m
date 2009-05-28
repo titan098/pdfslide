@@ -56,22 +56,6 @@ NSString * const DisplaySlideNumberNotification = @"DisplaySlideNumberChanged";
 	[super dealloc];
 }
 
-/**
- * Tell the screen to fade to black
- */
-- (void)fadeOut {
-	CGAcquireDisplayFadeReservation(25, &displayFadeToken);
-	CGDisplayFade(displayFadeToken, 1.5, kCGDisplayBlendNormal, kCGDisplayBlendSolidColor, 0, 0, 0, TRUE);
-}
-
-/**
- * Tell the screen to fade to normal
- */
-- (void)fadeIn {
-	CGDisplayFade(displayFadeToken, 1.5, kCGDisplayBlendSolidColor, kCGDisplayBlendNormal, 0, 0, 0, TRUE);
-	CGReleaseDisplayFadeReservation(displayFadeToken);
-}
-
 /*
  * Display the View in fullscreen mode
  */
