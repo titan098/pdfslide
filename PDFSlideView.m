@@ -1,4 +1,4 @@
- //
+//
 //  PDFSlideView.m
 //  PDFSlide
 //
@@ -26,7 +26,7 @@ NSString * const PDFViewKeyPressNotification = @"PDFViewKeyPressed";
 
 - (void)drawRect:(NSRect)rect {
     //set the view to initially be black
-	[NSGraphicsContext saveGraphicsState];
+	//[NSGraphicsContext saveGraphicsState];
 	
 	NSRect bounds = [self bounds];
 	[[NSColor blackColor] set];	//set the drawing color
@@ -38,7 +38,7 @@ NSString * const PDFViewKeyPressNotification = @"PDFViewKeyPressed";
 		//[xform translateXBy:50.0 yBy:20.0];
 		//[xform scaleXBy:2.0 yBy:2.0];
 		PDFPage *slidePage = [slide pageAtIndex:slideNumber];
-				
+		
 		//calculate the correct transformation and scaling values
 		NSRect pagebounds = [slidePage boundsForBox:kPDFDisplayBoxMediaBox];
 		
@@ -60,10 +60,10 @@ NSString * const PDFViewKeyPressNotification = @"PDFViewKeyPressed";
 		[[NSColor whiteColor] set];
 		[NSBezierPath fillRect:pagebounds];
 		[slidePage drawWithBox:kPDFDisplayBoxMediaBox];
-	}
+	} 
 	
 	//draw the view
-	[NSGraphicsContext restoreGraphicsState];
+	//[NSGraphicsContext restoreGraphicsState];
 }
 
 /**

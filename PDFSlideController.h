@@ -49,6 +49,7 @@ extern NSString * const ControllerSlideStopNotification;
 - (IBAction)stopSlides:(id)sender;
 
 - (void)displaySlide:(NSUInteger)slideNum;
+- (IBAction)detectDisplays:(id)sender;
 - (IBAction)advanceSlides:(id)sender;
 - (IBAction)reverseSlides:(id)sender;
 

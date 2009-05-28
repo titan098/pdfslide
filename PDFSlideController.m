@@ -28,22 +28,7 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
  * Will execute once the nib file has loaded
  */
 - (void) awakeFromNib {
-	//get the screen information in the display toolbar item
-	NSArray *screens = [NSScreen screens];
-	
-	NSUInteger i, count = [screens count];
-	NSMenu *popup = [displayMenu menu];
-	for (i = 0; i < count; i++) {
-		//NSScreen *obj = [screens objectAtIndex:i];
-		//[displayMenu addItemWithTitle:[NSString stringWithFormat:@"Screen %u",i]];
-		//NSMenuItem *mi = [[NSMenuItem alloc] initWithTitle:[NSString stringWithFormat:@"Screen %u",i]
-		//											action:@selector(handleDisplayScreenChange:)
-		//									 keyEquivalent:@""];
-		//[mi setTag:i];
-		[popup addItemWithTitle:[NSString stringWithFormat:@"Screen %u",i]
-						 action:nil 
-				  keyEquivalent:@""];
-	}
+	slides = nil;
 	
 	//listen for apple remote events
 	remoteControl = [[AppleRemote alloc] initWithDelegate: self];
@@ -51,6 +36,9 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 	
 	//start the current time timer
 	[currentTime startTimer:1];
+
+	//populate the Displays pop-up
+	[self detectDisplays:self];
 }
 
 /*
@@ -281,7 +269,7 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 - (IBAction)playSlides:(id)sender {
 	//do nothing if the pdfdisplay is already loaded
 	//show the display window
-	if (!pdfDisplay) {
+	if (!pdfDisplay && slides!=nil) {
 		//get the selected display window
 		pdfDisplay = [[PDFDisplayController alloc] initWithSlidesScreen:slides
 																 screen:[displayMenu indexOfSelectedItem]];
@@ -347,6 +335,23 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 	//redraw the views
 	[currentSlide setNeedsDisplay:YES];
 	[nextSlide setNeedsDisplay:YES];
+}
+
+/**
+ * Detect the screens if they have changed
+ */
+- (IBAction)detectDisplays:(id)sender {
+	//get the screen information in the display toolbar item
+	NSArray *screens = [NSScreen screens];
+	
+	[displayMenu removeAllItems];
+	NSUInteger i, count = [screens count];
+	NSMenu *popup = [displayMenu menu];
+	for (i = 0; i < count; i++) {
+		[popup addItemWithTitle:[NSString stringWithFormat:@"Screen %u",i]
+						 action:nil 
+				  keyEquivalent:@""];
+	}
 }
 
 /*
