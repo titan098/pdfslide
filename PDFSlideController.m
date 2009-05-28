@@ -238,6 +238,7 @@ NSString * const ControllerSlideStopNotification = @"ControllerSlideStop";
 	NSLog(@"Showing the PDFDisplay Window");
 	[pdfDisplay showWindow:self];
 	
+	
 	//display the current slide
 	[self postSlideChangeNotification];
 }
@@ -248,6 +249,8 @@ NSString * const ControllerSlideStopNotification = @"ControllerSlideStop";
 - (IBAction)stopSlides:(id)sender {
 	//close the display, it is exists, and set to nil
 	if (pdfDisplay) {
+		//tell the display to exit fullscreen mode
+		
 		[self postSlideStopNotification];
 		[pdfDisplay close];
 		pdfDisplay = nil;	//gc will clean up!

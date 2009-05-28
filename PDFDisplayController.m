@@ -35,6 +35,7 @@ NSString * const DisplaySlideNumberNotification = @"DisplaySlideNumberChanged";
 		   selector:@selector(handleSlideStop:)
 			   name:ControllerSlideStopNotification
 			 object:nil];
+	
 	NSLog(@"Notify Display: Slide Notification Observer Registered");
 	
 	return self;
@@ -55,11 +56,26 @@ NSString * const DisplaySlideNumberNotification = @"DisplaySlideNumberChanged";
 	[super dealloc];
 }
 
+/**
+ * Tell the screen to fade to black
+ */
+- (void)fadeOut {
+	CGAcquireDisplayFadeReservation(25, &displayFadeToken);
+	CGDisplayFade(displayFadeToken, 1.5, kCGDisplayBlendNormal, kCGDisplayBlendSolidColor, 0, 0, 0, TRUE);
+}
+
+/**
+ * Tell the screen to fade to normal
+ */
+- (void)fadeIn {
+	CGDisplayFade(displayFadeToken, 1.5, kCGDisplayBlendSolidColor, kCGDisplayBlendNormal, 0, 0, 0, TRUE);
+	CGReleaseDisplayFadeReservation(displayFadeToken);
+}
 
 /*
  * Display the View in fullscreen mode
  */
-- (void)enterFullScreen {
+- (void)switchFullScreen {
 	//NSScreen
 	NSScreen *screen = [[NSScreen screens] objectAtIndex:displayScreen];
 	
@@ -70,8 +86,15 @@ NSString * const DisplaySlideNumberNotification = @"DisplaySlideNumberChanged";
 	//enter fullscreen
 	NSDictionary *d = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO]
 												  forKey:NSFullScreenModeAllScreens];
-	[pdfSlides enterFullScreenMode:screen
-					   withOptions:d];
+
+	if (![pdfSlides isInFullScreenMode]) {
+		//[self fadeOut];
+		[pdfSlides enterFullScreenMode:screen
+						   withOptions:d];
+	} else {
+		//[self fadeIn];
+		[pdfSlides exitFullScreenModeWithOptions:d];
+	}
 }
 
 /**
@@ -104,7 +127,9 @@ NSString * const DisplaySlideNumberNotification = @"DisplaySlideNumberChanged";
 	//Slide *newSlides = [[note userInfo] objectForKey:@"SlideStop"];
 	
 	//tell the view to exit fullscreen mode - then window can close
-	[pdfSlides exitFullScreenModeWithOptions:nil];
+	if ([pdfSlides isInFullScreenMode])
+		[self switchFullScreen];
+	//[pdfSlides exitFullScreenModeWithOptions:nil];
 }
 
 /*
@@ -145,8 +170,10 @@ NSString * const DisplaySlideNumberNotification = @"DisplaySlideNumberChanged";
 - (void) windowDidLoad {
 	//NSLog(@"Nib file is loaded");
 	[pdfSlides setSlide:slides];
-	
-	[self enterFullScreen];
+
+	//switch to fullscreen
+	if (![pdfSlides isInFullScreenMode]) 
+		[self switchFullScreen];
 	
 	//make the view respond to events passed in this window
 	[[self window] makeFirstResponder:pdfSlides];

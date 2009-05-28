@@ -21,13 +21,14 @@ extern NSString * const DisplaySlideNumberNotification;
 	
 	Slide *slides;
 	NSUInteger displayScreen;
+	CGDisplayFadeReservationToken displayFadeToken;
 }
 
 - (id)init;
 - (id)initWithSlidesScreen:(id)slidesObj screen:(NSUInteger)screen;
 - (void)dealloc;
 
-- (void)enterFullScreen;
+- (void)switchFullScreen;
 
 - (void)handleSlideChange:(NSNotification *)note;
 - (void)handleSlideObjChange:(NSNotification *)note;
