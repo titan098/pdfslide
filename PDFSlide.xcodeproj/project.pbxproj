@@ -12,6 +12,9 @@
 		6365A3C90FBF2C0F00895D69 /* PDFSlideController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6365A3C80FBF2C0F00895D69 /* PDFSlideController.m */; };
 		6365A4150FBF355000895D69 /* PDFSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6365A4140FBF355000895D69 /* PDFSlideView.m */; };
 		638762B70FC96FB300276EC5 /* TimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 638762B60FC96FB300276EC5 /* TimerView.m */; };
+		638A52110FD05FCB00F090AC /* About.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638A52100FD05FCB00F090AC /* About.xib */; };
+		638A521A0FD0645900F090AC /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638A52190FD0645900F090AC /* AboutController.m */; };
+		638A52CE0FD071A900F090AC /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 638A52CD0FD071A900F090AC /* Credits.rtf */; };
 		63C2A7BF0FCDBC95009DE783 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C2A77F0FCDBAB6009DE783 /* Carbon.framework */; };
 		63C2A7C00FCDBC95009DE783 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C2A7800FCDBAB6009DE783 /* IOKit.framework */; };
 		63C2A7C10FCDBC95009DE783 /* System.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C2A7840FCDBADE009DE783 /* System.framework */; };
@@ -49,6 +52,10 @@
 		6365A4140FBF355000895D69 /* PDFSlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFSlideView.m; sourceTree = "<group>"; };
 		638762B50FC96FB300276EC5 /* TimerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerView.h; sourceTree = "<group>"; };
 		638762B60FC96FB300276EC5 /* TimerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerView.m; sourceTree = "<group>"; };
+		638A52100FD05FCB00F090AC /* About.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = About.xib; sourceTree = "<group>"; };
+		638A52180FD0645900F090AC /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
+		638A52190FD0645900F090AC /* AboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutController.m; sourceTree = "<group>"; };
+		638A52CD0FD071A900F090AC /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		63C2A77F0FCDBAB6009DE783 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		63C2A7800FCDBAB6009DE783 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
 		63C2A7840FCDBADE009DE783 /* System.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = System.framework; path = /System/Library/Frameworks/System.framework; sourceTree = "<absolute>"; };
@@ -105,6 +112,8 @@
 				63F6E9980FC0A06A006BC158 /* PDFDisplayController.m */,
 				638762B50FC96FB300276EC5 /* TimerView.h */,
 				638762B60FC96FB300276EC5 /* TimerView.m */,
+				638A52180FD0645900F090AC /* AboutController.h */,
+				638A52190FD0645900F090AC /* AboutController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -164,6 +173,8 @@
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
 				63F6E9920FC09FB0006BC158 /* PDFDisplay.xib */,
+				638A52100FD05FCB00F090AC /* About.xib */,
+				638A52CD0FD071A900F090AC /* Credits.rtf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -292,6 +303,8 @@
 				63F6E9930FC09FB0006BC158 /* PDFDisplay.xib in Resources */,
 				63C2A81D0FCDC1AA009DE783 /* license.txt in Resources */,
 				63C2A81E0FCDC1AA009DE783 /* readme.txt in Resources */,
+				638A52110FD05FCB00F090AC /* About.xib in Resources */,
+				638A52CE0FD071A900F090AC /* Credits.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +328,7 @@
 				63C2A7EA0FCDBDB7009DE783 /* GlobalKeyboardDevice.m in Sources */,
 				63C2A7EB0FCDBDB7009DE783 /* KeyspanFrontRowControl.m in Sources */,
 				63C2A7EC0FCDBDB7009DE783 /* RemoteControlContainer.m in Sources */,
+				638A521A0FD0645900F090AC /* AboutController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

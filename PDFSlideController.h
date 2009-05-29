@@ -12,6 +12,7 @@
 #import "PDFSlideView.h"
 #import "TimerView.h"
 #import "PDFDisplayController.h"
+#import "AboutController.h"
 
 //define notifications
 extern NSString * const ControllerSlideNumberNotification;
@@ -31,6 +32,7 @@ extern NSString * const ControllerSlideStopNotification;
 	
 	Slide *slides;
 	PDFSlideController *pdfDisplay;
+	AboutController *aboutWindow;
 
 	AppleRemote* remoteControl;
 }
@@ -39,6 +41,8 @@ extern NSString * const ControllerSlideStopNotification;
 
 - (void)openPanelDidEnd:(NSOpenPanel *)openPanel returnCode:(int)returnCode	contextInfo:(void *)x;
 - (IBAction)openDocument:(id)sender;
+
+- (IBAction)showAboutWindow:(id)sender;
 
 - (void)initiliseWindow;
 

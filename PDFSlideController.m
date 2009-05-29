@@ -104,6 +104,14 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 						  contextInfo:NULL];
 }
 
+/**
+ * Shows the About window
+ */
+- (IBAction)showAboutWindow:(id)sender {
+	aboutWindow = [[AboutController alloc] init];
+	[aboutWindow showWindow:self];
+}
+
 /*
  * Setup all the window components once a slide has been opened
  */
