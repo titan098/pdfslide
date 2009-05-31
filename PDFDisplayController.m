@@ -46,6 +46,7 @@ NSString * const DisplaySlideNumberNotification = @"DisplaySlideNumberChanged";
 		return nil;
 	slides = slidesObj;
 	displayScreen = screen;
+	
 	return self;
 }
 

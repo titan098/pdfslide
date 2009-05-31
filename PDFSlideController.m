@@ -277,6 +277,8 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 - (IBAction)playSlides:(id)sender {
 	//do nothing if the pdfdisplay is already loaded
 	//show the display window
+	[self fadeOut];	//fade out the correct screen
+	
 	if (!pdfDisplay && slides!=nil) {
 		//get the selected display window
 		pdfDisplay = [[PDFDisplayController alloc] initWithSlidesScreen:slides
@@ -293,8 +295,7 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 			 object:nil];
 	NSLog(@"Nofity Controller: Key Press PDFDisplay Notification Observer Registered");
 	
-	NSLog(@"Showing the PDFDisplay Window");
-	[self fadeOut];	//fade out the correct screen
+	//NSLog(@"Showing the PDFDisplay Window");
 	[pdfDisplay showWindow:self];
 	
 	//display the current slide
