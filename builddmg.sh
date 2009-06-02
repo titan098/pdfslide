@@ -30,7 +30,7 @@ cp COPYING $DISTTMP/
 
 #create the disk image 
 hdiutil create -srcfolder $DISTTMP /tmp/dist/$APPNAME-$VERSION.dmg
-#rm -rf $DISTTMP
+rm -rf $DISTTMP
 rm -rf build
 
 #create the source archive
