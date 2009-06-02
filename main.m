@@ -3,7 +3,7 @@
 //  PDFSlide
 //
 //  Created by David on 2009/05/12.
-//  Copyright __MyCompanyName__ 2009. All rights reserved.
+//  Copyright David Ellefsen 2009. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>

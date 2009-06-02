@@ -15,6 +15,7 @@
 		638A52110FD05FCB00F090AC /* About.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638A52100FD05FCB00F090AC /* About.xib */; };
 		638A521A0FD0645900F090AC /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638A52190FD0645900F090AC /* AboutController.m */; };
 		638A52CE0FD071A900F090AC /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 638A52CD0FD071A900F090AC /* Credits.rtf */; };
+		63BCBBCF0FD5B340009CB2ED /* COPYING in Resources */ = {isa = PBXBuildFile; fileRef = 63BCBBCE0FD5B340009CB2ED /* COPYING */; };
 		63C2A7BF0FCDBC95009DE783 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C2A77F0FCDBAB6009DE783 /* Carbon.framework */; };
 		63C2A7C00FCDBC95009DE783 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C2A7800FCDBAB6009DE783 /* IOKit.framework */; };
 		63C2A7C10FCDBC95009DE783 /* System.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C2A7840FCDBADE009DE783 /* System.framework */; };
@@ -25,8 +26,6 @@
 		63C2A7EA0FCDBDB7009DE783 /* GlobalKeyboardDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C2A7E40FCDBDB7009DE783 /* GlobalKeyboardDevice.m */; };
 		63C2A7EB0FCDBDB7009DE783 /* KeyspanFrontRowControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C2A7E60FCDBDB7009DE783 /* KeyspanFrontRowControl.m */; };
 		63C2A7EC0FCDBDB7009DE783 /* RemoteControlContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C2A7E80FCDBDB7009DE783 /* RemoteControlContainer.m */; };
-		63C2A81D0FCDC1AA009DE783 /* license.txt in Resources */ = {isa = PBXBuildFile; fileRef = 63C2A81B0FCDC1AA009DE783 /* license.txt */; };
-		63C2A81E0FCDC1AA009DE783 /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 63C2A81C0FCDC1AA009DE783 /* readme.txt */; };
 		63F6E9930FC09FB0006BC158 /* PDFDisplay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F6E9920FC09FB0006BC158 /* PDFDisplay.xib */; };
 		63F6E9990FC0A06A006BC158 /* PDFDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F6E9980FC0A06A006BC158 /* PDFDisplayController.m */; };
 		63FCE6540FC02634001E634B /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63FCE6530FC02634001E634B /* Quartz.framework */; };
@@ -56,6 +55,7 @@
 		638A52180FD0645900F090AC /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
 		638A52190FD0645900F090AC /* AboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutController.m; sourceTree = "<group>"; };
 		638A52CD0FD071A900F090AC /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
+		63BCBBCE0FD5B340009CB2ED /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
 		63C2A77F0FCDBAB6009DE783 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		63C2A7800FCDBAB6009DE783 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
 		63C2A7840FCDBADE009DE783 /* System.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = System.framework; path = /System/Library/Frameworks/System.framework; sourceTree = "<absolute>"; };
@@ -160,6 +160,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				63BCBBCE0FD5B340009CB2ED /* COPYING */,
 				32CA4F630368D1EE00C91783 /* PDFSlide_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
@@ -301,10 +302,9 @@
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				63F6E9930FC09FB0006BC158 /* PDFDisplay.xib in Resources */,
-				63C2A81D0FCDC1AA009DE783 /* license.txt in Resources */,
-				63C2A81E0FCDC1AA009DE783 /* readme.txt in Resources */,
 				638A52110FD05FCB00F090AC /* About.xib in Resources */,
 				638A52CE0FD071A900F090AC /* Credits.rtf in Resources */,
+				63BCBBCF0FD5B340009CB2ED /* COPYING in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
