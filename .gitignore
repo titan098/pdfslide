@@ -6,3 +6,5 @@ build/*
 #osx stuff
 .DS_Store
 profile
+
+dist/*
