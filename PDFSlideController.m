@@ -30,6 +30,9 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 - (void) awakeFromNib {
 	slides = nil;
 	
+	//center the controller
+	[[self window] center];
+	
 	//listen for apple remote events
 	remoteControl = [[AppleRemote alloc] initWithDelegate: self];
 	[remoteControl startListening: self];
@@ -277,10 +280,9 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 - (IBAction)playSlides:(id)sender {
 	//do nothing if the pdfdisplay is already loaded
 	//show the display window
-	[self fadeOut];	//fade out the correct screen
-	
 	if (!pdfDisplay && slides!=nil) {
 		//get the selected display window
+		[self fadeOut];	//fade out the correct screen
 		pdfDisplay = [[PDFDisplayController alloc] initWithSlidesScreen:slides
 																 screen:[displayMenu indexOfSelectedItem]];
 	} else {
