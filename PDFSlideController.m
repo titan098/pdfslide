@@ -297,8 +297,8 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 			 object:nil];
 	NSLog(@"Nofity Controller: Key Press PDFDisplay Notification Observer Registered");
 	
-	//NSLog(@"Showing the PDFDisplay Window");
-	[pdfDisplay showWindow:self];
+	//Load the window - but do not show it
+	[pdfDisplay window];
 	
 	//display the current slide
 	[self postSlideChangeNotification];

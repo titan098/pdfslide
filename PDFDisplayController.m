@@ -13,6 +13,9 @@ NSString * const DisplaySlideNumberNotification = @"DisplaySlideNumberChanged";
 
 @implementation PDFDisplayController
 
+/**
+ * Initilise the screen controller
+ */
 - (id)init {
 	if (![super initWithWindowNibName:@"PDFDisplay"])
 		return nil;
@@ -41,6 +44,9 @@ NSString * const DisplaySlideNumberNotification = @"DisplaySlideNumberChanged";
 	return self;
 }
 
+/**
+ * Initilise the screen controller with a specified screen and slides
+ */
 - (id)initWithSlidesScreen:(id)slidesObj screen:(NSUInteger)screen{
 	if (![self init])
 		return nil;
@@ -50,6 +56,9 @@ NSString * const DisplaySlideNumberNotification = @"DisplaySlideNumberChanged";
 	return self;
 }
 
+/**
+ * Deallocate the screen controller
+ */
 - (void)dealloc {
 	slides = nil;
 	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
@@ -63,10 +72,6 @@ NSString * const DisplaySlideNumberNotification = @"DisplaySlideNumberChanged";
 - (void)switchFullScreen {
 	//NSScreen
 	NSScreen *screen = [[NSScreen screens] objectAtIndex:displayScreen];
-	
-	//move the window to the right screen
-	NSWindow *window = [self window];
-	[window setFrame:[screen frame] display:YES];
 
 	//enter fullscreen
 	NSDictionary *d = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO]
@@ -109,7 +114,6 @@ NSString * const DisplaySlideNumberNotification = @"DisplaySlideNumberChanged";
  */
 - (void)handleSlideStop:(NSNotification *)note {
 	NSLog(@"Notify Display: Slide Stop Notification Recieved");
-	//Slide *newSlides = [[note userInfo] objectForKey:@"SlideStop"];
 	
 	//tell the view to exit fullscreen mode - then window can close
 	if ([pdfSlides isInFullScreenMode])
@@ -155,13 +159,14 @@ NSString * const DisplaySlideNumberNotification = @"DisplaySlideNumberChanged";
 - (void) windowDidLoad {
 	//NSLog(@"Nib file is loaded");
 	[pdfSlides setSlide:slides];
-
+	
+	//move the window to the correct screen
+	NSRect screenFrame = [[[NSScreen screens] objectAtIndex:displayScreen] frame];
+	[[self window] setFrame:screenFrame display:NO];
+	
 	//switch to fullscreen
 	if (![pdfSlides isInFullScreenMode]) 
 		[self switchFullScreen];
-	
-	//make the view respond to events passed in this window
-	[[self window] makeFirstResponder:pdfSlides];
 }
 
 /**
