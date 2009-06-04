@@ -25,6 +25,27 @@
 	document = [[PDFDocument alloc] initWithURL:[NSURL fileURLWithPath:filename]];
 }
 
+/**
+ * Return YES if the pdf is encrypted
+ */
+- (BOOL) isEncrypted {
+	return [document isEncrypted];
+}
+
+/**
+ * Returns YES if the pdf ls locked
+ */
+- (BOOL) isLocked {
+	return [document isLocked];
+}
+
+/**
+ * Decrypt the pdf with a password
+ */
+- (BOOL) decryptPDF:(NSString *)password {
+	return [document unlockWithPassword:password];
+}
+
 //Gets the page count for the PDF Document
 - (NSUInteger)pageCount {
 	return [document pageCount];

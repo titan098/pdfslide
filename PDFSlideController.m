@@ -44,21 +44,30 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 	[self detectDisplays:self];
 }
 
-/*
- * Control how the open dialog sheet will perform
+/**
+ * Shows a sheet to display the "encrypted" dialog
  */
-- (void)openPanelDidEnd:(NSOpenPanel *)openPanel
-			 returnCode:(int)returnCode
-			contextInfo:(void *)x {
+- (void) showEncryptedSheet {
+	[pdfPassword setStringValue:@""];
 	
-	//was the OK Button pushed
-	if (returnCode == NSOKButton) {
-		NSString *filename = [openPanel filename];
-		
-		slides = [[Slide alloc] initWithURL:[NSURL fileURLWithPath:filename]];
-		
+	[NSApp beginSheet:encryptedSheet
+	   modalForWindow:[self window]
+		modalDelegate:nil
+	   didEndSelector:NULL
+		  contextInfo:NULL];
+}
+
+/**
+ * Closes the "encrypted" sheet
+ */
+- (IBAction) endEncryptedSheet:(id)sender {
+	[slides decryptPDF:[pdfPassword stringValue]];
+	[NSApp endSheet:encryptedSheet];
+	[encryptedSheet orderOut:sender];
+	
+	//init the window - if the slides have been unlocked
+	if (slides && ![slides isLocked])
 		[self initiliseWindow];
-	}
 }
 
 /**
@@ -96,15 +105,24 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 	//Show the NSOpenPanel to open a PDF Document
 	NSOpenPanel *openPanel = [NSOpenPanel openPanel];
 	NSArray *fileTypes = [NSArray arrayWithObject:@"pdf"];
+
+	int result = 0;
 	
-	//show the panel in a sheet
-	[openPanel beginSheetForDirectory:nil
-								 file:nil 
-								types:fileTypes 
-					   modalForWindow:[self window]
-						modalDelegate:self
-					   didEndSelector:@selector(openPanelDidEnd:returnCode:contextInfo:) 
-						  contextInfo:NULL];
+	result = [openPanel runModalForDirectory:nil file:nil types:fileTypes];
+	if (result = NSOKButton) {
+		NSString *filename = [openPanel filename];
+		
+		slides = [[Slide alloc] initWithURL:[NSURL fileURLWithPath:filename]];
+		
+		//check to see if the PDF is encrypted
+		if ([slides isEncrypted]) {
+			//show the encrypted sheet - then perform the init
+			[self showEncryptedSheet];
+		} else {
+			//init the window directly
+			[self initiliseWindow];
+		}		
+	} 
 }
 
 /**
@@ -119,28 +137,32 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
  * Setup all the window components once a slide has been opened
  */
 - (void) initiliseWindow {
-	//setup the level indicator
-	[pageLevel setMaxValue:((double)[slides pageCount]+1)];
-	[pageLevel setIntValue:1];
-	
-	//view the slide access to the slides object
-	[currentSlide setSlide:slides];
-	[currentSlide setSlideNumber:0];
-	[nextSlide setSlide:slides];
-	[nextSlide setSlideNumber:1];
-	
-	//redraw the slides
-	[currentSlide setNeedsDisplay:YES];
-	[nextSlide setNeedsDisplay:YES];
-	
-	//restart the counter
-	//set the counter to zero and display
-	[counterView setAsCounter:YES];
-	[counterView setNeedsDisplay:YES];
-	
-	//if the display window is open then notify it of the new slides
-	[self postSlideObjectChangeNotification];
-	[self postSlideChangeNotification];
+	//check to see if the slide object exists
+	if (slides) {
+		
+		//setup the level indicator
+		[pageLevel setMaxValue:((double)[slides pageCount]+1)];
+		[pageLevel setIntValue:1];
+		
+		//view the slide access to the slides object
+		[currentSlide setSlide:slides];
+		[currentSlide setSlideNumber:0];
+		[nextSlide setSlide:slides];
+		[nextSlide setSlideNumber:1];
+		
+		//redraw the slides
+		[currentSlide setNeedsDisplay:YES];
+		[nextSlide setNeedsDisplay:YES];
+		
+		//restart the counter
+		//set the counter to zero and display
+		[counterView setAsCounter:YES];
+		[counterView setNeedsDisplay:YES];
+		
+		//if the display window is open then notify it of the new slides
+		[self postSlideObjectChangeNotification];
+		[self postSlideChangeNotification];
+	}
 }
 
 /*

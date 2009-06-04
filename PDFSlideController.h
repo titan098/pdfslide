@@ -30,6 +30,9 @@ extern NSString * const ControllerSlideStopNotification;
 	IBOutlet PDFSlideView *currentSlide;
 	IBOutlet PDFSlideView *nextSlide;
 	
+	IBOutlet NSWindow* encryptedSheet;
+	IBOutlet NSSecureTextField* pdfPassword;
+	
 	Slide *slides;
 	PDFSlideController *pdfDisplay;
 	AboutController *aboutWindow;
@@ -39,9 +42,10 @@ extern NSString * const ControllerSlideStopNotification;
 
 - (void)dealloc;
 
-- (void)openPanelDidEnd:(NSOpenPanel *)openPanel returnCode:(int)returnCode	contextInfo:(void *)x;
-- (IBAction)openDocument:(id)sender;
+- (void) showEncryptedSheet;
+- (IBAction) endEncryptedSheet:(id)sender;
 
+- (IBAction)openDocument:(id)sender;
 - (IBAction)showAboutWindow:(id)sender;
 
 - (void)initiliseWindow;

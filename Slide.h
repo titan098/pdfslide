@@ -16,6 +16,9 @@
 - (id)initWithURL:(NSURL *)url;
 
 - (void)openPDF:(NSString *)filename;
+- (BOOL)isEncrypted;
+- (BOOL)isLocked;
+- (BOOL)decryptPDF:(NSString *)password;
 - (NSUInteger)pageCount;
 - (PDFPage *)pageAtIndex:(NSUInteger)index;
 
