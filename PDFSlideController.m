@@ -71,6 +71,13 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 }
 
 /**
+ * Handle the "return" key press on the encrypted sheet
+ */
+- (void)controlTextDidEndEditing:(NSNotification *)note {
+	[self endEncryptedSheet:self];
+}
+
+/**
  * Handles any actions from the Apple Remote
  */
 - (void) sendRemoteButtonEvent: (RemoteControlEventIdentifier) event 
