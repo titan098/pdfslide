@@ -6,6 +6,21 @@
 	objectVersion = 45;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		631C4FCF0FDB0E110050689C /* Distribute */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 631C4FD20FDB0E2A0050689C /* Build configuration list for PBXAggregateTarget "Distribute" */;
+			buildPhases = (
+				631C4FCE0FDB0E110050689C /* ShellScript */,
+			);
+			dependencies = (
+				631C4FD40FDB0E350050689C /* PBXTargetDependency */,
+			);
+			name = Distribute;
+			productName = Distribute;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		631039FA0FC01F2100355C3D /* Slide.m in Sources */ = {isa = PBXBuildFile; fileRef = 631039F90FC01F2100355C3D /* Slide.m */; };
@@ -34,6 +49,16 @@
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		631C4FD30FDB0E350050689C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090 /* PDFSlide */;
+			remoteInfo = PDFSlide;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -301,6 +326,7 @@
 			projectRoot = "";
 			targets = (
 				8D1107260486CEB800E47090 /* PDFSlide */,
+				631C4FCF0FDB0E110050689C /* Distribute */,
 			);
 		};
 /* End PBXProject section */
@@ -321,6 +347,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		631C4FCE0FDB0E110050689C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "VERSION=0.1.1\nIMAGEDIR=$TEMP_DIR/image\nDMGNAME=$PROJECT_NAME-$VERSION.dmg\n\n#create a copy of the project\nrm -rf /tmp/$PROJECT_NAME\ncp -r $SRCROOT /tmp/$PROJECT_NAME\n\n#strip out all the unnessisary stuff\nrm -rf /tmp/$PROJECT_NAME/.git\nrm -rf /tmp/$PROJECT_NAME/build\nrm -rf /tmp/$PROJECT_NAME/dist\n\n#Create a Temp Directory to hold final dist\nrm -rf $IMAGEDIR\nmkdir $IMAGEDIR\n\nrm -rf $SRCROOT/dist\nmkdir $SRCROOT/dist\n\n#create a source archive\ncd /tmp\ntar cfz $SRCROOT/dist/$PROJECT_NAME-$VERSION.tar.gz $PROJECT_NAME\ncd $SRCROOT\n\n#copy the file to the image so we can construct the diskimage\ncp $SRCROOT/COPYING $IMAGEDIR\ncp -r $TARGET_BUILD_DIR/$PROJECT_NAME.app $IMAGEDIR\nhdiutil create -srcfolder $IMAGEDIR $SRCROOT/dist/$DMGNAME\n\n#create a zipped app bundle for sparkle\ncd $TARGET_BUILD_DIR\nzip -r $SRCROOT/dist/$PROJECT_NAME-$VERSION.zip $PROJECT_NAME.app \n\n\nexit 0";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8D11072C0486CEB800E47090 /* Sources */ = {
@@ -346,6 +388,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		631C4FD40FDB0E350050689C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D1107260486CEB800E47090 /* PDFSlide */;
+			targetProxy = 631C4FD30FDB0E350050689C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
@@ -366,6 +416,27 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		631C4FD00FDB0E110050689C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = Distribute;
+			};
+			name = Debug;
+		};
+		631C4FD10FDB0E110050689C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = Distribute;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -428,6 +499,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		631C4FD20FDB0E2A0050689C /* Build configuration list for PBXAggregateTarget "Distribute" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				631C4FD00FDB0E110050689C /* Debug */,
+				631C4FD10FDB0E110050689C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "PDFSlide" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

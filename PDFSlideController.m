@@ -50,7 +50,7 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 - (void) showEncryptedSheet {
 	[pdfPassword setStringValue:@""];
 	
-	[NSApp beginSheet:encryptedSheet
+	[NSApp beginSheet:PDFPasswordWindow
 	   modalForWindow:[self window]
 		modalDelegate:nil
 	   didEndSelector:NULL
@@ -62,8 +62,8 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
  */
 - (IBAction) endEncryptedSheet:(id)sender {
 	[slides decryptPDF:[pdfPassword stringValue]];
-	[NSApp endSheet:encryptedSheet];
-	[encryptedSheet orderOut:sender];
+	[NSApp endSheet:PDFPasswordWindow];
+	[PDFPasswordWindow orderOut:sender];
 	
 	//init the window - if the slides have been unlocked
 	if (slides && ![slides isLocked])

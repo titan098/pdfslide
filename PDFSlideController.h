@@ -30,7 +30,7 @@ extern NSString * const ControllerSlideStopNotification;
 	IBOutlet PDFSlideView *currentSlide;
 	IBOutlet PDFSlideView *nextSlide;
 	
-	IBOutlet NSWindow* encryptedSheet;
+	IBOutlet NSWindow* PDFPasswordWindow;
 	IBOutlet NSSecureTextField* pdfPassword;
 	
 	Slide *slides;
