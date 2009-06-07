@@ -39,7 +39,7 @@
 /**
  * Gets executed when the window loads
  */
-- (void)windowDidLoad {
+- (void)windowDidLoad {	
 	NSBundle* bundle = [NSBundle mainBundle];
 	NSString* creditsPath = [bundle pathForResource:@"Credits" ofType:@"rtf"];
 	NSString* productIconPath = [[bundle infoDictionary] objectForKey:@"CFBundleIconFile"];
@@ -50,6 +50,8 @@
 	[copyrightInfo setStringValue:[[bundle infoDictionary] objectForKey:(NSString *)@"NSHumanReadableCopyright"]];
 	[productIcon setImage:[[NSImage alloc] initWithContentsOfFile:productIconPath]];
 	[credits readRTFDFromFile:creditsPath];
+	
+	[[self window] center];
 }
 
 @end
