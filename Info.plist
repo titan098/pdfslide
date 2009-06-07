@@ -35,6 +35,6 @@
 	<key>SUShowReleaseNotes</key>
 	<string>YES</string>
 	<key>SUPublicDSAKeyFile</key>
-	<string></string>
+	<string>dsa_pub.pem</string>
 </dict>
 </plist>

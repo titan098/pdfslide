@@ -9,7 +9,6 @@
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="29"/>
-			<integer value="371"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -477,7 +476,7 @@
 				<string key="NSWindowRect">{{335, 97}, {869, 653}}</string>
 				<int key="NSWTFlags">1946157056</int>
 				<string key="NSWindowTitle">PDFSlide</string>
-				<string key="NSWindowClass">SU</string>
+				<string key="NSWindowClass">NSWindow</string>
 				<object class="NSToolbar" key="NSViewClass" id="552920196">
 					<object class="NSMutableString" key="NSToolbarIdentifier">
 						<characters key="NS.bytes">8C14A72C-168B-4170-BC47-F24CE4E78C42</characters>
@@ -823,7 +822,7 @@ ARcABAAAAAEAAAACARwAAwAAAAEAAQAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 				</object>
 				<string key="NSWindowContentMaxSize">{3.40282e+38, 3.40282e+38}</string>
 				<object class="NSView" key="NSWindowView" id="439893737">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">274</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1066,7 +1065,6 @@ ARcABAAAAAEAAAACARwAAwAAAAEAAQAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 						</object>
 					</object>
 					<string key="NSFrameSize">{869, 653}</string>
-					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
 				<string key="NSMaxSize">{3.40282e+38, 3.40282e+38}</string>
@@ -1397,14 +1395,6 @@ ARcABAAAAAEAAAACARwAAwAAAAEAAQAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
-						<string key="label">window</string>
-						<reference key="source" ref="35896722"/>
-						<reference key="destination" ref="972006081"/>
-					</object>
-					<int key="connectionID">524</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
 						<string key="label">delegate</string>
 						<reference key="source" ref="552920196"/>
 						<reference key="destination" ref="972006081"/>
@@ -1546,6 +1536,14 @@ ARcABAAAAAEAAAACARwAAwAAAAEAAQAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 						<reference key="destination" ref="45701696"/>
 					</object>
 					<int key="connectionID">669</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">window</string>
+						<reference key="source" ref="35896722"/>
+						<reference key="destination" ref="972006081"/>
+					</object>
+					<int key="connectionID">670</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -2599,7 +2597,7 @@ ARcABAAAAAEAAAACARwAAwAAAAEAAQAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">669</int>
+			<int key="maxID">670</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">

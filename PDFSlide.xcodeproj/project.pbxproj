@@ -26,6 +26,7 @@
 		631039FA0FC01F2100355C3D /* Slide.m in Sources */ = {isa = PBXBuildFile; fileRef = 631039F90FC01F2100355C3D /* Slide.m */; };
 		633880170FDBEFE800B08026 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 633880160FDBEFE800B08026 /* Sparkle.framework */; };
 		633880310FDBF02800B08026 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 633880160FDBEFE800B08026 /* Sparkle.framework */; };
+		633880460FDC048D00B08026 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 633880450FDC048D00B08026 /* dsa_pub.pem */; };
 		634833090FD849010062544D /* Password.icns in Resources */ = {isa = PBXBuildFile; fileRef = 634833080FD849010062544D /* Password.icns */; };
 		636163480FDBD0AD0063BFA4 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 636163470FDBD0AD0063BFA4 /* Preferences.xib */; };
 		6361634C0FDBD0D40063BFA4 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6361634B0FDBD0D40063BFA4 /* PreferencesController.m */; };
@@ -89,6 +90,7 @@
 		631039F80FC01F2100355C3D /* Slide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Slide.h; sourceTree = "<group>"; };
 		631039F90FC01F2100355C3D /* Slide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Slide.m; sourceTree = "<group>"; };
 		633880160FDBEFE800B08026 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		633880450FDC048D00B08026 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		634833080FD849010062544D /* Password.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Password.icns; path = icons/Password.icns; sourceTree = "<group>"; };
 		636163470FDBD0AD0063BFA4 /* Preferences.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
 		6361634A0FDBD0D40063BFA4 /* PreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesController.h; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				638A52100FD05FCB00F090AC /* About.xib */,
 				638A52CD0FD071A900F090AC /* Credits.rtf */,
 				636163470FDBD0AD0063BFA4 /* Preferences.xib */,
+				633880450FDC048D00B08026 /* dsa_pub.pem */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				63BCBBCF0FD5B340009CB2ED /* COPYING in Resources */,
 				634833090FD849010062544D /* Password.icns in Resources */,
 				636163480FDBD0AD0063BFA4 /* Preferences.xib in Resources */,
+				633880460FDC048D00B08026 /* dsa_pub.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,8 +391,8 @@
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "VERSION=0.1.1\nIMAGEDIR=$TEMP_DIR/image\nDMGNAME=$PROJECT_NAME-$VERSION.dmg\n\n#create a copy of the project\nrm -rf /tmp/$PROJECT_NAME\ncp -r $SRCROOT /tmp/$PROJECT_NAME\n\n#strip out all the unnessisary stuff\nrm -rf /tmp/$PROJECT_NAME/.git\nrm -rf /tmp/$PROJECT_NAME/build\nrm -rf /tmp/$PROJECT_NAME/dist\n\n#Create a Temp Directory to hold final dist\nrm -rf $IMAGEDIR\nmkdir $IMAGEDIR\n\nrm -rf $SRCROOT/dist\nmkdir $SRCROOT/dist\n\n#create a source archive\ncd /tmp\ntar cfz $SRCROOT/dist/$PROJECT_NAME-$VERSION.tar.gz $PROJECT_NAME\ncd $SRCROOT\n\n#copy the file to the image so we can construct the diskimage\ncp $SRCROOT/COPYING $IMAGEDIR\ncp -r $TARGET_BUILD_DIR/$PROJECT_NAME.app $IMAGEDIR\nhdiutil create -srcfolder $IMAGEDIR $SRCROOT/dist/$DMGNAME\n\n#create a zipped app bundle for sparkle\ncd $TARGET_BUILD_DIR\nzip -r $SRCROOT/dist/$PROJECT_NAME-$VERSION.zip $PROJECT_NAME.app \n\nexit 0";
+			shellPath = /bin/bash;
+			shellScript = "VERSION=0.1.1\nIMAGEDIR=$TEMP_DIR/$PROJECT_NAME\nDMGNAME=$PROJECT_NAME-$VERSION.dmg\nKEYCHAIN_PRIVKEY_NAME=\"Sparkle Private Key 1\"\nPRIV_KEY=~/.ssh/pdfslide_priv.pem\n\n#create a copy of the project\nrm -rf /tmp/$PROJECT_NAME\ncp -R $SRCROOT /tmp/$PROJECT_NAME\n\n#strip out all the unnessisary stuff\nrm -rf /tmp/$PROJECT_NAME/.git\nrm -rf /tmp/$PROJECT_NAME/build\nrm -rf /tmp/$PROJECT_NAME/dist\n\n#Create a Temp Directory to hold final dist\nrm -rf $IMAGEDIR\nmkdir $IMAGEDIR\n\nrm -rf $SRCROOT/dist\nmkdir $SRCROOT/dist\n\n#create a source archive\ncd /tmp\ntar cfz $SRCROOT/dist/$PROJECT_NAME-$VERSION.tar.gz $PROJECT_NAME\ncd $SRCROOT\n\n#copy the file to the image so we can construct the diskimage\ncp $SRCROOT/COPYING $IMAGEDIR\ncp -r $TARGET_BUILD_DIR/$PROJECT_NAME.app $IMAGEDIR\nhdiutil create -srcfolder $IMAGEDIR $SRCROOT/dist/$DMGNAME\n\n#do all the processing for sparkle\ncd $SRCROOT/dist\nSIZE=$(stat -f %z \"$DMGNAME\") \nPUBDATE=$(date +\"%a, %d %b %G %T %z\")\nSIGNATURE=$(openssl dgst -sha1 -binary < \"$DMGNAME\" | openssl dgst -dss1 -sign <(cat $PRIV_KEY) | openssl enc -base64)\n\ncat >> appcast-$PROJECT_NAME-$VERSION.xml <<EOF\n\t\t<item>\n\t\t\t<title>Version $VERSION</title>\n\t\t\t<sparkle:releaseNotesLink>$RELEASENOTES_URL</sparkle:releaseNotesLink>\n\t\t\t<pubDate>$PUBDATE</pubDate>\n\t\t\t<enclosure\n\t\t\t\turl=\"$DOWNLOAD_URL\"\n\t\t\t\tsparkle:version=\"$VERSION\"\n\t\t\t\ttype=\"application/octet-stream\"\n\t\t\t\tlength=\"$SIZE\"\n\t\t\t\tsparkle:dsaSignature=\"$SIGNATURE\"\n\t\t\t/>\n\t\t</item>\nEOF\n\nexit 0";
 		};
 /* End PBXShellScriptBuildPhase section */
 
