@@ -28,6 +28,7 @@
 #import "TimerView.h"
 #import "PDFDisplayController.h"
 #import "AboutController.h"
+#import "PreferencesController.h"
 
 //define notifications
 extern NSString * const ControllerSlideNumberNotification;
@@ -51,6 +52,7 @@ extern NSString * const ControllerSlideStopNotification;
 	Slide *slides;
 	PDFSlideController *pdfDisplay;
 	AboutController *aboutWindow;
+	PreferencesController *preferencesWindow;
 
 	AppleRemote* remoteControl;
 }
@@ -62,6 +64,7 @@ extern NSString * const ControllerSlideStopNotification;
 
 - (IBAction)openDocument:(id)sender;
 - (IBAction)showAboutWindow:(id)sender;
+- (IBAction)showPreferencesWindow:(id)sender;
 
 - (void)initiliseWindow;
 

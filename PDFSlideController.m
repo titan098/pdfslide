@@ -155,6 +155,28 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 	[aboutWindow showWindow:self];
 }
 
+/**
+ * Show the Preferences window
+ */
+- (IBAction)showPreferencesWindow:(id)sender {
+	if (!preferencesWindow) {
+		preferencesWindow = [[PreferencesController alloc] init];
+	}
+	
+	//display the Preferences Dialog
+	/*
+	[NSApp beginSheet:[preferencesWindow window]
+	   modalForWindow:[self window]
+		modalDelegate:nil
+	   didEndSelector:NULL
+		  contextInfo:NULL];
+	 */
+	
+	[[preferencesWindow window] center];
+	[[preferencesWindow window] makeKeyAndOrderFront:self];
+	
+}
+
 /*
  * Setup all the window components once a slide has been opened
  */

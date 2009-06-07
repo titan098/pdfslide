@@ -25,6 +25,8 @@
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		631039FA0FC01F2100355C3D /* Slide.m in Sources */ = {isa = PBXBuildFile; fileRef = 631039F90FC01F2100355C3D /* Slide.m */; };
 		634833090FD849010062544D /* Password.icns in Resources */ = {isa = PBXBuildFile; fileRef = 634833080FD849010062544D /* Password.icns */; };
+		636163480FDBD0AD0063BFA4 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 636163470FDBD0AD0063BFA4 /* Preferences.xib */; };
+		6361634C0FDBD0D40063BFA4 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6361634B0FDBD0D40063BFA4 /* PreferencesController.m */; };
 		6365A3C90FBF2C0F00895D69 /* PDFSlideController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6365A3C80FBF2C0F00895D69 /* PDFSlideController.m */; };
 		6365A4150FBF355000895D69 /* PDFSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6365A4140FBF355000895D69 /* PDFSlideView.m */; };
 		638762B70FC96FB300276EC5 /* TimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 638762B60FC96FB300276EC5 /* TimerView.m */; };
@@ -72,6 +74,9 @@
 		631039F80FC01F2100355C3D /* Slide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Slide.h; sourceTree = "<group>"; };
 		631039F90FC01F2100355C3D /* Slide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Slide.m; sourceTree = "<group>"; };
 		634833080FD849010062544D /* Password.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Password.icns; path = icons/Password.icns; sourceTree = "<group>"; };
+		636163470FDBD0AD0063BFA4 /* Preferences.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
+		6361634A0FDBD0D40063BFA4 /* PreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesController.h; sourceTree = "<group>"; };
+		6361634B0FDBD0D40063BFA4 /* PreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesController.m; sourceTree = "<group>"; };
 		6365A3C70FBF2C0F00895D69 /* PDFSlideController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFSlideController.h; sourceTree = "<group>"; };
 		6365A3C80FBF2C0F00895D69 /* PDFSlideController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFSlideController.m; sourceTree = "<group>"; };
 		6365A4130FBF355000895D69 /* PDFSlideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFSlideView.h; sourceTree = "<group>"; };
@@ -141,6 +146,8 @@
 				638762B60FC96FB300276EC5 /* TimerView.m */,
 				638A52180FD0645900F090AC /* AboutController.h */,
 				638A52190FD0645900F090AC /* AboutController.m */,
+				6361634A0FDBD0D40063BFA4 /* PreferencesController.h */,
+				6361634B0FDBD0D40063BFA4 /* PreferencesController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -204,6 +211,7 @@
 				63F6E9920FC09FB0006BC158 /* PDFDisplay.xib */,
 				638A52100FD05FCB00F090AC /* About.xib */,
 				638A52CD0FD071A900F090AC /* Credits.rtf */,
+				636163470FDBD0AD0063BFA4 /* Preferences.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -343,6 +351,7 @@
 				638A52CE0FD071A900F090AC /* Credits.rtf in Resources */,
 				63BCBBCF0FD5B340009CB2ED /* COPYING in Resources */,
 				634833090FD849010062544D /* Password.icns in Resources */,
+				636163480FDBD0AD0063BFA4 /* Preferences.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +392,7 @@
 				63C2A7EB0FCDBDB7009DE783 /* KeyspanFrontRowControl.m in Sources */,
 				63C2A7EC0FCDBDB7009DE783 /* RemoteControlContainer.m in Sources */,
 				638A521A0FD0645900F090AC /* AboutController.m in Sources */,
+				6361634C0FDBD0D40063BFA4 /* PreferencesController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
