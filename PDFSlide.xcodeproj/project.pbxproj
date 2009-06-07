@@ -55,7 +55,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8D1107260486CEB800E47090 /* PDFSlide */;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
 			remoteInfo = PDFSlide;
 		};
 /* End PBXContainerItemProxy section */
@@ -360,7 +360,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "VERSION=0.1.1\nIMAGEDIR=$TEMP_DIR/image\nDMGNAME=$PROJECT_NAME-$VERSION.dmg\n\n#create a copy of the project\nrm -rf /tmp/$PROJECT_NAME\ncp -r $SRCROOT /tmp/$PROJECT_NAME\n\n#strip out all the unnessisary stuff\nrm -rf /tmp/$PROJECT_NAME/.git\nrm -rf /tmp/$PROJECT_NAME/build\nrm -rf /tmp/$PROJECT_NAME/dist\n\n#Create a Temp Directory to hold final dist\nrm -rf $IMAGEDIR\nmkdir $IMAGEDIR\n\nrm -rf $SRCROOT/dist\nmkdir $SRCROOT/dist\n\n#create a source archive\ncd /tmp\ntar cfz $SRCROOT/dist/$PROJECT_NAME-$VERSION.tar.gz $PROJECT_NAME\ncd $SRCROOT\n\n#copy the file to the image so we can construct the diskimage\ncp $SRCROOT/COPYING $IMAGEDIR\ncp -r $TARGET_BUILD_DIR/$PROJECT_NAME.app $IMAGEDIR\nhdiutil create -srcfolder $IMAGEDIR $SRCROOT/dist/$DMGNAME\n\n#create a zipped app bundle for sparkle\ncd $TARGET_BUILD_DIR\nzip -r $SRCROOT/dist/$PROJECT_NAME-$VERSION.zip $PROJECT_NAME.app \n\n\nexit 0";
+			shellScript = "VERSION=0.1.1\nIMAGEDIR=$TEMP_DIR/image\nDMGNAME=$PROJECT_NAME-$VERSION.dmg\n\n#create a copy of the project\nrm -rf /tmp/$PROJECT_NAME\ncp -r $SRCROOT /tmp/$PROJECT_NAME\n\n#strip out all the unnessisary stuff\nrm -rf /tmp/$PROJECT_NAME/.git\nrm -rf /tmp/$PROJECT_NAME/build\nrm -rf /tmp/$PROJECT_NAME/dist\n\n#Create a Temp Directory to hold final dist\nrm -rf $IMAGEDIR\nmkdir $IMAGEDIR\n\nrm -rf $SRCROOT/dist\nmkdir $SRCROOT/dist\n\n#create a source archive\ncd /tmp\ntar cfz $SRCROOT/dist/$PROJECT_NAME-$VERSION.tar.gz $PROJECT_NAME\ncd $SRCROOT\n\n#copy the file to the image so we can construct the diskimage\ncp $SRCROOT/COPYING $IMAGEDIR\ncp -r $TARGET_BUILD_DIR/$PROJECT_NAME.app $IMAGEDIR\nhdiutil create -srcfolder $IMAGEDIR $SRCROOT/dist/$DMGNAME\n\n#create a zipped app bundle for sparkle\ncd $TARGET_BUILD_DIR\nzip -r $SRCROOT/dist/$PROJECT_NAME-$VERSION.zip $PROJECT_NAME.app \n\nexit 0";
 		};
 /* End PBXShellScriptBuildPhase section */
 
