@@ -26,5 +26,15 @@
 	<string>NSApplication</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2009 David Ellefsen</string>
+	<key>SUFeedURL</key>
+	<string>http://pdfslide.sourceforge.net/pdfslide.xml</string>
+	<key>SUEnableAutomaticChecks</key>
+	<string>YES</string>
+	<key>SUEnableSystemProfiling</key>
+	<string>NO</string>
+	<key>SUShowReleaseNotes</key>
+	<string>YES</string>
+	<key>SUPublicDSAKeyFile</key>
+	<string></string>
 </dict>
 </plist>

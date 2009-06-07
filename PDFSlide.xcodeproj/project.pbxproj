@@ -24,6 +24,8 @@
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		631039FA0FC01F2100355C3D /* Slide.m in Sources */ = {isa = PBXBuildFile; fileRef = 631039F90FC01F2100355C3D /* Slide.m */; };
+		633880170FDBEFE800B08026 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 633880160FDBEFE800B08026 /* Sparkle.framework */; };
+		633880310FDBF02800B08026 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 633880160FDBEFE800B08026 /* Sparkle.framework */; };
 		634833090FD849010062544D /* Password.icns in Resources */ = {isa = PBXBuildFile; fileRef = 634833080FD849010062544D /* Password.icns */; };
 		636163480FDBD0AD0063BFA4 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 636163470FDBD0AD0063BFA4 /* Preferences.xib */; };
 		6361634C0FDBD0D40063BFA4 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6361634B0FDBD0D40063BFA4 /* PreferencesController.m */; };
@@ -62,6 +64,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		633880300FDBF01B00B08026 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				633880310FDBF02800B08026 /* Sparkle.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
@@ -73,6 +88,7 @@
 		32CA4F630368D1EE00C91783 /* PDFSlide_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFSlide_Prefix.pch; sourceTree = "<group>"; };
 		631039F80FC01F2100355C3D /* Slide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Slide.h; sourceTree = "<group>"; };
 		631039F90FC01F2100355C3D /* Slide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Slide.m; sourceTree = "<group>"; };
+		633880160FDBEFE800B08026 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		634833080FD849010062544D /* Password.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Password.icns; path = icons/Password.icns; sourceTree = "<group>"; };
 		636163470FDBD0AD0063BFA4 /* Preferences.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
 		6361634A0FDBD0D40063BFA4 /* PreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesController.h; sourceTree = "<group>"; };
@@ -125,6 +141,7 @@
 				63C2A7BF0FCDBC95009DE783 /* Carbon.framework in Frameworks */,
 				63C2A7C00FCDBC95009DE783 /* IOKit.framework in Frameworks */,
 				63C2A7C10FCDBC95009DE783 /* System.framework in Frameworks */,
+				633880170FDBEFE800B08026 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +172,7 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				633880160FDBEFE800B08026 /* Sparkle.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 			);
 			name = "Linked Frameworks";
@@ -310,6 +328,7 @@
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
+				633880300FDBF01B00B08026 /* CopyFiles */,
 			);
 			buildRules = (
 			);
