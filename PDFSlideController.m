@@ -165,6 +165,7 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 	
 	//display the Preferences Dialog
 	/*
+	 //Display in a sheet
 	[NSApp beginSheet:[preferencesWindow window]
 	   modalForWindow:[self window]
 		modalDelegate:nil
@@ -172,6 +173,7 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 		  contextInfo:NULL];
 	 */
 	
+	//display as normal window
 	[[preferencesWindow window] center];
 	[[preferencesWindow window] makeKeyAndOrderFront:self];
 	
