@@ -136,6 +136,9 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 		
 		slides = [[Slide alloc] initWithURL:[NSURL fileURLWithPath:filename]];
 		
+		//display the window if needed
+		[[self window] makeKeyAndOrderFront:self];
+		
 		//check to see if the PDF is encrypted
 		if ([slides isEncrypted]) {
 			//show the encrypted sheet - then perform the init
