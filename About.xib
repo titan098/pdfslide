@@ -57,7 +57,7 @@
 							<object class="NSTextFieldCell" key="NSCell" id="502574231">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">138413056</int>
-								<string key="NSContents"/>
+								<string key="NSContents">APPLICATION</string>
 								<object class="NSFont" key="NSSupport">
 									<string key="NSName">LucidaGrande</string>
 									<double key="NSSize">1.300000e+01</double>
@@ -93,7 +93,7 @@
 							<object class="NSTextFieldCell" key="NSCell" id="72850501">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">138544128</int>
-								<string key="NSContents"/>
+								<string key="NSContents">COPYRIGHT</string>
 								<object class="NSFont" key="NSSupport" id="26">
 									<string key="NSName">LucidaGrande</string>
 									<double key="NSSize">1.100000e+01</double>
@@ -113,7 +113,7 @@
 							<object class="NSTextFieldCell" key="NSCell" id="1012625502">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">138544128</int>
-								<string key="NSContents"/>
+								<string key="NSContents">VERSION</string>
 								<reference key="NSSupport" ref="26"/>
 								<reference key="NSControlView" ref="881734950"/>
 								<bool key="NSDrawsBackground">YES</bool>
@@ -505,9 +505,9 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{360, 527}, {527, 213}}</string>
+					<string>{{466, 253}, {527, 213}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{360, 527}, {527, 213}}</string>
+					<string>{{466, 253}, {527, 213}}</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -535,7 +535,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">24</int>
+			<int key="maxID">27</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
