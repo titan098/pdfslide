@@ -59,6 +59,8 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 	[self detectDisplays:self];
 }
 
+#pragma mark Sheets
+
 /**
  * Shows a sheet to display the "encrypted" dialog
  */
@@ -85,12 +87,7 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 		[self initiliseWindow];
 }
 
-/**
- * Handle the "return" key press on the encrypted sheet
- */
-- (void)controlTextDidEndEditing:(NSNotification *)note {
-	[self endEncryptedSheet:self];
-}
+#pragma mark Remote Control
 
 /**
  * Handles any actions from the Apple Remote
@@ -117,6 +114,8 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 		//the button is being held down
 	}
 }
+
+#pragma mark Window Actions
 
 /*
  * Show the open dialog button to allow the user to select a PDF file to open
@@ -218,6 +217,25 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 	}
 }
 
+/**
+ * Detect the screens if they have changed
+ */
+- (IBAction)detectDisplays:(id)sender {
+	//get the screen information in the display toolbar item
+	NSArray *screens = [NSScreen screens];
+	
+	[displayMenu removeAllItems];
+	NSUInteger i, count = [screens count];
+	NSMenu *popup = [displayMenu menu];
+	for (i = 0; i < count; i++) {
+		[popup addItemWithTitle:[NSString stringWithFormat:@"Screen %u",i]
+						 action:nil 
+				  keyEquivalent:@""];
+	}
+}
+
+#pragma mark Notification Handlers
+
 /*
  * Callback - handle a slide change notification
  */
@@ -289,6 +307,8 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 						userInfo:nil];	
 	}
 }
+
+#pragma mark Slide Setup and Navigation
 
 /**
  * Tell the screen to fade to black
@@ -423,23 +443,6 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 	[nextSlide setNeedsDisplay:YES];
 }
 
-/**
- * Detect the screens if they have changed
- */
-- (IBAction)detectDisplays:(id)sender {
-	//get the screen information in the display toolbar item
-	NSArray *screens = [NSScreen screens];
-	
-	[displayMenu removeAllItems];
-	NSUInteger i, count = [screens count];
-	NSMenu *popup = [displayMenu menu];
-	for (i = 0; i < count; i++) {
-		[popup addItemWithTitle:[NSString stringWithFormat:@"Screen %u",i]
-						 action:nil 
-				  keyEquivalent:@""];
-	}
-}
-
 /*
  * Move to the next slide
  */
@@ -484,6 +487,8 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 	[self postSlideChangeNotification];
 }
 
+#pragma mark Keyboard Handlers
+
 /*
  * Manage the keydown event.
  */
@@ -516,6 +521,15 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 - (void)keyDown:(NSEvent *)theEvent {
 	unsigned int keycode = [theEvent keyCode];
 	[self manageKeyDown:keycode];
+}
+
+#pragma mark Control Handlers
+
+/**
+ * Handle the "return" key press on the encrypted sheet
+ */
+- (void)controlTextDidEndEditing:(NSNotification *)note {
+	[self endEncryptedSheet:self];
 }
 
 @end
