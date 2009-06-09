@@ -55,6 +55,7 @@ NSString * const DisplaySlideNumberNotification = @"DisplaySlideNumberChanged";
 			 object:nil];
 	
 	NSLog(@"Notify Display: Slide Notification Observer Registered");
+	intialSlideNumber = 0;
 	
 	return self;
 }
@@ -68,6 +69,16 @@ NSString * const DisplaySlideNumberNotification = @"DisplaySlideNumberChanged";
 	slides = slidesObj;
 	displayScreen = screen;
 	
+	return self;
+}
+
+/**
+ * Initilise the screen controller with a screen, slides and a position
+ */
+- (id)initWithSlidesScreenPos:(id)slidesObj screen:(NSUInteger)screen pos:(NSUInteger)pos {
+	if (![self initWithSlidesScreen:slidesObj screen:screen])
+		return nil;
+	intialSlideNumber = pos;
 	return self;
 }
 
@@ -174,6 +185,7 @@ NSString * const DisplaySlideNumberNotification = @"DisplaySlideNumberChanged";
 - (void) windowDidLoad {
 	//NSLog(@"Nib file is loaded");
 	[pdfSlides setSlide:slides];
+	[pdfSlides setSlideNumber:intialSlideNumber];
 	
 	//move the window to the correct screen
 	NSRect screenFrame = [[[NSScreen screens] objectAtIndex:displayScreen] frame];

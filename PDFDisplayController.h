@@ -36,11 +36,12 @@ extern NSString * const DisplaySlideNumberNotification;
 	
 	Slide *slides;
 	NSUInteger displayScreen;
-	CGDisplayFadeReservationToken displayFadeToken;
+	NSUInteger intialSlideNumber;
 }
 
 - (id)init;
 - (id)initWithSlidesScreen:(id)slidesObj screen:(NSUInteger)screen;
+- (id)initWithSlidesScreenPos:(id)slidesObj screen:(NSUInteger)screen pos:(NSUInteger)pos;
 - (void)dealloc;
 
 - (void)switchFullScreen;

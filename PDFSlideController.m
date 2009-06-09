@@ -360,8 +360,9 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 	if (!pdfDisplay && slides!=nil) {
 		//get the selected display window
 		[self fadeOut];	//fade out the correct screen
-		pdfDisplay = [[PDFDisplayController alloc] initWithSlidesScreen:slides
-																 screen:[displayMenu indexOfSelectedItem]];
+		pdfDisplay = [[PDFDisplayController alloc] initWithSlidesScreenPos:slides
+																	screen:[displayMenu indexOfSelectedItem]
+																	   pos:[currentSlide slideNumber]];
 	} else {
 		return; 
 	}
