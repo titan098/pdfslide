@@ -162,9 +162,11 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
  * Show the Preferences window
  */
 - (IBAction)showPreferencesWindow:(id)sender {
+	/*
 	if (!preferencesWindow) {
 		preferencesWindow = [[PreferencesController alloc] init];
 	}
+	 */
 	
 	//display the Preferences Dialog
 	 //Display in a sheet
@@ -177,8 +179,11 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 	 */
 	
 	//display as normal window
+	/*
 	[[preferencesWindow window] center];
 	[[preferencesWindow window] makeKeyAndOrderFront:self];	
+	*/
+	[[PreferencesController sharedPrefsWindowController] showWindow:nil];
 }
 
 /*

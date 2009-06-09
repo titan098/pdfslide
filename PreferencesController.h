@@ -7,14 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "DBPrefsWindowController.h"
 
 
-@interface PreferencesController : NSObject {
-	IBOutlet NSWindow *window;
-	IBOutlet NSView *generalView;
+@interface PreferencesController : DBPrefsWindowController {
+	IBOutlet NSView* updateView;
 }
 
-- (IBAction)closeWindow:(id)sender;
-
-- (NSWindow*)window;
 @end

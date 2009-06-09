@@ -24,6 +24,7 @@
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		631039FA0FC01F2100355C3D /* Slide.m in Sources */ = {isa = PBXBuildFile; fileRef = 631039F90FC01F2100355C3D /* Slide.m */; };
+		633268F50FDE92C200382285 /* DBPrefsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 633268F40FDE92C200382285 /* DBPrefsWindowController.m */; };
 		633880170FDBEFE800B08026 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 633880160FDBEFE800B08026 /* Sparkle.framework */; };
 		633880310FDBF02800B08026 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 633880160FDBEFE800B08026 /* Sparkle.framework */; };
 		633880CF0FDC0F8B00B08026 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 633880450FDC048D00B08026 /* dsa_pub.pem */; };
@@ -37,6 +38,7 @@
 		638A521A0FD0645900F090AC /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638A52190FD0645900F090AC /* AboutController.m */; };
 		638A52CE0FD071A900F090AC /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 638A52CD0FD071A900F090AC /* Credits.rtf */; };
 		63BCBBCF0FD5B340009CB2ED /* COPYING in Resources */ = {isa = PBXBuildFile; fileRef = 63BCBBCE0FD5B340009CB2ED /* COPYING */; };
+		63C0C0630FDE9CC700D622C5 /* Updates.icns in Resources */ = {isa = PBXBuildFile; fileRef = 63C0C0620FDE9CC700D622C5 /* Updates.icns */; };
 		63C2A7BF0FCDBC95009DE783 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C2A77F0FCDBAB6009DE783 /* Carbon.framework */; };
 		63C2A7C00FCDBC95009DE783 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C2A7800FCDBAB6009DE783 /* IOKit.framework */; };
 		63C2A7C10FCDBC95009DE783 /* System.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C2A7840FCDBADE009DE783 /* System.framework */; };
@@ -89,6 +91,8 @@
 		32CA4F630368D1EE00C91783 /* PDFSlide_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFSlide_Prefix.pch; sourceTree = "<group>"; };
 		631039F80FC01F2100355C3D /* Slide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Slide.h; sourceTree = "<group>"; };
 		631039F90FC01F2100355C3D /* Slide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Slide.m; sourceTree = "<group>"; };
+		633268F30FDE92C200382285 /* DBPrefsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPrefsWindowController.h; sourceTree = "<group>"; };
+		633268F40FDE92C200382285 /* DBPrefsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBPrefsWindowController.m; sourceTree = "<group>"; };
 		633880160FDBEFE800B08026 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		633880450FDC048D00B08026 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		634833080FD849010062544D /* Password.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Password.icns; path = icons/Password.icns; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 		638A52190FD0645900F090AC /* AboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutController.m; sourceTree = "<group>"; };
 		638A52CD0FD071A900F090AC /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		63BCBBCE0FD5B340009CB2ED /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
+		63C0C0620FDE9CC700D622C5 /* Updates.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Updates.icns; sourceTree = "<group>"; };
 		63C2A77F0FCDBAB6009DE783 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		63C2A7800FCDBAB6009DE783 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
 		63C2A7840FCDBADE009DE783 /* System.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = System.framework; path = /System/Library/Frameworks/System.framework; sourceTree = "<absolute>"; };
@@ -153,6 +158,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				633268F30FDE92C200382285 /* DBPrefsWindowController.h */,
+				633268F40FDE92C200382285 /* DBPrefsWindowController.m */,
 				6365A3C70FBF2C0F00895D69 /* PDFSlideController.h */,
 				6365A3C80FBF2C0F00895D69 /* PDFSlideController.m */,
 				6365A4130FBF355000895D69 /* PDFSlideView.h */,
@@ -250,6 +257,7 @@
 		634833030FD847E80062544D /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				63C0C0620FDE9CC700D622C5 /* Updates.icns */,
 				634833080FD849010062544D /* Password.icns */,
 			);
 			name = Icons;
@@ -375,6 +383,7 @@
 				634833090FD849010062544D /* Password.icns in Resources */,
 				636163480FDBD0AD0063BFA4 /* Preferences.xib in Resources */,
 				633880CF0FDC0F8B00B08026 /* dsa_pub.pem in Resources */,
+				63C0C0630FDE9CC700D622C5 /* Updates.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +425,7 @@
 				63C2A7EC0FCDBDB7009DE783 /* RemoteControlContainer.m in Sources */,
 				638A521A0FD0645900F090AC /* AboutController.m in Sources */,
 				6361634C0FDBD0D40063BFA4 /* PreferencesController.m in Sources */,
+				633268F50FDE92C200382285 /* DBPrefsWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

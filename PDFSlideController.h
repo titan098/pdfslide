@@ -52,7 +52,7 @@ extern NSString * const ControllerSlideStopNotification;
 	Slide *slides;
 	PDFSlideController *pdfDisplay;
 	AboutController *aboutWindow;
-	PreferencesController *preferencesWindow;
+	//PreferencesController *preferencesWindow;
 
 	AppleRemote* remoteControl;
 }

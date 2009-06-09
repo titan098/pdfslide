@@ -11,31 +11,8 @@
 
 @implementation PreferencesController
 
-/**
- * Initilises this window
- */
-- (id) init
-{
-	self = [super init];
-	if (self != nil) {
-		//init
-		[NSBundle loadNibNamed:@"Preferences" owner:self];
-	}
-	return self;
-}
-
-/**
- * Closes the window
- */
-- (IBAction)closeWindow:(id)sender {
-	[window close];
-}
-
-/**
- * Returns the NSWindow assosiated with this object
- */
-- (NSWindow*)window {
-	return window;
+- (void)setupToolbar {
+	[self addView:updateView label:@"Updates" image:[NSImage imageNamed:@"Updates.icns"]];
 }
 
 @end
