@@ -50,11 +50,12 @@ extern NSString * const ControllerSlideStopNotification;
 	IBOutlet NSSecureTextField* pdfPassword;
 	
 	Slide *slides;
-	PDFSlideController *pdfDisplay;
+	NSWindowController *pdfDisplay;
 	AboutController *aboutWindow;
-	//PreferencesController *preferencesWindow;
-
+	
 	AppleRemote* remoteControl;
+
+	BOOL faded;
 }
 
 - (void)dealloc;

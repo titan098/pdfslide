@@ -44,6 +44,7 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
  */
 - (void) awakeFromNib {
 	slides = nil;
+	faded = NO;
 	
 	//center the controller
 	[[self window] center];
@@ -161,27 +162,6 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
  * Show the Preferences window
  */
 - (IBAction)showPreferencesWindow:(id)sender {
-	/*
-	if (!preferencesWindow) {
-		preferencesWindow = [[PreferencesController alloc] init];
-	}
-	 */
-	
-	//display the Preferences Dialog
-	 //Display in a sheet
-	/*
-	[NSApp beginSheet:[preferencesWindow window]
-	   modalForWindow:[self window]
-		modalDelegate:nil
-	   didEndSelector:NULL
-		  contextInfo:NULL];
-	 */
-	
-	//display as normal window
-	/*
-	[[preferencesWindow window] center];
-	[[preferencesWindow window] makeKeyAndOrderFront:self];	
-	*/
 	[[PreferencesController sharedPrefsWindowController] showWindow:nil];
 }
 
@@ -339,6 +319,7 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 	}
 	
 	err = CGDisplayCapture ([displayMenu indexOfSelectedItem]);
+	faded = YES;
 }
 
 /**
@@ -367,6 +348,7 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 		usleep (kMySleepTime);
 	}
 	CGDisplayRestoreColorSyncSettings(); 
+	faded=NO;
 }
 
 /*
@@ -493,20 +475,29 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
  * Manage the keydown event.
  */
 - (void)manageKeyDown:(NSUInteger)keycode {
+	//are we faded out - if so fade in
+	if (pdfDisplay && faded && keycode!=11)
+		[self fadeIn];
+	
 	switch (keycode) {
-		case 123:
-			//Left arrow
+		case 123:	/* LEFT ARROW */
 			NSLog(@"Keydown Event - Left Arrow");
 			[self reverseSlides:self];
 			break;
-		case 124:
-			//Right arrow
+		case 124:	/*RIGHT ARROW*/
 			NSLog(@"Keydown Event - Right Arrow");
 			[self advanceSlides:self];
 			break;
-		case 12:
-			//q button - stop the slide show
+		case 12:	/* Q KEY */
 			[self stopSlides:self];
+			break;
+		case 11:	/* B KEY */
+			if (pdfDisplay)
+				if (!faded)
+					[self fadeOut];
+				else
+					[self fadeIn];
+			
 			break;
 			
 		default:
