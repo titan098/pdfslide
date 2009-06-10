@@ -162,6 +162,7 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
  * Show the Preferences window
  */
 - (IBAction)showPreferencesWindow:(id)sender {
+	[[self window] makeKeyWindow];	//make the controller the key window
 	[[PreferencesController sharedPrefsWindowController] showWindow:nil];
 }
 
