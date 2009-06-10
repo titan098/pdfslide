@@ -37,8 +37,8 @@
 		638A52110FD05FCB00F090AC /* About.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638A52100FD05FCB00F090AC /* About.xib */; };
 		638A521A0FD0645900F090AC /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638A52190FD0645900F090AC /* AboutController.m */; };
 		638A52CE0FD071A900F090AC /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 638A52CD0FD071A900F090AC /* Credits.rtf */; };
+		638F55190FE03911006F4685 /* Updates.icns in Resources */ = {isa = PBXBuildFile; fileRef = 638F55180FE03911006F4685 /* Updates.icns */; };
 		63BCBBCF0FD5B340009CB2ED /* COPYING in Resources */ = {isa = PBXBuildFile; fileRef = 63BCBBCE0FD5B340009CB2ED /* COPYING */; };
-		63C0C0630FDE9CC700D622C5 /* Updates.icns in Resources */ = {isa = PBXBuildFile; fileRef = 63C0C0620FDE9CC700D622C5 /* Updates.icns */; };
 		63C2A7BF0FCDBC95009DE783 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C2A77F0FCDBAB6009DE783 /* Carbon.framework */; };
 		63C2A7C00FCDBC95009DE783 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C2A7800FCDBAB6009DE783 /* IOKit.framework */; };
 		63C2A7C10FCDBC95009DE783 /* System.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C2A7840FCDBADE009DE783 /* System.framework */; };
@@ -109,8 +109,8 @@
 		638A52180FD0645900F090AC /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
 		638A52190FD0645900F090AC /* AboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutController.m; sourceTree = "<group>"; };
 		638A52CD0FD071A900F090AC /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
+		638F55180FE03911006F4685 /* Updates.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Updates.icns; path = icons/Updates.icns; sourceTree = "<group>"; };
 		63BCBBCE0FD5B340009CB2ED /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
-		63C0C0620FDE9CC700D622C5 /* Updates.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Updates.icns; sourceTree = "<group>"; };
 		63C2A77F0FCDBAB6009DE783 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		63C2A7800FCDBAB6009DE783 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
 		63C2A7840FCDBADE009DE783 /* System.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = System.framework; path = /System/Library/Frameworks/System.framework; sourceTree = "<absolute>"; };
@@ -257,7 +257,7 @@
 		634833030FD847E80062544D /* Icons */ = {
 			isa = PBXGroup;
 			children = (
-				63C0C0620FDE9CC700D622C5 /* Updates.icns */,
+				638F55180FE03911006F4685 /* Updates.icns */,
 				634833080FD849010062544D /* Password.icns */,
 			);
 			name = Icons;
@@ -383,7 +383,7 @@
 				634833090FD849010062544D /* Password.icns in Resources */,
 				636163480FDBD0AD0063BFA4 /* Preferences.xib in Resources */,
 				633880CF0FDC0F8B00B08026 /* dsa_pub.pem in Resources */,
-				63C0C0630FDE9CC700D622C5 /* Updates.icns in Resources */,
+				638F55190FE03911006F4685 /* Updates.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
