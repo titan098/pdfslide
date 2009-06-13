@@ -191,6 +191,10 @@ NSString * const DisplaySlideNumberNotification = @"DisplaySlideNumberChanged";
 	NSRect screenFrame = [[[NSScreen screens] objectAtIndex:displayScreen] frame];
 	[[self window] setFrame:screenFrame display:NO];
 	
+	//the PDFView can't send notifications
+	//but it can recieve them
+	[pdfSlides setCanRecieveNotifications:YES];
+	
 	//switch to fullscreen
 	if (![pdfSlides isInFullScreenMode]) 
 		[self switchFullScreen];

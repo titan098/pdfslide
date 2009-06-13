@@ -114,6 +114,32 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 }
 
 /**
+ * Scale a NSRect by the bounds of the view
+ * Get range between 0 and 1
+ */
+- (NSRect)scaleDownNSRect:(NSRect)rect {
+	NSRect newRect;
+	NSRect bounds = [self bounds];
+	newRect.size = rect.size;
+	newRect.origin.x = rect.origin.x/bounds.size.width;
+	newRect.origin.y = rect.origin.y/bounds.size.height;
+	return newRect;
+}
+
+/**
+ * Scale a NSRect by the bounds of the view
+ * Get range between 0 and 1
+ */
+- (NSRect)scaleUpNSRect:(NSRect)rect {
+	NSRect newRect;
+	NSRect bounds = [self bounds];
+	newRect.size = rect.size;
+	newRect.origin.x = rect.origin.x*bounds.size.width;
+	newRect.origin.y = rect.origin.y*bounds.size.height;
+	return newRect;
+}
+
+/**
  * Posts an annotation notification
  */
 - (void)postAnnotationNotification {
@@ -124,7 +150,7 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 	
 	//populate the dictionary based on the tool being used
 	//need to send the bounds of this view to calculate where to draw the annotations
-	[d setObject:NSStringFromRect([self bounds]) forKey:@"OriginalViewBounds"];
+	//[d setObject:NSStringFromRect([self bounds]) forKey:@"OriginalViewBounds"];
 	[d setObject:[NSNumber numberWithInt:annotationTool] forKey:@"AnnotationTool"];
 	[d setObject:toolColour forKey:@"AnnotationColour"];
 	
@@ -132,7 +158,7 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 		case ANNOTATE_POINTER:
 			//send the pointers new location
 			[d setObject:[NSNumber numberWithBool:showPointer] forKey:@"PointerShow"];
-			[d setObject:NSStringFromRect(pointerLocation) forKey:@"PointerLocation"];
+			[d setObject:NSStringFromRect([self scaleDownNSRect:pointerLocation]) forKey:@"PointerLocation"];
 			break;
 		default:
 			break;
@@ -151,12 +177,12 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 	//get the tool that was being used
 	NSUInteger tool = [[[note userInfo] objectForKey:@"AnnotationTool"] intValue];
 	toolColour = [[note userInfo] objectForKey:@"AnnotationColour"];
-	NSRect OriginalBounds = NSRectFromString([[note userInfo] objectForKey:@"OriginalViewBounds"]);
+	//NSRect OriginalBounds = NSRectFromString([[note userInfo] objectForKey:@"OriginalViewBounds"]);
 	
 	switch (tool) {
 		case ANNOTATE_POINTER:
 			showPointer = [[[note userInfo] objectForKey:@"PointerShow"] boolValue];
-			pointerLocation = NSRectFromString([[note userInfo] objectForKey:@"PointerLocation"]);
+			pointerLocation = [self scaleUpNSRect:NSRectFromString([[note userInfo] objectForKey:@"PointerLocation"])];
 			break;
 		default:
 			break;

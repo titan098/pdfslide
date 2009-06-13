@@ -61,7 +61,6 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 	
 	//TODO FOR TESTING ANNOTATIONS
 	[currentSlide setCanSendNotifications:YES];
-	[nextSlide setCanRecieveNotifications:YES];
 }
 
 #pragma mark Sheets
