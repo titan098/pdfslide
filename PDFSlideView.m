@@ -41,7 +41,7 @@ NSString * const PDFViewKeyPressNotification = @"PDFViewKeyPressed";
 
 - (void)drawRect:(NSRect)rect {
     //set the view to initially be black
-	//[NSGraphicsContext saveGraphicsState];
+	[NSGraphicsContext saveGraphicsState];
 	
 	NSRect bounds = [self bounds];
 	[[NSColor blackColor] set];	//set the drawing color
@@ -86,7 +86,7 @@ NSString * const PDFViewKeyPressNotification = @"PDFViewKeyPressed";
 	} 
 	
 	//draw the view
-	//[NSGraphicsContext restoreGraphicsState];
+	[NSGraphicsContext restoreGraphicsState];
 }
 
 /**

@@ -25,6 +25,7 @@
 #import "AppleRemote/AppleRemote.h"
 #import "Slide.h"
 #import "PDFSlideView.h"
+#import "PDFSlideAnnotatedView.h"
 #import "TimerView.h"
 #import "PDFDisplayController.h"
 #import "AboutController.h"
@@ -43,7 +44,7 @@ extern NSString * const ControllerSlideStopNotification;
 	
 	IBOutlet TimerView *currentTime;
 	IBOutlet TimerView *counterView;
-	IBOutlet PDFSlideView *currentSlide;
+	IBOutlet PDFSlideAnnotatedView *currentSlide;
 	IBOutlet PDFSlideView *nextSlide;
 	
 	IBOutlet NSWindow* PDFPasswordWindow;

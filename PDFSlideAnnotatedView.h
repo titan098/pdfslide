@@ -24,9 +24,24 @@
 #import <Cocoa/Cocoa.h>
 #import "PDFSlideView.h"
 
+//define the type of annotation
+#define ANNOTATE_POINTER 1
 
 @interface PDFSlideAnnotatedView : PDFSlideView {
-
+	NSUInteger annotationTool;
+	
+	NSColor* toolColour;
+	//NSPoint pointerLocation;
+	NSRect pointerLocation;
+	BOOL showPointer;
 }
+
+@property(readwrite) NSUInteger annotationTool;
+@property(readwrite) BOOL showPointer;
+@property(copy) NSColor* toolColour;
+
+#pragma mark Tool Methods
+
+- (void)setPointerLocation:(NSPoint) pointer;
 
 @end
