@@ -31,6 +31,8 @@ extern NSString * const PDFViewKeyPressNotification;
 @interface PDFSlideView : NSView {
 	Slide *slide;
 	NSUInteger slideNumber;
+	
+	NSRect pagebounds;	//bounds od the PDF that was drawn
 }
 
 @property(readwrite) NSUInteger slideNumber;

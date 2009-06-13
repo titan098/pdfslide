@@ -55,7 +55,7 @@ NSString * const PDFViewKeyPressNotification = @"PDFViewKeyPressed";
 		PDFPage *slidePage = [slide pageAtIndex:slideNumber];
 		
 		//calculate the correct transformation and scaling values
-		NSRect pagebounds = [slidePage boundsForBox:kPDFDisplayBoxMediaBox];
+		pagebounds = [slidePage boundsForBox:kPDFDisplayBoxMediaBox];
 		CGFloat rotation = [slidePage rotation];
 		
 		// if the pdfpage is rotated by 90deg swap the height and width
@@ -83,6 +83,12 @@ NSString * const PDFViewKeyPressNotification = @"PDFViewKeyPressed";
 		[[NSColor whiteColor] set];
 		[NSBezierPath fillRect:pagebounds];
 		[slidePage drawWithBox:kPDFDisplayBoxMediaBox];
+		
+		//store the scaled pagebounds
+		pagebounds.origin.x = deltaX;
+		pagebounds.origin.y = deltaY;
+		pagebounds.size.width *= scale;
+		pagebounds.size.height *= scale;
 	} 
 	
 	//draw the view

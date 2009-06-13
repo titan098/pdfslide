@@ -77,7 +77,8 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
  * Sets the location of the "pointer" on the view
  */
 - (void)setPointerLocation:(NSPoint) pointer {
-	pointerLocation.origin = pointer;
+	pointerLocation.origin.x = (pointer.x)-(pointerLocation.size.width/2);
+	pointerLocation.origin.y = (pointer.y)-(pointerLocation.size.height/2);
 }
 
 
@@ -119,10 +120,9 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
  */
 - (NSRect)scaleDownNSRect:(NSRect)rect {
 	NSRect newRect;
-	NSRect bounds = [self bounds];
 	newRect.size = rect.size;
-	newRect.origin.x = rect.origin.x/bounds.size.width;
-	newRect.origin.y = rect.origin.y/bounds.size.height;
+	newRect.origin.x = (rect.origin.x-pagebounds.origin.x)/pagebounds.size.width;
+	newRect.origin.y = (rect.origin.y-pagebounds.origin.y)/pagebounds.size.height;
 	return newRect;
 }
 
@@ -132,10 +132,9 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
  */
 - (NSRect)scaleUpNSRect:(NSRect)rect {
 	NSRect newRect;
-	NSRect bounds = [self bounds];
 	newRect.size = rect.size;
-	newRect.origin.x = rect.origin.x*bounds.size.width;
-	newRect.origin.y = rect.origin.y*bounds.size.height;
+	newRect.origin.x = (rect.origin.x*pagebounds.size.width)+pagebounds.origin.x;
+	newRect.origin.y = (rect.origin.y*pagebounds.size.height)+pagebounds.origin.y;
 	return newRect;
 }
 
