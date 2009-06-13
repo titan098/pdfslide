@@ -28,6 +28,7 @@
 		633880170FDBEFE800B08026 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 633880160FDBEFE800B08026 /* Sparkle.framework */; };
 		633880310FDBF02800B08026 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 633880160FDBEFE800B08026 /* Sparkle.framework */; };
 		633880CF0FDC0F8B00B08026 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 633880450FDC048D00B08026 /* dsa_pub.pem */; };
+		63398C940FE3D4C1007B0E91 /* PDFSlideAnnotatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63398C930FE3D4C1007B0E91 /* PDFSlideAnnotatedView.m */; };
 		634833090FD849010062544D /* Password.icns in Resources */ = {isa = PBXBuildFile; fileRef = 634833080FD849010062544D /* Password.icns */; };
 		636163480FDBD0AD0063BFA4 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 636163470FDBD0AD0063BFA4 /* Preferences.xib */; };
 		6361634C0FDBD0D40063BFA4 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6361634B0FDBD0D40063BFA4 /* PreferencesController.m */; };
@@ -95,6 +96,8 @@
 		633268F40FDE92C200382285 /* DBPrefsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBPrefsWindowController.m; sourceTree = "<group>"; };
 		633880160FDBEFE800B08026 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		633880450FDC048D00B08026 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
+		63398C920FE3D4C1007B0E91 /* PDFSlideAnnotatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFSlideAnnotatedView.h; sourceTree = "<group>"; };
+		63398C930FE3D4C1007B0E91 /* PDFSlideAnnotatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFSlideAnnotatedView.m; sourceTree = "<group>"; };
 		634833080FD849010062544D /* Password.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Password.icns; path = icons/Password.icns; sourceTree = "<group>"; };
 		636163470FDBD0AD0063BFA4 /* Preferences.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
 		6361634A0FDBD0D40063BFA4 /* PreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesController.h; sourceTree = "<group>"; };
@@ -174,6 +177,8 @@
 				638A52190FD0645900F090AC /* AboutController.m */,
 				6361634A0FDBD0D40063BFA4 /* PreferencesController.h */,
 				6361634B0FDBD0D40063BFA4 /* PreferencesController.m */,
+				63398C920FE3D4C1007B0E91 /* PDFSlideAnnotatedView.h */,
+				63398C930FE3D4C1007B0E91 /* PDFSlideAnnotatedView.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -426,6 +431,7 @@
 				638A521A0FD0645900F090AC /* AboutController.m in Sources */,
 				6361634C0FDBD0D40063BFA4 /* PreferencesController.m in Sources */,
 				633268F50FDE92C200382285 /* DBPrefsWindowController.m in Sources */,
+				63398C940FE3D4C1007B0E91 /* PDFSlideAnnotatedView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -3,7 +3,7 @@
 //  PDFSlide
 //
 //  Created by David on 2009/06/13.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 David Ellefsen. All rights reserved.
 //
 // This file is part of PDFSlide.
 //
