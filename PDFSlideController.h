@@ -45,7 +45,7 @@ extern NSString * const ControllerSlideStopNotification;
 	IBOutlet TimerView *currentTime;
 	IBOutlet TimerView *counterView;
 	IBOutlet PDFSlideAnnotatedView *currentSlide;
-	IBOutlet PDFSlideView *nextSlide;
+	IBOutlet PDFSlideAnnotatedView *nextSlide;
 	
 	IBOutlet NSWindow* PDFPasswordWindow;
 	IBOutlet NSSecureTextField* pdfPassword;

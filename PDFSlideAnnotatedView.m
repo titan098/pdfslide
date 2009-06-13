@@ -23,6 +23,9 @@
 
 #import "PDFSlideAnnotatedView.h"
 
+//define notification strings
+NSString * const AnnotationNotification = @"AnnotationNotification";
+
 @implementation PDFSlideAnnotatedView
 
 @synthesize annotationTool;
@@ -36,6 +39,8 @@
     self = [super initWithFrame:frame];
     if (self) {
 		annotationTool = ANNOTATE_POINTER;
+		canSendNotifications = YES;
+		canRecieveNotifications = NO;
 		
 		pointerLocation.size.height = 10;
 		pointerLocation.size.width = 10;
@@ -68,10 +73,98 @@
 
 #pragma mark Tool Methods
 
+/**
+ * Sets the location of the "pointer" on the view
+ */
 - (void)setPointerLocation:(NSPoint) pointer {
 	pointerLocation.origin = pointer;
 }
 
+
+#pragma mark Notification Methods
+
+/**
+ * Sets this view to send annotation notifications
+ */
+- (void)setCanSendNotifications:(BOOL) yesno {
+	canSendNotifications = yesno;
+	canRecieveNotifications = !yesno;
+	
+	//remove the notifcation observer - if exists
+	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+	[nc removeObserver:self
+				  name:AnnotationNotification
+				object:nil];
+}
+
+
+/**
+ * Sets this view to recieve annotation notifications
+ */
+- (void)setCanRecieveNotifications:(BOOL) yesno {
+	canRecieveNotifications = yesno;
+	canSendNotifications = !yesno;
+	
+	//add a notification observer
+	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+	[nc addObserver:self
+		   selector:@selector(handleAnnotationNotification:)
+			   name:AnnotationNotification
+			 object:nil];
+}
+
+/**
+ * Posts an annotation notification
+ */
+- (void)postAnnotationNotification {
+	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+	
+	//sets the user options dictionary
+	NSMutableDictionary *d = [NSMutableDictionary dictionaryWithCapacity:2];
+	
+	//populate the dictionary based on the tool being used
+	//need to send the bounds of this view to calculate where to draw the annotations
+	[d setObject:NSStringFromRect([self bounds]) forKey:@"OriginalViewBounds"];
+	[d setObject:[NSNumber numberWithInt:annotationTool] forKey:@"AnnotationTool"];
+	[d setObject:toolColour forKey:@"AnnotationColour"];
+	
+	switch (annotationTool) {
+		case ANNOTATE_POINTER:
+			//send the pointers new location
+			[d setObject:[NSNumber numberWithBool:showPointer] forKey:@"PointerShow"];
+			[d setObject:NSStringFromRect(pointerLocation) forKey:@"PointerLocation"];
+			break;
+		default:
+			break;
+	}
+	
+	//post the notification
+	[nc postNotificationName:AnnotationNotification
+					  object:self
+					userInfo:d];
+}
+
+/**
+ * Handle a annotation notification that has been recieved
+ */
+- (void)handleAnnotationNotification:(NSNotification *)note {
+	//get the tool that was being used
+	NSUInteger tool = [[[note userInfo] objectForKey:@"AnnotationTool"] intValue];
+	toolColour = [[note userInfo] objectForKey:@"AnnotationColour"];
+	NSRect OriginalBounds = NSRectFromString([[note userInfo] objectForKey:@"OriginalViewBounds"]);
+	
+	switch (tool) {
+		case ANNOTATE_POINTER:
+			showPointer = [[[note userInfo] objectForKey:@"PointerShow"] boolValue];
+			pointerLocation = NSRectFromString([[note userInfo] objectForKey:@"PointerLocation"]);
+			break;
+		default:
+			break;
+	}
+	
+	//redraw the display
+	[self setNeedsDisplay:YES];
+}
 
 #pragma mark Event Handlers
 
@@ -93,6 +186,7 @@
 	}
 		
 	//redraw the display
+	[self postAnnotationNotification];
 	[self setNeedsDisplay:YES];
 }
 
@@ -110,6 +204,7 @@
 	}
 	
 	//redraw the view
+	[self postAnnotationNotification];
 	[self setNeedsDisplay:YES];
 }
 
@@ -127,6 +222,7 @@
 	}	
 	
 	//update the view
+	[self postAnnotationNotification];
 	[self setNeedsDisplay:YES];
 }
 

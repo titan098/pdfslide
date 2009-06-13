@@ -27,13 +27,19 @@
 //define the type of annotation
 #define ANNOTATE_POINTER 1
 
+//set a notification string
+extern NSString * const AnnotationNotification;
+
 @interface PDFSlideAnnotatedView : PDFSlideView {
 	NSUInteger annotationTool;
 	
 	NSColor* toolColour;
-	//NSPoint pointerLocation;
+	
 	NSRect pointerLocation;
 	BOOL showPointer;
+	
+	BOOL canSendNotifications;
+	BOOL canRecieveNotifications;
 }
 
 @property(readwrite) NSUInteger annotationTool;
@@ -43,5 +49,12 @@
 #pragma mark Tool Methods
 
 - (void)setPointerLocation:(NSPoint) pointer;
+
+#pragma mark Notification Methods
+- (void)setCanSendNotifications:(BOOL) yesno;
+- (void)setCanRecieveNotifications:(BOOL) yesno;
+
+- (void)postAnnotationNotification;
+- (void)handleAnnotationNotification:(NSNotification *)note;
 
 @end

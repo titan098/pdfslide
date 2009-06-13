@@ -58,6 +58,10 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 
 	//populate the Displays pop-up
 	[self detectDisplays:self];
+	
+	//TODO FOR TESTING ANNOTATIONS
+	[currentSlide setCanSendNotifications:YES];
+	[nextSlide setCanRecieveNotifications:YES];
 }
 
 #pragma mark Sheets

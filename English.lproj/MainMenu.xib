@@ -896,7 +896,7 @@ ARcABAAAAAEAAAACARwAAwAAAAEAAQAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 											<int key="NSvFlags">274</int>
 											<string key="NSFrame">{{18, 14}, {377, 385}}</string>
 											<reference key="NSSuperview" ref="403181586"/>
-											<string key="NSClassName">PDFSlideView</string>
+											<string key="NSClassName">PDFSlideAnnotatedView</string>
 										</object>
 									</object>
 									<string key="NSFrame">{{1, 1}, {413, 409}}</string>
@@ -2674,7 +2674,7 @@ ARcABAAAAAEAAAACARwAAwAAAAEAAQAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>NSWindow</string>
 							<string>TimerView</string>
-							<string>PDFSlideView</string>
+							<string>PDFSlideAnnotatedView</string>
 							<string>TimerView</string>
 							<string>NSPopUpButton</string>
 							<string>PDFSlideView</string>
