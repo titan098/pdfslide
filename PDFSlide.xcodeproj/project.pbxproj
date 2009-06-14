@@ -23,13 +23,14 @@
 
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
+		630D89AB0FE5254F00A85A6C /* PSPassword.icns in Resources */ = {isa = PBXBuildFile; fileRef = 630D89A90FE5254F00A85A6C /* PSPassword.icns */; };
+		630D89AC0FE5254F00A85A6C /* PSUpdate.icns in Resources */ = {isa = PBXBuildFile; fileRef = 630D89AA0FE5254F00A85A6C /* PSUpdate.icns */; };
 		631039FA0FC01F2100355C3D /* Slide.m in Sources */ = {isa = PBXBuildFile; fileRef = 631039F90FC01F2100355C3D /* Slide.m */; };
 		633268F50FDE92C200382285 /* DBPrefsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 633268F40FDE92C200382285 /* DBPrefsWindowController.m */; };
 		633880170FDBEFE800B08026 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 633880160FDBEFE800B08026 /* Sparkle.framework */; };
 		633880310FDBF02800B08026 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 633880160FDBEFE800B08026 /* Sparkle.framework */; };
 		633880CF0FDC0F8B00B08026 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 633880450FDC048D00B08026 /* dsa_pub.pem */; };
 		63398C940FE3D4C1007B0E91 /* PDFSlideAnnotatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63398C930FE3D4C1007B0E91 /* PDFSlideAnnotatedView.m */; };
-		634833090FD849010062544D /* Password.icns in Resources */ = {isa = PBXBuildFile; fileRef = 634833080FD849010062544D /* Password.icns */; };
 		636163480FDBD0AD0063BFA4 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 636163470FDBD0AD0063BFA4 /* Preferences.xib */; };
 		6361634C0FDBD0D40063BFA4 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6361634B0FDBD0D40063BFA4 /* PreferencesController.m */; };
 		6365A3C90FBF2C0F00895D69 /* PDFSlideController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6365A3C80FBF2C0F00895D69 /* PDFSlideController.m */; };
@@ -38,7 +39,6 @@
 		638A52110FD05FCB00F090AC /* About.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638A52100FD05FCB00F090AC /* About.xib */; };
 		638A521A0FD0645900F090AC /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638A52190FD0645900F090AC /* AboutController.m */; };
 		638A52CE0FD071A900F090AC /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 638A52CD0FD071A900F090AC /* Credits.rtf */; };
-		638F55190FE03911006F4685 /* Updates.icns in Resources */ = {isa = PBXBuildFile; fileRef = 638F55180FE03911006F4685 /* Updates.icns */; };
 		63BCBBCF0FD5B340009CB2ED /* COPYING in Resources */ = {isa = PBXBuildFile; fileRef = 63BCBBCE0FD5B340009CB2ED /* COPYING */; };
 		63C2A7BF0FCDBC95009DE783 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C2A77F0FCDBAB6009DE783 /* Carbon.framework */; };
 		63C2A7C00FCDBC95009DE783 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C2A7800FCDBAB6009DE783 /* IOKit.framework */; };
@@ -52,6 +52,9 @@
 		63C2A7EC0FCDBDB7009DE783 /* RemoteControlContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C2A7E80FCDBDB7009DE783 /* RemoteControlContainer.m */; };
 		63F6E9930FC09FB0006BC158 /* PDFDisplay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F6E9920FC09FB0006BC158 /* PDFDisplay.xib */; };
 		63F6E9990FC0A06A006BC158 /* PDFDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F6E9980FC0A06A006BC158 /* PDFDisplayController.m */; };
+		63FBF97C0FE4FB13007577B6 /* Annotate.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63FBF97B0FE4FB13007577B6 /* Annotate.xib */; };
+		63FBF9830FE4FC2A007577B6 /* PDFAnnotatedController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FBF9820FE4FC2A007577B6 /* PDFAnnotatedController.m */; };
+		63FBFACE0FE524A1007577B6 /* PSOk.icns in Resources */ = {isa = PBXBuildFile; fileRef = 63FBFACD0FE524A1007577B6 /* PSOk.icns */; };
 		63FCE6540FC02634001E634B /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63FCE6530FC02634001E634B /* Quartz.framework */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -90,6 +93,8 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32CA4F630368D1EE00C91783 /* PDFSlide_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFSlide_Prefix.pch; sourceTree = "<group>"; };
+		630D89A90FE5254F00A85A6C /* PSPassword.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = PSPassword.icns; path = icons/PSPassword.icns; sourceTree = "<group>"; };
+		630D89AA0FE5254F00A85A6C /* PSUpdate.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = PSUpdate.icns; path = icons/PSUpdate.icns; sourceTree = "<group>"; };
 		631039F80FC01F2100355C3D /* Slide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Slide.h; sourceTree = "<group>"; };
 		631039F90FC01F2100355C3D /* Slide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Slide.m; sourceTree = "<group>"; };
 		633268F30FDE92C200382285 /* DBPrefsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPrefsWindowController.h; sourceTree = "<group>"; };
@@ -98,7 +103,6 @@
 		633880450FDC048D00B08026 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		63398C920FE3D4C1007B0E91 /* PDFSlideAnnotatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFSlideAnnotatedView.h; sourceTree = "<group>"; };
 		63398C930FE3D4C1007B0E91 /* PDFSlideAnnotatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFSlideAnnotatedView.m; sourceTree = "<group>"; };
-		634833080FD849010062544D /* Password.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Password.icns; path = icons/Password.icns; sourceTree = "<group>"; };
 		636163470FDBD0AD0063BFA4 /* Preferences.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
 		6361634A0FDBD0D40063BFA4 /* PreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesController.h; sourceTree = "<group>"; };
 		6361634B0FDBD0D40063BFA4 /* PreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesController.m; sourceTree = "<group>"; };
@@ -112,7 +116,6 @@
 		638A52180FD0645900F090AC /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
 		638A52190FD0645900F090AC /* AboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutController.m; sourceTree = "<group>"; };
 		638A52CD0FD071A900F090AC /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
-		638F55180FE03911006F4685 /* Updates.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Updates.icns; path = icons/Updates.icns; sourceTree = "<group>"; };
 		63BCBBCE0FD5B340009CB2ED /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
 		63C2A77F0FCDBAB6009DE783 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		63C2A7800FCDBAB6009DE783 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
@@ -136,6 +139,10 @@
 		63F6E9920FC09FB0006BC158 /* PDFDisplay.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PDFDisplay.xib; sourceTree = "<group>"; };
 		63F6E9970FC0A06A006BC158 /* PDFDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFDisplayController.h; sourceTree = "<group>"; };
 		63F6E9980FC0A06A006BC158 /* PDFDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFDisplayController.m; sourceTree = "<group>"; };
+		63FBF97B0FE4FB13007577B6 /* Annotate.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Annotate.xib; sourceTree = "<group>"; };
+		63FBF9810FE4FC2A007577B6 /* PDFAnnotatedController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFAnnotatedController.h; sourceTree = "<group>"; };
+		63FBF9820FE4FC2A007577B6 /* PDFAnnotatedController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFAnnotatedController.m; sourceTree = "<group>"; };
+		63FBFACD0FE524A1007577B6 /* PSOk.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = PSOk.icns; path = icons/PSOk.icns; sourceTree = "<group>"; };
 		63FCE6530FC02634001E634B /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = /System/Library/Frameworks/Quartz.framework; sourceTree = "<absolute>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* PDFSlide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PDFSlide.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,6 +186,8 @@
 				6361634B0FDBD0D40063BFA4 /* PreferencesController.m */,
 				63398C920FE3D4C1007B0E91 /* PDFSlideAnnotatedView.h */,
 				63398C930FE3D4C1007B0E91 /* PDFSlideAnnotatedView.m */,
+				63FBF9810FE4FC2A007577B6 /* PDFAnnotatedController.h */,
+				63FBF9820FE4FC2A007577B6 /* PDFAnnotatedController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -246,6 +255,7 @@
 				638A52CD0FD071A900F090AC /* Credits.rtf */,
 				636163470FDBD0AD0063BFA4 /* Preferences.xib */,
 				633880450FDC048D00B08026 /* dsa_pub.pem */,
+				63FBF97B0FE4FB13007577B6 /* Annotate.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -262,8 +272,9 @@
 		634833030FD847E80062544D /* Icons */ = {
 			isa = PBXGroup;
 			children = (
-				638F55180FE03911006F4685 /* Updates.icns */,
-				634833080FD849010062544D /* Password.icns */,
+				630D89A90FE5254F00A85A6C /* PSPassword.icns */,
+				630D89AA0FE5254F00A85A6C /* PSUpdate.icns */,
+				63FBFACD0FE524A1007577B6 /* PSOk.icns */,
 			);
 			name = Icons;
 			sourceTree = "<group>";
@@ -385,10 +396,12 @@
 				638A52110FD05FCB00F090AC /* About.xib in Resources */,
 				638A52CE0FD071A900F090AC /* Credits.rtf in Resources */,
 				63BCBBCF0FD5B340009CB2ED /* COPYING in Resources */,
-				634833090FD849010062544D /* Password.icns in Resources */,
 				636163480FDBD0AD0063BFA4 /* Preferences.xib in Resources */,
 				633880CF0FDC0F8B00B08026 /* dsa_pub.pem in Resources */,
-				638F55190FE03911006F4685 /* Updates.icns in Resources */,
+				63FBF97C0FE4FB13007577B6 /* Annotate.xib in Resources */,
+				63FBFACE0FE524A1007577B6 /* PSOk.icns in Resources */,
+				630D89AB0FE5254F00A85A6C /* PSPassword.icns in Resources */,
+				630D89AC0FE5254F00A85A6C /* PSUpdate.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +445,7 @@
 				6361634C0FDBD0D40063BFA4 /* PreferencesController.m in Sources */,
 				633268F50FDE92C200382285 /* DBPrefsWindowController.m in Sources */,
 				63398C940FE3D4C1007B0E91 /* PDFSlideAnnotatedView.m in Sources */,
+				63FBF9830FE4FC2A007577B6 /* PDFAnnotatedController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

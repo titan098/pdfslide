@@ -61,6 +61,7 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 	
 	//TODO FOR TESTING ANNOTATIONS
 	[currentSlide setCanSendNotifications:YES];
+	[nextSlide setCanRecieveNotifications:YES];
 }
 
 #pragma mark Sheets
@@ -167,6 +168,35 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 - (IBAction)showPreferencesWindow:(id)sender {
 	[[self window] makeKeyWindow];	//make the controller the key window
 	[[PreferencesController sharedPrefsWindowController] showWindow:nil];
+}
+
+/**
+ * End the display of the Annoated Sheet
+ */
+/*
+- (void)endAnnotatedSheet:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo {
+}
+ */
+
+/**
+ * Show the Annotated window
+ */
+- (IBAction)showAnnotateSheet:(id)sender {
+	if (!annotatedWindow)
+		annotatedWindow = [[PDFAnnotatedController alloc] init];
+	
+	[NSApp runModalForWindow:[annotatedWindow window]];
+	
+	//	[[annotatedWindow window] center];
+	//	[[annotatedWindow window] makeKeyAndOrderFront:self];
+	/*
+	 // The sheet is unfortuntaly to slow
+	[NSApp beginSheet:[annotatedWindow window]
+	   modalForWindow:[self window]
+		modalDelegate:self
+	   didEndSelector:@selector(endAnnotatedSheet:returnCode:contextInfo:)
+		  contextInfo:NULL];
+	 */
 }
 
 /*

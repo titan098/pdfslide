@@ -30,6 +30,7 @@
 #import "PDFDisplayController.h"
 #import "AboutController.h"
 #import "PreferencesController.h"
+#import "PDFAnnotatedController.h"
 
 //define notifications
 extern NSString * const ControllerSlideNumberNotification;
@@ -45,14 +46,18 @@ extern NSString * const ControllerSlideStopNotification;
 	IBOutlet TimerView *currentTime;
 	IBOutlet TimerView *counterView;
 	IBOutlet PDFSlideAnnotatedView *currentSlide;
-	IBOutlet PDFSlideView *nextSlide;
+	IBOutlet PDFSlideAnnotatedView *nextSlide;
 	
 	IBOutlet NSWindow* PDFPasswordWindow;
 	IBOutlet NSSecureTextField* pdfPassword;
 	
+	IBOutlet NSButton* annotatedButton;
+	
 	Slide *slides;
 	NSWindowController *pdfDisplay;
 	AboutController *aboutWindow;
+	
+	PDFAnnotatedController *annotatedWindow;
 	
 	AppleRemote* remoteControl;
 
@@ -67,6 +72,9 @@ extern NSString * const ControllerSlideStopNotification;
 - (IBAction)openDocument:(id)sender;
 - (IBAction)showAboutWindow:(id)sender;
 - (IBAction)showPreferencesWindow:(id)sender;
+
+/*- (void)endAnnotatedSheet:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo;*/
+- (IBAction)showAnnotateSheet:(id)sender;
 
 - (void)initiliseWindow;
 
