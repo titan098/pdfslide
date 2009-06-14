@@ -60,8 +60,8 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 	[self detectDisplays:self];
 	
 	//TODO FOR TESTING ANNOTATIONS
-	[currentSlide setCanSendNotifications:YES];
-	[nextSlide setCanRecieveNotifications:YES];
+	//[currentSlide setCanSendNotifications:YES];
+	//[nextSlide setCanRecieveNotifications:YES];
 }
 
 #pragma mark Sheets
@@ -185,7 +185,9 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 	if (!annotatedWindow)
 		annotatedWindow = [[PDFAnnotatedController alloc] init];
 	
-	[NSApp runModalForWindow:[annotatedWindow window]];
+	NSWindow* awindow = [annotatedWindow window];	//load the window into memory
+	[annotatedWindow setSlides:slides slideNumber:[currentSlide slideNumber]];	
+	[NSApp runModalForWindow:awindow];
 	
 	//	[[annotatedWindow window] center];
 	//	[[annotatedWindow window] makeKeyAndOrderFront:self];

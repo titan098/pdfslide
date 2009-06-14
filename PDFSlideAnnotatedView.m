@@ -171,6 +171,7 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 	switch (annotationTool) {
 		case ANNOTATE_POINTER:
 			//send the pointers new location
+			[d setObject:[NSNumber numberWithInt:pointerStyle] forKey:@"PointerStyle"];
 			[d setObject:[NSNumber numberWithBool:showPointer] forKey:@"PointerShow"];
 			[d setObject:NSStringFromRect([self scaleDownNSRect:pointerLocation]) forKey:@"PointerLocation"];
 			break;
@@ -196,6 +197,7 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 	switch (tool) {
 		case ANNOTATE_POINTER:
 			showPointer = [[[note userInfo] objectForKey:@"PointerShow"] boolValue];
+			pointerStyle = [[[note userInfo] objectForKey:@"PointerStyle"] intValue];
 			pointerLocation = [self scaleUpNSRect:NSRectFromString([[note userInfo] objectForKey:@"PointerLocation"])];
 			break;
 		default:

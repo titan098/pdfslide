@@ -43,7 +43,17 @@
 - (void)windowDidLoad {
 	//This view can send annotations to a reciever
 	[annotatedView setCanSendNotifications:YES];
-	
+}
+
+/**
+ * Load the window and set the preferences
+ * @return The window object assosiated with this controller
+ */
+- (NSWindow*)window {
+	NSWindow* win = [super window];
+	if (!win)
+		return nil;
+		
 	//set the preferences
 	NSUserDefaults *sharedDefaults = [NSUserDefaults standardUserDefaults];
 	
@@ -51,6 +61,8 @@
 	NSUInteger pointerSize = [sharedDefaults integerForKey:@"PSPointerSize"];
 	[annotatedView setPointerSize:pointerSize];	
 	[annotatedView setPointerStyle:[sharedDefaults integerForKey:@"PSPointerStyle"]];
+	
+	return win;
 }
 
 #pragma mark Actions
@@ -69,6 +81,13 @@
 	[[self window] close];
 	[NSApp stopModal];
 	//[NSApp endSheet:[self window]];
+}
+
+#pragma mark Slide Control
+
+- (void)setSlides:(Slide*)slides slideNumber:(NSUInteger)slideNumber {
+	[annotatedView setSlide:slides];
+	[annotatedView setSlideNumber:slideNumber];
 }
 
 @end

@@ -82,6 +82,12 @@ NSString * const PDFViewKeyPressNotification = @"PDFViewKeyPressed";
 		//set the background color (of the page) to white
 		[[NSColor whiteColor] set];
 		[NSBezierPath fillRect:pagebounds];
+		
+		//draw a black line around the slide - should hide the edge of the page
+		[[NSColor blackColor] set];
+		NSBezierPath *box = [NSBezierPath bezierPathWithRect:pagebounds];
+		[box stroke];
+		
 		[slidePage drawWithBox:kPDFDisplayBoxMediaBox];
 		
 		//store the scaled pagebounds
