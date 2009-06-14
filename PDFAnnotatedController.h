@@ -25,9 +25,12 @@
 #import "PDFSlideAnnotatedView.h"
 
 @interface PDFAnnotatedController : NSWindowController {
+	IBOutlet PDFSlideAnnotatedView* annotatedView;
+	IBOutlet NSColorWell *toolColour;
 	
 }
 
+- (IBAction)toolColourChanged:(id)sender;
 - (IBAction)closeWindow:(id)sender;
 
 @end

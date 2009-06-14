@@ -29,8 +29,8 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 @implementation PDFSlideAnnotatedView
 
 @synthesize annotationTool;
+@synthesize pointerStyle;
 @synthesize showPointer;
-@synthesize toolColour;
 
 /**
  * Initilise the View
@@ -65,7 +65,10 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 		//display the pointer on the screen
 		if (showPointer) {
 			NSBezierPath* pointerPath = [NSBezierPath bezierPath];
-			[pointerPath appendBezierPathWithOvalInRect:pointerLocation];
+			if (pointerStyle == ANNOTATE_POINTER_STYLE_CIRCLE)
+				[pointerPath appendBezierPathWithOvalInRect:pointerLocation];
+			if (pointerStyle == ANNOTATE_POINTER_STYLE_SQUARE)
+				[pointerPath appendBezierPathWithRect:pointerLocation];
 			[pointerPath fill];
 		}
 	}
@@ -73,12 +76,24 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 
 #pragma mark Tool Methods
 
+- (void)setToolColour:(NSColor*)colour {
+	toolColour = colour;
+}
+
 /**
  * Sets the location of the "pointer" on the view
  */
-- (void)setPointerLocation:(NSPoint) pointer {
+- (void)setPointerLocation:(NSPoint)pointer {
 	pointerLocation.origin.x = (pointer.x)-(pointerLocation.size.width/2);
 	pointerLocation.origin.y = (pointer.y)-(pointerLocation.size.height/2);
+}
+
+/**
+ * Sets the size of the pointer
+ */
+- (void)setPointerSize:(NSUInteger)size {
+	pointerLocation.size.width = size;
+	pointerLocation.size.height = size;
 }
 
 

@@ -28,7 +28,8 @@
 @implementation PreferencesController
 
 - (void)setupToolbar {
-	[self addView:updateView label:@"Updates" image:[NSImage imageNamed:@"PSUpdates.icns"]];
+	[self addView:annotateView label:@"Annotate" image:[NSImage imageNamed:@"PSAnnotate.icns"]];
+	[self addView:updateView label:@"Updates" image:[NSImage imageNamed:@"PSUpdate.icns"]];
 }
 
 @end

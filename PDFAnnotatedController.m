@@ -37,8 +37,30 @@
 	[super dealloc];
 }
 
+/**
+ * Setup all the window components
+ */
+- (void)windowDidLoad {
+	//This view can send annotations to a reciever
+	[annotatedView setCanSendNotifications:YES];
+	
+	//set the preferences
+	NSUserDefaults *sharedDefaults = [NSUserDefaults standardUserDefaults];
+	
+	//set the pointer size and style
+	NSUInteger pointerSize = [sharedDefaults integerForKey:@"PSPointerSize"];
+	[annotatedView setPointerSize:pointerSize];	
+	[annotatedView setPointerStyle:[sharedDefaults integerForKey:@"PSPointerStyle"]];
+}
 
 #pragma mark Actions
+
+/**
+ * The colour of the tool was changed
+ */
+- (IBAction)toolColourChanged:(id)sender {
+	[annotatedView setToolColour:[toolColour color]];
+}
 
 /**
  * cleanup close the window

@@ -28,6 +28,7 @@
 
 @interface PreferencesController : DBPrefsWindowController {
 	IBOutlet NSView* updateView;
+	IBOutlet NSView* annotateView;
 }
 
 @end

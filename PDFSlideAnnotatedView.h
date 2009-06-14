@@ -27,6 +27,10 @@
 //define the type of annotation
 #define ANNOTATE_POINTER 1
 
+//define pointer styles
+#define ANNOTATE_POINTER_STYLE_CIRCLE 0
+#define ANNOTATE_POINTER_STYLE_SQUARE 1
+
 //set a notification string
 extern NSString * const AnnotationNotification;
 
@@ -36,6 +40,7 @@ extern NSString * const AnnotationNotification;
 	NSColor* toolColour;
 	
 	NSRect pointerLocation;
+	NSUInteger pointerStyle;
 	BOOL showPointer;
 	
 	BOOL canSendNotifications;
@@ -43,12 +48,14 @@ extern NSString * const AnnotationNotification;
 }
 
 @property(readwrite) NSUInteger annotationTool;
+@property(readwrite) NSUInteger pointerStyle;
 @property(readwrite) BOOL showPointer;
-@property(copy) NSColor* toolColour;
 
 #pragma mark Tool Methods
 
-- (void)setPointerLocation:(NSPoint) pointer;
+- (void)setToolColour:(NSColor*) colour;
+- (void)setPointerLocation:(NSPoint)pointer;
+- (void)setPointerSize:(NSUInteger)size;
 
 #pragma mark Notification Methods
 - (void)setCanSendNotifications:(BOOL) yesno;

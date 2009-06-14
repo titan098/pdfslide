@@ -74,7 +74,7 @@ extern NSString * const ControllerSlideStopNotification;
 - (IBAction)showPreferencesWindow:(id)sender;
 
 /*- (void)endAnnotatedSheet:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo;*/
-- (IBAction)showAnnotateSheet:(id)sender;
+- (IBAction)showAnnotateWindow:(id)sender;
 
 - (void)initiliseWindow;
 

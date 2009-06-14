@@ -181,7 +181,7 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 /**
  * Show the Annotated window
  */
-- (IBAction)showAnnotateSheet:(id)sender {
+- (IBAction)showAnnotateWindow:(id)sender {
 	if (!annotatedWindow)
 		annotatedWindow = [[PDFAnnotatedController alloc] init];
 	
