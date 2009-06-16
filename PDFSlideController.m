@@ -131,7 +131,7 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 	int result = 0;
 	
 	result = [openPanel runModalForDirectory:nil file:nil types:fileTypes];
-	if (result = NSOKButton) {
+	if (result == NSOKButton) {
 		NSString *filename = [openPanel filename];
 		
 		slides = [[Slide alloc] initWithURL:[NSURL fileURLWithPath:filename]];
