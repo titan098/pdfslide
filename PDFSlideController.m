@@ -184,9 +184,12 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 - (IBAction)showAnnotateWindow:(id)sender {
 	if (!annotatedWindow)
 		annotatedWindow = [[PDFAnnotatedController alloc] init];
+	
 	[[self window] makeKeyWindow];
 	NSWindow* awindow = [annotatedWindow window];	//load the window into memory
-	[annotatedWindow setSlides:slides slideNumber:[currentSlide slideNumber]];	
+	[annotatedWindow setSlides:slides slideNumber:[currentSlide slideNumber]];
+	[annotatedWindow redraw];
+	
 	[NSApp runModalForWindow:awindow];
 	
 	//	[[annotatedWindow window] center];

@@ -30,9 +30,12 @@
 	
 }
 
+- (void)redraw;
+
 - (IBAction)toolColourChanged:(id)sender;
 - (IBAction)closeWindow:(id)sender;
 
 - (void)setSlides:(Slide*)slides slideNumber:(NSUInteger)slideNumber;
+- (void)setSlideNumber:(NSUInteger)slideNumber;
 
 @end

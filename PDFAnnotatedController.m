@@ -65,6 +65,13 @@
 	return win;
 }
 
+/**
+ * Redraw the slide in the view
+ */
+- (void)redraw {
+	[annotatedView setNeedsDisplay:YES];
+}
+
 #pragma mark Actions
 
 /**
@@ -87,6 +94,10 @@
 
 - (void)setSlides:(Slide*)slides slideNumber:(NSUInteger)slideNumber {
 	[annotatedView setSlide:slides];
+	[annotatedView setSlideNumber:slideNumber];
+}
+
+- (void)setSlideNumber:(NSUInteger)slideNumber {
 	[annotatedView setSlideNumber:slideNumber];
 }
 
