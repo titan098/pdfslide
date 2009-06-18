@@ -63,7 +63,9 @@ extern NSString * const ControllerSlideStopNotification;
 - (void) showEncryptedSheet;
 - (IBAction) endEncryptedSheet:(id)sender;
 
+- (BOOL)performOpenPDF:(NSString *)filename;
 - (IBAction)openDocument:(id)sender;
+
 - (IBAction)showAboutWindow:(id)sender;
 - (IBAction)showPreferencesWindow:(id)sender;
 
