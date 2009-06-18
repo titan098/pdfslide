@@ -75,6 +75,20 @@
 #pragma mark Actions
 
 /**
+ * See the annotation tool based on the index of the segment
+ */
+- (IBAction)choosePointerTool:(id)sender {
+	switch ([annotateTool selectedSegment]) {
+		case 0:
+			//The pointer was selected
+			[annotatedView setAnnotationTool:ANNOTATE_POINTER];
+			break;
+		default:
+			break;
+	}
+}
+
+/**
  * The colour of the tool was changed
  */
 - (IBAction)toolColourChanged:(id)sender {

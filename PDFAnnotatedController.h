@@ -26,6 +26,8 @@
 
 @interface PDFAnnotatedController : NSWindowController {
 	IBOutlet PDFSlideAnnotatedView* annotatedView;
+	
+	IBOutlet NSSegmentedControl* annotateTool;
 	IBOutlet NSColorWell *toolColour;
 	
 }
@@ -34,6 +36,8 @@
 
 - (IBAction)toolColourChanged:(id)sender;
 - (IBAction)closeWindow:(id)sender;
+
+- (IBAction)choosePointerTool:(id)sender;
 
 - (void)setSlides:(Slide*)slides slideNumber:(NSUInteger)slideNumber;
 - (void)setSlideNumber:(NSUInteger)slideNumber;
