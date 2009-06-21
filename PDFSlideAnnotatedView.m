@@ -193,19 +193,24 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 	NSUInteger tool = [[[note userInfo] objectForKey:@"AnnotationTool"] intValue];
 	toolColour = [[note userInfo] objectForKey:@"AnnotationColour"];
 	//NSRect OriginalBounds = NSRectFromString([[note userInfo] objectForKey:@"OriginalViewBounds"]);
+	NSRect oldBounds;
+	NSRect newBounds;
 	
 	switch (tool) {
 		case ANNOTATE_POINTER:
 			showPointer = [[[note userInfo] objectForKey:@"PointerShow"] boolValue];
 			pointerStyle = [[[note userInfo] objectForKey:@"PointerStyle"] intValue];
+			oldBounds = pointerLocation;	//save the old pointer location
 			pointerLocation = [self scaleUpNSRect:NSRectFromString([[note userInfo] objectForKey:@"PointerLocation"])];
+			newBounds = pointerLocation;	//record the new pointer location
 			break;
 		default:
 			break;
 	}
 	
 	//redraw the display
-	[self setNeedsDisplay:YES];
+	[super setNeedsDisplayInRect:oldBounds];
+	[self setNeedsDisplayInRect:newBounds];
 }
 
 #pragma mark Event Handlers
@@ -216,12 +221,16 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 - (void)mouseDown:(NSEvent *)theEvent {
 	NSPoint windowMouseLocation = [theEvent locationInWindow];
 	NSPoint viewPoint = [self convertPoint:windowMouseLocation fromView:nil];
+	NSRect oldBounds;
+	NSRect newBounds;	
 	
 	switch (annotationTool) {
 		case ANNOTATE_POINTER:
 			//set the pointers location on the screen
+			oldBounds = pointerLocation;
 			[self setPointerLocation:viewPoint];
 			[self setShowPointer:YES];
+			newBounds = pointerLocation;
 			break;
 		default:
 			break;
@@ -229,17 +238,22 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 		
 	//redraw the display
 	[self postAnnotationNotification];
-	[self setNeedsDisplay:YES];
+	[super setNeedsDisplayInRect:oldBounds];
+	[self setNeedsDisplayInRect:newBounds];
 }
 
 - (void)mouseDragged:(NSEvent *)theEvent {
 	NSPoint windowMouseLocation = [theEvent locationInWindow];
 	NSPoint viewPoint = [self convertPoint:windowMouseLocation fromView:nil];
+	NSRect oldBounds;
+	NSRect newBounds;	
 
 	switch (annotationTool) {
 		case ANNOTATE_POINTER:
 			//update the pointers location on the screen
+			oldBounds = pointerLocation;
 			[self setPointerLocation:viewPoint];
+			newBounds = pointerLocation;
 			break;
 		default:
 			break;
@@ -247,16 +261,20 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 	
 	//redraw the view
 	[self postAnnotationNotification];
-	[self setNeedsDisplay:YES];
+	[super setNeedsDisplayInRect:oldBounds];
+	[self setNeedsDisplayInRect:newBounds];
 }
 
 /**
  * Handle a mouse up event
  */
 - (void)mouseUp:(NSEvent *)theEvent {
+	NSRect oldBounds;
+	
 	switch (annotationTool) {
 		case ANNOTATE_POINTER:
 			//hide the pointer
+			oldBounds = pointerLocation;
 			[self setShowPointer:NO];
 			break;
 		default:
@@ -265,7 +283,7 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 	
 	//update the view
 	[self postAnnotationNotification];
-	[self setNeedsDisplay:YES];
+	[self setNeedsDisplayInRect:oldBounds];
 }
 
 @end
