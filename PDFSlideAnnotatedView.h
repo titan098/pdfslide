@@ -63,6 +63,7 @@ extern NSString * const AnnotationNotification;
 - (NSBezierPath *)createNewPath;
 - (NSRect)currentPathBounds;
 - (BOOL)addPointToPath:(NSPoint)point;
+- (void)clearPaths;
 
 #pragma mark Notification Methods
 - (void)setCanSendNotifications:(BOOL) yesno;

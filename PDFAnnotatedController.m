@@ -99,6 +99,13 @@
 }
 
 /**
+ * Instruct the view to clear the paths and refresh
+ */
+- (IBAction)clearPaths:(id)sender {
+	[annotatedView clearPaths];
+}
+
+/**
  * cleanup close the window
  */
 - (IBAction)closeWindow:(id)sender {
