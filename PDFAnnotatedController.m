@@ -100,8 +100,8 @@
  */
 - (IBAction)closeWindow:(id)sender {
 	[[self window] close];
-	[NSApp stopModal];
-	//[NSApp endSheet:[self window]];
+	//[NSApp stopModal];
+	[NSApp endSheet:[self window]];
 }
 
 #pragma mark Slide Control

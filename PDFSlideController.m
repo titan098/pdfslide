@@ -185,23 +185,21 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 	if (!annotatedWindow)
 		annotatedWindow = [[PDFAnnotatedController alloc] init];
 	
-	[[self window] makeKeyWindow];
+	//[[self window] makeKeyWindow];
 	NSWindow* awindow = [annotatedWindow window];	//load the window into memory
 	[annotatedWindow setSlides:slides slideNumber:[currentSlide slideNumber]];
 	[annotatedWindow redraw];
 	
-	[NSApp runModalForWindow:awindow];
+	//[NSApp runModalForWindow:awindow];
 	
 	//	[[annotatedWindow window] center];
 	//	[[annotatedWindow window] makeKeyAndOrderFront:self];
-	/*
-	 // The sheet is unfortuntaly to slow
-	[NSApp beginSheet:[annotatedWindow window]
+	
+	[NSApp beginSheet:awindow
 	   modalForWindow:[self window]
 		modalDelegate:self
-	   didEndSelector:@selector(endAnnotatedSheet:returnCode:contextInfo:)
+	   didEndSelector:nil
 		  contextInfo:NULL];
-	 */
 }
 
 /*
