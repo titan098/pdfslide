@@ -191,7 +191,6 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 	[annotatedWindow redraw];
 	
 	//[NSApp runModalForWindow:awindow];
-	
 	//	[[annotatedWindow window] center];
 	//	[[annotatedWindow window] makeKeyAndOrderFront:self];
 	

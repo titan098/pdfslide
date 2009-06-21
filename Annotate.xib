@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="3"/>
+			<integer value="48"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -74,11 +74,11 @@
 								<object class="NSSegmentedControl" key="NSToolbarItemView" id="172238989">
 									<reference key="NSNextResponder"/>
 									<int key="NSvFlags">268</int>
-									<string key="NSFrame">{{0, 14}, {38, 23}}</string>
+									<string key="NSFrame">{{0, 14}, {83, 23}}</string>
 									<reference key="NSSuperview"/>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSSegmentedCell" key="NSCell" id="240561458">
-										<int key="NSCellFlags">-2080244224</int>
+										<int key="NSCellFlags">67239424</int>
 										<int key="NSCellFlags2">0</int>
 										<object class="NSFont" key="NSSupport">
 											<string key="NSName">LucidaGrande</string>
@@ -99,6 +99,10 @@
 												<bool key="NSSegmentItemSelected">YES</bool>
 												<int key="NSSegmentItemImageScaling">0</int>
 											</object>
+											<object class="NSSegmentItem">
+												<string key="NSSegmentItemLabel">PEN</string>
+												<int key="NSSegmentItemImageScaling">0</int>
+											</object>
 										</object>
 										<int key="NSSegmentStyle">5</int>
 									</object>
@@ -106,8 +110,8 @@
 								<nil key="NSToolbarItemImage"/>
 								<nil key="NSToolbarItemTarget"/>
 								<nil key="NSToolbarItemAction"/>
-								<string key="NSToolbarItemMinSize">{38, 23}</string>
-								<string key="NSToolbarItemMaxSize">{38, 23}</string>
+								<string key="NSToolbarItemMinSize">{83, 23}</string>
+								<string key="NSToolbarItemMaxSize">{83, 23}</string>
 								<bool key="NSToolbarItemEnabled">YES</bool>
 								<bool key="NSToolbarItemAutovalidates">YES</bool>
 								<int key="NSToolbarItemTag">0</int>
@@ -294,10 +298,6 @@
 				<string key="NSMaxSize">{3.40282e+38, 3.40282e+38}</string>
 			</object>
 			<object class="NSUserDefaultsController" id="740387930">
-				<object class="NSMutableArray" key="NSDeclaredKeys">
-					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>PSAnnoateTool</string>
-				</object>
 				<bool key="NSSharedInstance">YES</bool>
 			</object>
 		</object>
@@ -345,14 +345,6 @@
 					<int key="connectionID">40</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">toolColourChanged:</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="172238989"/>
-					</object>
-					<int key="connectionID">50</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">annotateTool</string>
 						<reference key="source" ref="1001"/>
@@ -375,6 +367,14 @@
 						</object>
 					</object>
 					<int key="connectionID">55</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">choosePointerTool:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="240561458"/>
+					</object>
+					<int key="connectionID">56</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -568,7 +568,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">55</int>
+			<int key="maxID">56</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">

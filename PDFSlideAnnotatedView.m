@@ -46,6 +46,9 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 		pointerLocation.size.width = 10;
 		
 		[self setToolColour:[NSColor redColor]];
+		
+		//init a new path Dictionary
+		pathDict = [[NSMutableDictionary alloc] init];
     }
     return self;
 }
@@ -59,9 +62,8 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 	
 	//draw any annotations - if the slide object exists
 	if (slide) {
-		[[NSGraphicsContext currentContext] setShouldAntialias:YES];
 		[toolColour set];
-		
+		[[NSGraphicsContext currentContext] setShouldAntialias:YES];
 		//display the pointer on the screen
 		if (showPointer) {
 			NSBezierPath* pointerPath = [NSBezierPath bezierPath];
@@ -70,6 +72,14 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 			if (pointerStyle == ANNOTATE_POINTER_STYLE_SQUARE)
 				[pointerPath appendBezierPathWithRect:pointerLocation];
 			[pointerPath fill];
+		}
+		
+		//draw any paths assositated with this page
+		NSArray *pageArray = [pathDict objectForKey:[NSNumber numberWithInt:slideNumber]];
+		[toolColour set];
+		[[NSGraphicsContext currentContext] setShouldAntialias:NO];
+		for (NSBezierPath *path in pageArray) {
+			[path stroke];
 		}
 	}
 }
@@ -94,6 +104,58 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 - (void)setPointerSize:(NSUInteger)size {
 	pointerLocation.size.width = size;
 	pointerLocation.size.height = size;
+}
+
+/**
+ * Creates a new path for this slide
+ */
+- (NSBezierPath *)createNewPath {
+	NSMutableArray *pageArray = [pathDict objectForKey:[NSNumber numberWithInt:slideNumber]];
+
+	//if doesn't exist -- create it
+	if (!pageArray) {
+		pageArray = [[NSMutableArray alloc] init];
+		[pathDict setObject:pageArray forKey:[NSNumber numberWithInt:slideNumber]];
+	}
+	
+	//create a new path in this array
+	NSBezierPath *newPath = [[NSBezierPath alloc] init];
+	[pageArray addObject:newPath];
+	
+	return newPath;
+}
+
+/**
+ * Gets the current bounds of the current path
+ */
+- (NSRect)currentPathBounds {
+	NSMutableArray *pageArray = [pathDict objectForKey:[NSNumber numberWithInt:slideNumber]];
+	
+	//get the last path in the array - will be the current one
+	NSBezierPath *currentPath = [pageArray objectAtIndex:([pageArray count]-1)];
+	return [currentPath bounds];
+}
+
+/**
+ * Adds a point to the current path
+ */
+- (BOOL)addPointToPath:(NSPoint)point {
+	NSMutableArray *pageArray = [pathDict objectForKey:[NSNumber numberWithInt:slideNumber]];
+	
+	//check to see if the array exists
+	if (!pageArray)
+		return NO;
+	
+	//get the last path in the array - will be the current one
+	NSBezierPath *currentPath = [pageArray objectAtIndex:([pageArray count]-1)];
+	
+	//check to see if this is the first point added to the path
+	if (![currentPath elementCount])
+		[currentPath moveToPoint:point];
+	else
+		[currentPath lineToPoint:point];
+	
+	return YES;
 }
 
 
@@ -232,16 +294,35 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 			[self setShowPointer:YES];
 			newBounds = pointerLocation;
 			break;
+		case ANNOTATE_PEN:
+			//create a new path
+			[self createNewPath];
+			[self addPointToPath:viewPoint];
+			newBounds = [self currentPathBounds];
+			oldBounds = newBounds;
+			break;
 		default:
 			break;
 	}
 		
+	oldBounds.origin.x--;
+	oldBounds.origin.y--;
+	oldBounds.size.width++;
+	oldBounds.size.height++;
+	newBounds.origin.x--;
+	newBounds.origin.y--;
+	newBounds.size.width++;
+	newBounds.size.height++;
+	
 	//redraw the display
 	[self postAnnotationNotification];
 	[super setNeedsDisplayInRect:oldBounds];
 	[self setNeedsDisplayInRect:newBounds];
 }
 
+/**
+ * Handle a mouse dragged event
+ */
 - (void)mouseDragged:(NSEvent *)theEvent {
 	NSPoint windowMouseLocation = [theEvent locationInWindow];
 	NSPoint viewPoint = [self convertPoint:windowMouseLocation fromView:nil];
@@ -255,9 +336,23 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 			[self setPointerLocation:viewPoint];
 			newBounds = pointerLocation;
 			break;
+		case ANNOTATE_PEN:
+			[self addPointToPath:viewPoint];
+			newBounds = [self currentPathBounds];
+			oldBounds = newBounds;
+			break;
 		default:
 			break;
 	}
+	
+	oldBounds.origin.x--;
+	oldBounds.origin.y--;
+	oldBounds.size.width++;
+	oldBounds.size.height++;
+	newBounds.origin.x--;
+	newBounds.origin.y--;
+	newBounds.size.width++;
+	newBounds.size.height++;
 	
 	//redraw the view
 	[self postAnnotationNotification];
@@ -277,9 +372,17 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 			oldBounds = pointerLocation;
 			[self setShowPointer:NO];
 			break;
+		case ANNOTATE_PEN:
+			oldBounds = [self currentPathBounds];
+			break;
 		default:
 			break;
 	}	
+	
+	oldBounds.origin.x--;
+	oldBounds.origin.y--;
+	oldBounds.size.width++;
+	oldBounds.size.height++;
 	
 	//update the view
 	[self postAnnotationNotification];

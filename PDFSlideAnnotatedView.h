@@ -26,6 +26,7 @@
 
 //define the type of annotation
 #define ANNOTATE_POINTER 1
+#define ANNOTATE_PEN 2
 
 //define pointer styles
 #define ANNOTATE_POINTER_STYLE_CIRCLE 0
@@ -43,6 +44,8 @@ extern NSString * const AnnotationNotification;
 	NSUInteger pointerStyle;
 	BOOL showPointer;
 	
+	NSMutableDictionary* pathDict;
+	
 	BOOL canSendNotifications;
 	BOOL canRecieveNotifications;
 }
@@ -56,6 +59,10 @@ extern NSString * const AnnotationNotification;
 - (void)setToolColour:(NSColor*) colour;
 - (void)setPointerLocation:(NSPoint)pointer;
 - (void)setPointerSize:(NSUInteger)size;
+
+- (NSBezierPath *)createNewPath;
+- (NSRect)currentPathBounds;
+- (BOOL)addPointToPath:(NSPoint)point;
 
 #pragma mark Notification Methods
 - (void)setCanSendNotifications:(BOOL) yesno;

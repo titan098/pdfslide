@@ -83,6 +83,9 @@
 			//The pointer was selected
 			[annotatedView setAnnotationTool:ANNOTATE_POINTER];
 			break;
+		case 1:
+			[annotatedView setAnnotationTool:ANNOTATE_PEN];
+			break;
 		default:
 			break;
 	}
