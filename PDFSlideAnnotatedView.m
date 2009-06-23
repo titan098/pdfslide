@@ -109,7 +109,7 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 /**
  * Creates a new path for this slide
  */
-- (NSBezierPath *)createNewPath {
+- (NSMutableArray *)createNewPath {
 	NSMutableArray *pageArray = [pathDict objectForKey:[NSNumber numberWithInt:slideNumber]];
 
 	//if doesn't exist -- create it
@@ -123,7 +123,39 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 	[newPath setFlatness:0.1];
 	[pageArray addObject:newPath];
 	
-	return newPath;
+	return pageArray;
+}
+
+/**
+ * Gets the last point draw drawn on the display
+ */
+- (NSPoint)getLastPenPoint {
+	NSMutableArray *pageArray = [pathDict objectForKey:[NSNumber numberWithInt:slideNumber]];
+	return [[pageArray objectAtIndex:([pageArray count]-1)] currentPoint];
+}
+
+/**
+ * Gets the current path
+ */
+- (NSBezierPath *)getCurrentPath {
+	NSMutableArray *pageArray = [pathDict objectForKey:[NSNumber numberWithInt:slideNumber]];
+	return [pageArray objectAtIndex:([pageArray count]-1)];;
+}
+
+/**
+ * Adds a BezierPath to the current Path
+ */
+- (void)addPath:(NSBezierPath *)path {
+	NSMutableArray *pageArray = [pathDict objectForKey:[NSNumber numberWithInt:slideNumber]];
+	
+	//if doesn't exist -- create it
+	if (!pageArray) {
+		pageArray = [[NSMutableArray alloc] init];
+		[pathDict setObject:pageArray forKey:[NSNumber numberWithInt:slideNumber]];
+	}
+	
+	//add the path to the dictionary for this page
+	[pageArray addObject:path];
 }
 
 /**
@@ -134,7 +166,17 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 	
 	//get the last path in the array - will be the current one
 	NSBezierPath *currentPath = [pageArray objectAtIndex:([pageArray count]-1)];
+	//[currentPath setFlatness:0.1];
 	return [currentPath bounds];
+}
+
+/**
+ * Returns YES if the current path has one element
+ */
+- (BOOL)isNewPath {
+	NSMutableArray *pageArray = [pathDict objectForKey:[NSNumber numberWithInt:slideNumber]];
+	NSBezierPath *currentPath = [pageArray objectAtIndex:([pageArray count]-1)];
+	return ([currentPath elementCount] == 1);
 }
 
 /**
@@ -144,8 +186,10 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 	NSMutableArray *pageArray = [pathDict objectForKey:[NSNumber numberWithInt:slideNumber]];
 	
 	//check to see if the array exists
-	if (!pageArray)
+	if (!pageArray) {
+		pageArray = [self createNewPath];
 		return NO;
+	}
 	
 	//get the last path in the array - will be the current one
 	NSBezierPath *currentPath = [pageArray objectAtIndex:([pageArray count]-1)];
@@ -153,9 +197,12 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 	//check to see if this is the first point added to the path
 	if (![currentPath elementCount])
 		[currentPath moveToPoint:point];
-	else  if ([currentPath elementCount] == 100) {
+	else  if ([currentPath elementCount] == 200) {
 		//create a new path and add the points to it
 		[currentPath lineToPoint:point];
+		sendPath = YES;
+		[self postAnnotationNotification];	//send the finished current path to the recievers
+		
 		[self createNewPath];
 		return [self addPointToPath:point];		
 	} else {
@@ -174,6 +221,11 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 	[pageArray removeAllObjects];
 	
 	[super setNeedsDisplay:YES];
+	
+	if (canSendNotifications) {
+		clear=YES;
+		[self postAnnotationNotification]; //tell recievers to clear the current slide
+	}
 }
 
 #pragma mark Notification Methods
@@ -233,6 +285,70 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 }
 
 /**
+ * Scale a NSRect by the bounds of the view
+ * Get range between 0 and 1
+ */
+/*
+- (NSPoint)scaleDownNSPoint:(NSPoint)point {
+	NSPoint newPoint;
+	newPoint.x = (point.x-pagebounds.origin.x)/pagebounds.size.width;
+	newPoint.y = (point.y-pagebounds.origin.y)/pagebounds.size.height;
+	return newPoint;
+}
+ */
+
+/**
+ * Scale a NSRect by the bounds of the view
+ * Get range between 0 and 1
+ */
+/*
+- (NSPoint)scaleUpNSPoint:(NSPoint)point {
+	NSPoint newPoint;
+	newPoint.x = (point.x*pagebounds.size.width)+pagebounds.origin.x;
+	newPoint.y = (point.y*pagebounds.size.height)+pagebounds.origin.y;
+	return newPoint;
+}
+ */
+
+/**
+ * Scale a NSBezierPath by the bounds of the page
+ */
+- (NSBezierPath *)scaleDownNSBezierPath:(NSBezierPath *)path {
+	NSAffineTransform* xform = [NSAffineTransform transform];
+	[xform scaleXBy:(1/pagebounds.size.width)
+				yBy:(1/pagebounds.size.height)];
+	[xform translateXBy:-pagebounds.origin.x 
+					yBy:-pagebounds.origin.y];
+	
+	//get new bezierpath
+	NSBezierPath* newPath = [path copy];
+	[path bounds];
+	[newPath bounds];
+	[newPath transformUsingAffineTransform:xform];
+	[newPath bounds];
+	return newPath;
+};
+
+/**
+ * Scale up a NSBezierPath by the bounds of the page
+ */
+- (NSBezierPath *)scaleUpNSBezierPath:(NSBezierPath *)path {
+	NSAffineTransform* xform = [NSAffineTransform transform];
+	[xform translateXBy:pagebounds.origin.x
+					yBy:pagebounds.origin.y];
+	[xform scaleXBy:pagebounds.size.width 
+				yBy:pagebounds.size.height];
+	
+	//get the new bezierpath and transform
+	NSBezierPath *newPath = [path copy];
+	[path bounds];
+	[newPath bounds];
+	[newPath transformUsingAffineTransform:xform];
+	[newPath bounds];
+	return newPath;
+}
+
+/**
  * Posts an annotation notification
  */
 - (void)postAnnotationNotification {
@@ -246,6 +362,9 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 	//[d setObject:NSStringFromRect([self bounds]) forKey:@"OriginalViewBounds"];
 	[d setObject:[NSNumber numberWithInt:annotationTool] forKey:@"AnnotationTool"];
 	[d setObject:toolColour forKey:@"AnnotationColour"];
+	[d setObject:[NSNumber numberWithBool:clear] forKey:@"AnnotationClear"];
+	
+	if (clear) clear=NO; //clear the 'clear' flag
 	
 	switch (annotationTool) {
 		case ANNOTATE_POINTER:
@@ -253,6 +372,12 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 			[d setObject:[NSNumber numberWithInt:pointerStyle] forKey:@"PointerStyle"];
 			[d setObject:[NSNumber numberWithBool:showPointer] forKey:@"PointerShow"];
 			[d setObject:NSStringFromRect([self scaleDownNSRect:pointerLocation]) forKey:@"PointerLocation"];
+			break;
+		case ANNOTATE_PEN:
+			if (sendPath) {
+				[d setObject:[self scaleDownNSBezierPath:[self getCurrentPath]] forKey:@"PenPath"];
+				sendPath = NO;
+			}
 			break;
 		default:
 			break;
@@ -268,12 +393,18 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
  * Handle a annotation notification that has been recieved
  */
 - (void)handleAnnotationNotification:(NSNotification *)note {
+	NSBezierPath *path;
 	//get the tool that was being used
 	NSUInteger tool = [[[note userInfo] objectForKey:@"AnnotationTool"] intValue];
 	toolColour = [[note userInfo] objectForKey:@"AnnotationColour"];
+	
+	//clear the paths if requested
+	if ([[[note userInfo] objectForKey:@"AnnotationClear"] boolValue])
+		[self clearPaths];
+	
 	//NSRect OriginalBounds = NSRectFromString([[note userInfo] objectForKey:@"OriginalViewBounds"]);
 	NSRect oldBounds;
-	NSRect newBounds;
+	NSRect newBounds = pagebounds;
 	
 	switch (tool) {
 		case ANNOTATE_POINTER:
@@ -282,6 +413,14 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 			oldBounds = pointerLocation;	//save the old pointer location
 			pointerLocation = [self scaleUpNSRect:NSRectFromString([[note userInfo] objectForKey:@"PointerLocation"])];
 			newBounds = pointerLocation;	//record the new pointer location
+			break;
+		case ANNOTATE_PEN:
+			//create a new path if the sender created a new path
+			path = [[note userInfo] objectForKey:@"PenPath"];
+			if (path) {
+				[self addPath:[self scaleUpNSBezierPath:path]];
+				newBounds = pagebounds;
+			}
 			break;
 		default:
 			break;
@@ -349,15 +488,14 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 		case ANNOTATE_PEN:
 			[self addPointToPath:viewPoint];
 			newBounds = [self currentPathBounds];
-			
 			break;
 		default:
 			break;
 	}
 	
 	//redraw the view
-	[self postAnnotationNotification];
 	[self setNeedsDisplayInRect:newBounds];
+	[self postAnnotationNotification];
 }
 
 /**
@@ -373,6 +511,7 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 			[self setShowPointer:NO];
 			break;
 		case ANNOTATE_PEN:
+			sendPath = YES;
 			oldBounds = pagebounds;
 			break;
 		default:

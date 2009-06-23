@@ -46,6 +46,9 @@ extern NSString * const AnnotationNotification;
 	
 	NSMutableDictionary* pathDict;
 	
+	BOOL refresh;
+	BOOL clear;
+	BOOL sendPath;
 	BOOL canSendNotifications;
 	BOOL canRecieveNotifications;
 }
@@ -60,7 +63,7 @@ extern NSString * const AnnotationNotification;
 - (void)setPointerLocation:(NSPoint)pointer;
 - (void)setPointerSize:(NSUInteger)size;
 
-- (NSBezierPath *)createNewPath;
+- (NSMutableArray *)createNewPath;
 - (NSRect)currentPathBounds;
 - (BOOL)addPointToPath:(NSPoint)point;
 - (void)clearPaths;
