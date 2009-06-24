@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="57"/>
+			<integer value="1"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -73,10 +73,9 @@
 								<string key="NSToolbarItemPaletteLabel">Clear</string>
 								<nil key="NSToolbarItemToolTip"/>
 								<object class="NSButton" key="NSToolbarItemView" id="407671983">
-									<reference key="NSNextResponder"/>
+									<nil key="NSNextResponder"/>
 									<int key="NSvFlags">268</int>
 									<string key="NSFrame">{{0, 14}, {47, 25}}</string>
-									<reference key="NSSuperview"/>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSButtonCell" key="NSCell" id="610249978">
 										<int key="NSCellFlags">-2080244224</int>
@@ -115,13 +114,12 @@
 								<string key="NSToolbarItemPaletteLabel">Tool</string>
 								<nil key="NSToolbarItemToolTip"/>
 								<object class="NSSegmentedControl" key="NSToolbarItemView" id="172238989">
-									<reference key="NSNextResponder"/>
+									<nil key="NSNextResponder"/>
 									<int key="NSvFlags">268</int>
-									<string key="NSFrame">{{0, 14}, {83, 23}}</string>
-									<reference key="NSSuperview"/>
+									<string key="NSFrame">{{0, 14}, {82, 23}}</string>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSSegmentedCell" key="NSCell" id="240561458">
-										<int key="NSCellFlags">67239424</int>
+										<int key="NSCellFlags">-2080244224</int>
 										<int key="NSCellFlags2">0</int>
 										<object class="NSFont" key="NSSupport">
 											<string key="NSName">LucidaGrande</string>
@@ -139,22 +137,23 @@
 												</object>
 												<string key="NSSegmentItemLabel"/>
 												<string key="NSSegmentItemTooltip">Pointer Tool</string>
-												<bool key="NSSegmentItemSelected">YES</bool>
 												<int key="NSSegmentItemImageScaling">0</int>
 											</object>
 											<object class="NSSegmentItem">
-												<string key="NSSegmentItemLabel">PEN</string>
+												<string key="NSSegmentItemLabel">Pen</string>
+												<bool key="NSSegmentItemSelected">YES</bool>
 												<int key="NSSegmentItemImageScaling">0</int>
 											</object>
 										</object>
+										<int key="NSSelectedSegment">1</int>
 										<int key="NSSegmentStyle">5</int>
 									</object>
 								</object>
 								<nil key="NSToolbarItemImage"/>
 								<nil key="NSToolbarItemTarget"/>
 								<nil key="NSToolbarItemAction"/>
-								<string key="NSToolbarItemMinSize">{83, 23}</string>
-								<string key="NSToolbarItemMaxSize">{83, 23}</string>
+								<string key="NSToolbarItemMinSize">{82, 23}</string>
+								<string key="NSToolbarItemMaxSize">{82, 23}</string>
 								<bool key="NSToolbarItemEnabled">YES</bool>
 								<bool key="NSToolbarItemAutovalidates">YES</bool>
 								<int key="NSToolbarItemTag">0</int>
@@ -191,7 +190,7 @@
 								<string key="NSToolbarItemPaletteLabel">Tool Colour</string>
 								<nil key="NSToolbarItemToolTip"/>
 								<object class="NSColorWell" key="NSToolbarItemView" id="343121071">
-									<reference key="NSNextResponder"/>
+									<nil key="NSNextResponder"/>
 									<int key="NSvFlags">268</int>
 									<object class="NSMutableSet" key="NSDragTypes">
 										<bool key="EncodedWithXMLCoder">YES</bool>
@@ -201,7 +200,6 @@
 										</object>
 									</object>
 									<string key="NSFrame">{{13, 14}, {44, 23}}</string>
-									<reference key="NSSuperview"/>
 									<bool key="NSEnabled">YES</bool>
 									<bool key="NSIsBordered">YES</bool>
 									<object class="NSColor" key="NSColor">
@@ -394,22 +392,6 @@
 					<int key="connectionID">53</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">selectedIndex: values.PSAnnoateTool</string>
-						<reference key="source" ref="172238989"/>
-						<reference key="destination" ref="740387930"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="172238989"/>
-							<reference key="NSDestination" ref="740387930"/>
-							<string key="NSLabel">selectedIndex: values.PSAnnoateTool</string>
-							<string key="NSBinding">selectedIndex</string>
-							<string key="NSKeyPath">values.PSAnnoateTool</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">55</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">choosePointerTool:</string>
 						<reference key="source" ref="1001"/>
@@ -424,6 +406,22 @@
 						<reference key="destination" ref="610249978"/>
 					</object>
 					<int key="connectionID">60</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">selectedIndex: values.PSAnnotateTool</string>
+						<reference key="source" ref="172238989"/>
+						<reference key="destination" ref="740387930"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="172238989"/>
+							<reference key="NSDestination" ref="740387930"/>
+							<string key="NSLabel">selectedIndex: values.PSAnnotateTool</string>
+							<string key="NSBinding">selectedIndex</string>
+							<string key="NSKeyPath">values.PSAnnotateTool</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">61</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -616,7 +614,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{68, 700}, {616, 169}}</string>
+					<string>{{68, 869}, {616, 0}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -645,7 +643,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">60</int>
+			<int key="maxID">61</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
