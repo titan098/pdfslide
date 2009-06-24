@@ -29,6 +29,7 @@
 		631A3F3A0FEAC20E00417160 /* TBPointer.icns in Resources */ = {isa = PBXBuildFile; fileRef = 631A3F390FEAC20E00417160 /* TBPointer.icns */; };
 		6321040A0FE52FE100CFACBA /* PSAnnotate.icns in Resources */ = {isa = PBXBuildFile; fileRef = 632104090FE52FE100CFACBA /* PSAnnotate.icns */; };
 		633268F50FDE92C200382285 /* DBPrefsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 633268F40FDE92C200382285 /* DBPrefsWindowController.m */; };
+		6335E5D80FF2A6630072D428 /* PSBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 6335E5D70FF2A6630072D428 /* PSBezierPath.m */; };
 		633880170FDBEFE800B08026 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 633880160FDBEFE800B08026 /* Sparkle.framework */; };
 		633880310FDBF02800B08026 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 633880160FDBEFE800B08026 /* Sparkle.framework */; };
 		633880CF0FDC0F8B00B08026 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 633880450FDC048D00B08026 /* dsa_pub.pem */; };
@@ -103,6 +104,8 @@
 		632104090FE52FE100CFACBA /* PSAnnotate.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = PSAnnotate.icns; path = icons/PSAnnotate.icns; sourceTree = "<group>"; };
 		633268F30FDE92C200382285 /* DBPrefsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPrefsWindowController.h; sourceTree = "<group>"; };
 		633268F40FDE92C200382285 /* DBPrefsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBPrefsWindowController.m; sourceTree = "<group>"; };
+		6335E5D60FF2A6630072D428 /* PSBezierPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSBezierPath.h; sourceTree = "<group>"; };
+		6335E5D70FF2A6630072D428 /* PSBezierPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSBezierPath.m; sourceTree = "<group>"; };
 		633880160FDBEFE800B08026 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		633880450FDC048D00B08026 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		63398C920FE3D4C1007B0E91 /* PDFSlideAnnotatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFSlideAnnotatedView.h; sourceTree = "<group>"; };
@@ -192,6 +195,8 @@
 				63398C930FE3D4C1007B0E91 /* PDFSlideAnnotatedView.m */,
 				63FBF9810FE4FC2A007577B6 /* PDFAnnotatedController.h */,
 				63FBF9820FE4FC2A007577B6 /* PDFAnnotatedController.m */,
+				6335E5D60FF2A6630072D428 /* PSBezierPath.h */,
+				6335E5D70FF2A6630072D428 /* PSBezierPath.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -454,6 +459,7 @@
 				633268F50FDE92C200382285 /* DBPrefsWindowController.m in Sources */,
 				63398C940FE3D4C1007B0E91 /* PDFSlideAnnotatedView.m in Sources */,
 				63FBF9830FE4FC2A007577B6 /* PDFAnnotatedController.m in Sources */,
+				6335E5D80FF2A6630072D428 /* PSBezierPath.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

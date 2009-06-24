@@ -61,7 +61,9 @@
 	NSUInteger pointerSize = [sharedDefaults integerForKey:@"PSPointerSize"];
 	[annotatedView setPointerSize:pointerSize];	
 	[annotatedView setPointerStyle:[sharedDefaults integerForKey:@"PSPointerStyle"]];
+	[annotatedView setPenSize:[sharedDefaults integerForKey:@"PSAnnotatePenSize"]];
 	[annotatedView setAnnotationTool:[sharedDefaults integerForKey:@"PSAnnotateTool"]];
+	
 	return win;
 }
 

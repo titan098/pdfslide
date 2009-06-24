@@ -31,6 +31,7 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 @synthesize annotationTool;
 @synthesize pointerStyle;
 @synthesize showPointer;
+@synthesize penSize;
 
 /**
  * Initilise the View

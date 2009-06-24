@@ -23,6 +23,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "PDFSlideView.h"
+#import "PSBezierPath.h"
 
 //define the type of annotation
 #define ANNOTATE_POINTER 1
@@ -45,6 +46,7 @@ extern NSString * const AnnotationNotification;
 	BOOL showPointer;
 	
 	NSMutableDictionary* pathDict;
+	NSUInteger penSize;
 	
 	BOOL refresh;
 	BOOL clear;
@@ -53,6 +55,7 @@ extern NSString * const AnnotationNotification;
 	BOOL canRecieveNotifications;
 }
 
+@property(readwrite) NSUInteger penSize;
 @property(readwrite) NSUInteger annotationTool;
 @property(readwrite) NSUInteger pointerStyle;
 @property(readwrite) BOOL showPointer;
