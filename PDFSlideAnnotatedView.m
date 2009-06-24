@@ -79,7 +79,8 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 		NSArray *pageArray = [pathDict objectForKey:[NSNumber numberWithInt:slideNumber]];
 		[toolColour set];
 		[[NSGraphicsContext currentContext] setShouldAntialias:YES];
-		for (NSBezierPath *path in pageArray) {
+		for (PSBezierPath *path in pageArray) {
+			[[path colour] set];
 			[path stroke];
 		}
 	}
@@ -120,7 +121,8 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 	}
 	
 	//create a new path in this array
-	NSBezierPath *newPath = [[NSBezierPath alloc] init];
+	PSBezierPath *newPath = [[PSBezierPath alloc] init];
+	[newPath setColour:toolColour];
 	[newPath setFlatness:0.1];
 	[pageArray addObject:newPath];
 	
@@ -138,7 +140,7 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 /**
  * Gets the current path
  */
-- (NSBezierPath *)getCurrentPath {
+- (PSBezierPath *)getCurrentPath {
 	NSMutableArray *pageArray = [pathDict objectForKey:[NSNumber numberWithInt:slideNumber]];
 	return [pageArray objectAtIndex:([pageArray count]-1)];;
 }
@@ -146,7 +148,7 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 /**
  * Adds a BezierPath to the current Path
  */
-- (void)addPath:(NSBezierPath *)path {
+- (void)addPath:(PSBezierPath *)path {
 	NSMutableArray *pageArray = [pathDict objectForKey:[NSNumber numberWithInt:slideNumber]];
 	
 	//if doesn't exist -- create it
@@ -314,7 +316,7 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 /**
  * Scale a NSBezierPath by the bounds of the page
  */
-- (NSBezierPath *)scaleDownNSBezierPath:(NSBezierPath *)path {
+- (PSBezierPath *)scaleDownPSBezierPath:(PSBezierPath *)path {
 	NSAffineTransform* xform = [NSAffineTransform transform];
 	[xform scaleXBy:(1/pagebounds.size.width)
 				yBy:(1/pagebounds.size.height)];
@@ -322,7 +324,7 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 					yBy:-pagebounds.origin.y];
 	
 	//get new bezierpath
-	NSBezierPath* newPath = [path copy];
+	PSBezierPath* newPath = [path copy];
 	[path bounds];
 	[newPath bounds];
 	[newPath transformUsingAffineTransform:xform];
@@ -333,7 +335,7 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 /**
  * Scale up a NSBezierPath by the bounds of the page
  */
-- (NSBezierPath *)scaleUpNSBezierPath:(NSBezierPath *)path {
+- (PSBezierPath *)scaleUpPSBezierPath:(PSBezierPath *)path {
 	NSAffineTransform* xform = [NSAffineTransform transform];
 	[xform translateXBy:pagebounds.origin.x
 					yBy:pagebounds.origin.y];
@@ -341,7 +343,7 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 				yBy:pagebounds.size.height];
 	
 	//get the new bezierpath and transform
-	NSBezierPath *newPath = [path copy];
+	PSBezierPath *newPath = [path copy];
 	[path bounds];
 	[newPath bounds];
 	[newPath transformUsingAffineTransform:xform];
@@ -376,7 +378,7 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 			break;
 		case ANNOTATE_PEN:
 			if (sendPath) {
-				[d setObject:[self scaleDownNSBezierPath:[self getCurrentPath]] forKey:@"PenPath"];
+				[d setObject:[self scaleDownPSBezierPath:[self getCurrentPath]] forKey:@"PenPath"];
 				sendPath = NO;
 			}
 			break;
@@ -394,7 +396,7 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
  * Handle a annotation notification that has been recieved
  */
 - (void)handleAnnotationNotification:(NSNotification *)note {
-	NSBezierPath *path;
+	PSBezierPath *path;
 	//get the tool that was being used
 	NSUInteger tool = [[[note userInfo] objectForKey:@"AnnotationTool"] intValue];
 	toolColour = [[note userInfo] objectForKey:@"AnnotationColour"];
@@ -419,7 +421,7 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 			//create a new path if the sender created a new path
 			path = [[note userInfo] objectForKey:@"PenPath"];
 			if (path) {
-				[self addPath:[self scaleUpNSBezierPath:path]];
+				[self addPath:[self scaleUpPSBezierPath:path]];
 				newBounds = pagebounds;
 			}
 			break;
