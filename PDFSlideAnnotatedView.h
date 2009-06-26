@@ -26,8 +26,8 @@
 #import "PSBezierPath.h"
 
 //define the type of annotation
-#define ANNOTATE_POINTER 1
-#define ANNOTATE_PEN 2
+#define ANNOTATE_POINTER 0
+#define ANNOTATE_PEN 1
 
 //define pointer styles
 #define ANNOTATE_POINTER_STYLE_CIRCLE 0
