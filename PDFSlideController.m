@@ -43,6 +43,15 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
  * Will execute once the nib file has loaded
  */
 - (void) awakeFromNib {
+	//set the defaults
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	NSMutableDictionary* appDefaults = [[NSMutableDictionary alloc] init];
+	[appDefaults setObject:[NSNumber numberWithInt:10] forKey:@"PSPointerSize"];
+	[appDefaults setObject:[NSNumber numberWithInt:0] forKey:@"PSPointerStyle"];
+	[appDefaults setObject:[NSNumber numberWithInt:1] forKey:@"PSAnnotatePenSize"];
+	[appDefaults setObject:[NSNumber numberWithInt:0] forKey:@"PSAnnotateTool"];
+	[defaults registerDefaults:appDefaults];
+	
 	slides = nil;
 	faded = NO;
 	
