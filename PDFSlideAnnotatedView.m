@@ -123,7 +123,6 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 	//create a new path in this array
 	PSBezierPath *newPath = [[PSBezierPath alloc] init];
 	[newPath setColour:toolColour];
-	[newPath setFlatness:0.1];
 	[pageArray addObject:newPath];
 	
 	return pageArray;
