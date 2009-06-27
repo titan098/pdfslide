@@ -129,7 +129,28 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 	}
 }
 
-#pragma mark Window Actions
+#pragma mark Open Actions
+
+- (BOOL)performOpenPDF:(NSString *)filename {
+	//add the filename to the reciently opened menu
+	[[NSDocumentController sharedDocumentController] noteNewRecentDocumentURL:[NSURL fileURLWithPath:filename]];
+	
+	slides = [[Slide alloc] initWithURL:[NSURL fileURLWithPath:filename]];
+	
+	//display the window if needed
+	[[self window] makeKeyAndOrderFront:self];
+	
+	//check to see if the PDF is encrypted
+	if ([slides isEncrypted]) {
+		//show the encrypted sheet - then perform the init
+		[self showEncryptedSheet];
+	} else {
+		//init the window directly
+		[self initiliseWindow];
+	}
+	
+	return YES;
+}
 
 /*
  * Show the open dialog button to allow the user to select a PDF file to open
@@ -147,21 +168,18 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 	if (result == NSOKButton) {
 		NSString *filename = [openPanel filename];
 		
-		slides = [[Slide alloc] initWithURL:[NSURL fileURLWithPath:filename]];
-		
-		//display the window if needed
-		[[self window] makeKeyAndOrderFront:self];
-		
-		//check to see if the PDF is encrypted
-		if ([slides isEncrypted]) {
-			//show the encrypted sheet - then perform the init
-			[self showEncryptedSheet];
-		} else {
-			//init the window directly
-			[self initiliseWindow];
-		}		
+		[self performOpenPDF:filename];
 	} 
 }
+
+/**
+ * Open a document when the reciently opened document is chosen.
+ */
+- (BOOL)application:(NSApplication *)theApplication openFile:(NSString *)filename {
+	return [self performOpenPDF:filename];
+}
+
+#pragma mark Window Actions
 
 /**
  * Shows the About window
