@@ -42,6 +42,7 @@
 		638A52110FD05FCB00F090AC /* About.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638A52100FD05FCB00F090AC /* About.xib */; };
 		638A521A0FD0645900F090AC /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638A52190FD0645900F090AC /* AboutController.m */; };
 		638A52CE0FD071A900F090AC /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 638A52CD0FD071A900F090AC /* Credits.rtf */; };
+		63993FC90FFE469500A1B35C /* PDFSlide.icns in Resources */ = {isa = PBXBuildFile; fileRef = 63993FC80FFE469500A1B35C /* PDFSlide.icns */; };
 		63BCBBCF0FD5B340009CB2ED /* COPYING in Resources */ = {isa = PBXBuildFile; fileRef = 63BCBBCE0FD5B340009CB2ED /* COPYING */; };
 		63C2A7BF0FCDBC95009DE783 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C2A77F0FCDBAB6009DE783 /* Carbon.framework */; };
 		63C2A7C00FCDBC95009DE783 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C2A7800FCDBAB6009DE783 /* IOKit.framework */; };
@@ -123,6 +124,7 @@
 		638A52180FD0645900F090AC /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
 		638A52190FD0645900F090AC /* AboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutController.m; sourceTree = "<group>"; };
 		638A52CD0FD071A900F090AC /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
+		63993FC80FFE469500A1B35C /* PDFSlide.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = PDFSlide.icns; path = icons/PDFSlide.icns; sourceTree = "<group>"; };
 		63BCBBCE0FD5B340009CB2ED /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
 		63C2A77F0FCDBAB6009DE783 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		63C2A7800FCDBAB6009DE783 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
@@ -281,6 +283,7 @@
 		634833030FD847E80062544D /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				63993FC80FFE469500A1B35C /* PDFSlide.icns */,
 				631A3F390FEAC20E00417160 /* TBPointer.icns */,
 				632104090FE52FE100CFACBA /* PSAnnotate.icns */,
 				630D89A90FE5254F00A85A6C /* PSPassword.icns */,
@@ -415,6 +418,7 @@
 				630D89AC0FE5254F00A85A6C /* PSUpdate.icns in Resources */,
 				6321040A0FE52FE100CFACBA /* PSAnnotate.icns in Resources */,
 				631A3F3A0FEAC20E00417160 /* TBPointer.icns in Resources */,
+				63993FC90FFE469500A1B35C /* PDFSlide.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,7 +436,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "VERSION=0.1.1\nIMAGEDIR=$TEMP_DIR/$PROJECT_NAME\nDMGNAME=$PROJECT_NAME-$VERSION.dmg\nKEYCHAIN_PRIVKEY_NAME=\"Sparkle Private Key 1\"\nPRIV_KEY=~/.ssh/pdfslide_priv.pem\nDOWNLOAD_URL=http://downloads.sourceforge.net/pdfslide/$DMGNAME\n\n#create a copy of the project\nrm -rf /tmp/$PROJECT_NAME\ncp -R $SRCROOT /tmp/$PROJECT_NAME\n\n#strip out all the unnessisary stuff\nrm -rf /tmp/$PROJECT_NAME/.git\nrm -rf /tmp/$PROJECT_NAME/build\nrm -rf /tmp/$PROJECT_NAME/dist\n\n#Create a Temp Directory to hold final dist\nrm -rf $IMAGEDIR\nmkdir $IMAGEDIR\n\nrm -rf $SRCROOT/dist\nmkdir $SRCROOT/dist\n\n#create a source archive\ncd /tmp\ntar cfz $SRCROOT/dist/$PROJECT_NAME-$VERSION.tar.gz $PROJECT_NAME\ncd $SRCROOT\n\n#copy the file to the image so we can construct the diskimage\ncp $SRCROOT/COPYING $IMAGEDIR\ncp -r $TARGET_BUILD_DIR/$PROJECT_NAME.app $IMAGEDIR\nhdiutil create -srcfolder $IMAGEDIR $SRCROOT/dist/$DMGNAME\n\n#do all the processing for sparkle\ncd $SRCROOT/dist\nSIZE=$(stat -f %z \"$DMGNAME\") \nPUBDATE=$(date +\"%a, %d %b %G %T %z\")\nSIGNATURE=$(openssl dgst -sha1 -binary < \"$DMGNAME\" | openssl dgst -dss1 -sign <(cat $PRIV_KEY) | openssl enc -base64)\n\ncat >> appcast-$PROJECT_NAME-$VERSION.xml <<EOF\n\t\t<item>\n\t\t\t<title>Version $VERSION</title>\n\t\t\t<description><![CDATA[\n<h1>Version $VERSION</h1>\n\n<h2>Features</h2>\n<ul>\n<li>Insert New Features Here</li>\n</ul>\n\n<h2>Bug Fixes</h2>\n<ul>\n<li>Insert Bug Fixes Here</li>\n</ul>\n\t\t\t]]></description>\n\t\t\t<pubDate>$PUBDATE</pubDate>\n\t\t\t<enclosure\n\t\t\t\turl=\"$DOWNLOAD_URL\"\n\t\t\t\tsparkle:version=\"$VERSION\"\n\t\t\t\ttype=\"application/x-apple-diskimage\"\n\t\t\t\tlength=\"$SIZE\"\n\t\t\t\tsparkle:dsaSignature=\"$SIGNATURE\"\n\t\t\t/>\n\t\t</item>\nEOF\n\nexit 0";
+			shellScript = "VERSION=0.1.2\nIMAGEDIR=$TEMP_DIR/$PROJECT_NAME\nDMGNAME=$PROJECT_NAME-$VERSION.dmg\nKEYCHAIN_PRIVKEY_NAME=\"Sparkle Private Key 1\"\nPRIV_KEY=~/.ssh/pdfslide_priv.pem\nDOWNLOAD_URL=http://downloads.sourceforge.net/pdfslide/$DMGNAME\n\n#create a copy of the project\nrm -rf /tmp/$PROJECT_NAME\ncp -R $SRCROOT /tmp/$PROJECT_NAME\n\n#strip out all the unnessisary stuff\nrm -rf /tmp/$PROJECT_NAME/.git\nrm -rf /tmp/$PROJECT_NAME/build\nrm -rf /tmp/$PROJECT_NAME/dist\n\n#Create a Temp Directory to hold final dist\nrm -rf $IMAGEDIR\nmkdir $IMAGEDIR\n\nrm -rf $SRCROOT/dist\nmkdir $SRCROOT/dist\n\n#create a source archive\ncd /tmp\ntar cfz $SRCROOT/dist/$PROJECT_NAME-$VERSION.tar.gz $PROJECT_NAME\ncd $SRCROOT\n\n#copy the file to the image so we can construct the diskimage\ncp $SRCROOT/COPYING $IMAGEDIR\ncp -r $TARGET_BUILD_DIR/$PROJECT_NAME.app $IMAGEDIR\nhdiutil create -srcfolder $IMAGEDIR $SRCROOT/dist/$DMGNAME\n\n#do all the processing for sparkle\ncd $SRCROOT/dist\nSIZE=$(stat -f %z \"$DMGNAME\") \nPUBDATE=$(date +\"%a, %d %b %G %T %z\")\nSIGNATURE=$(openssl dgst -sha1 -binary < \"$DMGNAME\" | openssl dgst -dss1 -sign <(cat $PRIV_KEY) | openssl enc -base64)\n\ncat >> appcast-$PROJECT_NAME-$VERSION.xml <<EOF\n\t\t<item>\n\t\t\t<title>Version $VERSION</title>\n\t\t\t<description><![CDATA[\n<h1>Version $VERSION</h1>\n\n<h2>Features</h2>\n<ul>\n<li>Insert New Features Here</li>\n</ul>\n\n<h2>Bug Fixes</h2>\n<ul>\n<li>Insert Bug Fixes Here</li>\n</ul>\n\t\t\t]]></description>\n\t\t\t<pubDate>$PUBDATE</pubDate>\n\t\t\t<enclosure\n\t\t\t\turl=\"$DOWNLOAD_URL\"\n\t\t\t\tsparkle:version=\"$VERSION\"\n\t\t\t\ttype=\"application/x-apple-diskimage\"\n\t\t\t\tlength=\"$SIZE\"\n\t\t\t\tsparkle:dsaSignature=\"$SIGNATURE\"\n\t\t\t/>\n\t\t</item>\nEOF\n\nexit 0";
 		};
 /* End PBXShellScriptBuildPhase section */
 
