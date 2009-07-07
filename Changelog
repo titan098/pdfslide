@@ -1,0 +1,36 @@
+Version 0.1.2
+
+Features
+--------
+
+* Added PDFSlide icon
+* Added Slide annotation window
+* Added 'Open Recent' menu
+
+Bug Fixes
+---------
+
+* Open dialog will cancel
+* Other minor bug fixes and improvements
+
+Version 0.1.1
+
+Features
+--------
+
+* Added Sparkle Update Framework
+* Added Preferences Window
+* Encrypted PDF can be opened
+
+Bug Fixes
+---------
+
+* Will now not fade out when no PDF has been loaded
+* Fixed display window that flashed momentarily
+* PDFs that are rotated by 90 or 270 degrees will display correctly
+* Presenter will display if closed when a PDF is opened
+* Other minor bug fixes and improvements
+
+Version 0.1
+
+* Initial Release
