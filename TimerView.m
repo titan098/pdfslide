@@ -49,16 +49,16 @@
 																locale:nil];
 		else {
 			//display a counter
-			// 10.5.x //
-			displayTime = [[viewTime addTimeInterval:elapsed] descriptionWithCalendarFormat:@"%H:%M:%S"
-																				   timeZone:[NSTimeZone timeZoneWithName:@"GMT"] 
-																					 locale:nil];
-			// 10.6 //
-			/*
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= 1060)
+			//Don't use the deprecated function calls if compiling against 10.6
 			displayTime = [[viewTime dateByAddingTimeInterval:elapsed] descriptionWithCalendarFormat:@"%H:%M:%S"
 																							timeZone:[NSTimeZone timeZoneWithName:@"GMT"] 
 																							  locale:nil];
-			*/
+#else
+			displayTime = [[viewTime addTimeInterval:elapsed] descriptionWithCalendarFormat:@"%H:%M:%S"
+																				   timeZone:[NSTimeZone timeZoneWithName:@"GMT"] 
+																					 locale:nil];
+#endif
 		}
 			
 		//Apply the font attributes

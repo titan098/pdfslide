@@ -44,10 +44,12 @@
 
 #import <Cocoa/Cocoa.h>
 
-// 10.5.x //
-@interface DBPrefsWindowController : NSWindowController {
-// 10.6 // @interface DBPrefsWindowController : NSWindowController <NSAnimationDelegate, NSToolbarDelegate> {
-		
+@interface DBPrefsWindowController : NSWindowController
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= 1060)
+	// use the formal protocols if compiling agains 10.6
+	<NSAnimationDelegate, NSToolbarDelegate>
+#endif	
+{
 	NSMutableArray *toolbarIdentifiers;
 	NSMutableDictionary *toolbarViews;
 	NSMutableDictionary *toolbarItems;
