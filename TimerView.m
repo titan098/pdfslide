@@ -58,7 +58,7 @@
 		font = [NSFont fontWithName:@"Helvetica"
 							   size:40.0];		
 
-		fontAttr = [NSDictionary dictionaryWithObjectsAndKeys:font, NSFontAttributeName];
+		fontAttr = [NSDictionary dictionaryWithObjectsAndKeys:font, NSFontAttributeName, nil];
 		NSSize fontSize = [displayTime sizeWithAttributes:fontAttr];
 		
 		//apply a transformation to get the text in the center of the rectangle
