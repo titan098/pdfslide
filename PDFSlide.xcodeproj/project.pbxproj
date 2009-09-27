@@ -51,7 +51,6 @@
 		63C2A7DD0FCDBD86009DE783 /* HIDRemoteControlDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C2A7DC0FCDBD86009DE783 /* HIDRemoteControlDevice.m */; };
 		63C2A7E00FCDBD9C009DE783 /* RemoteControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C2A7DF0FCDBD9C009DE783 /* RemoteControl.m */; };
 		63C2A7E90FCDBDB7009DE783 /* AppleRemote.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C2A7E20FCDBDB7009DE783 /* AppleRemote.m */; };
-		63C2A7EA0FCDBDB7009DE783 /* GlobalKeyboardDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C2A7E40FCDBDB7009DE783 /* GlobalKeyboardDevice.m */; };
 		63C2A7EB0FCDBDB7009DE783 /* KeyspanFrontRowControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C2A7E60FCDBDB7009DE783 /* KeyspanFrontRowControl.m */; };
 		63C2A7EC0FCDBDB7009DE783 /* RemoteControlContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C2A7E80FCDBDB7009DE783 /* RemoteControlContainer.m */; };
 		63F6E9930FC09FB0006BC158 /* PDFDisplay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F6E9920FC09FB0006BC158 /* PDFDisplay.xib */; };
@@ -455,7 +454,6 @@
 				63C2A7DD0FCDBD86009DE783 /* HIDRemoteControlDevice.m in Sources */,
 				63C2A7E00FCDBD9C009DE783 /* RemoteControl.m in Sources */,
 				63C2A7E90FCDBDB7009DE783 /* AppleRemote.m in Sources */,
-				63C2A7EA0FCDBDB7009DE783 /* GlobalKeyboardDevice.m in Sources */,
 				63C2A7EB0FCDBDB7009DE783 /* KeyspanFrontRowControl.m in Sources */,
 				63C2A7EC0FCDBDB7009DE783 /* RemoteControlContainer.m in Sources */,
 				638A521A0FD0645900F090AC /* AboutController.m in Sources */,
@@ -560,7 +558,7 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_OBJC_GC = supported;
 				GCC_OPTIMIZATION_LEVEL = 0;
