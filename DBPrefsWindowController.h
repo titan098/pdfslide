@@ -37,12 +37,17 @@
 //                  Added some code to supress compiler warnings from unused parameters.
 //                  Fixed a couple of objects that weren't being properly released.
 //
-
+// -----------------------------------------
+// Changes by David Ellefsen
+//
+//  27 September 2009 : Inherit the NSAnimationDelegate, and the NSToolbarDelegate.
 
 #import <Cocoa/Cocoa.h>
 
-
+// 10.5.x //
 @interface DBPrefsWindowController : NSWindowController {
+// 10.6 // @interface DBPrefsWindowController : NSWindowController <NSAnimationDelegate, NSToolbarDelegate> {
+		
 	NSMutableArray *toolbarIdentifiers;
 	NSMutableDictionary *toolbarViews;
 	NSMutableDictionary *toolbarItems;

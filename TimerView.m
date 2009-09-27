@@ -49,9 +49,16 @@
 																locale:nil];
 		else {
 			//display a counter
+			// 10.5.x //
 			displayTime = [[viewTime addTimeInterval:elapsed] descriptionWithCalendarFormat:@"%H:%M:%S"
-														 timeZone:[NSTimeZone timeZoneWithName:@"GMT"]
-														   locale:nil];
+																				   timeZone:[NSTimeZone timeZoneWithName:@"GMT"] 
+																					 locale:nil];
+			// 10.6 //
+			/*
+			displayTime = [[viewTime dateByAddingTimeInterval:elapsed] descriptionWithCalendarFormat:@"%H:%M:%S"
+																							timeZone:[NSTimeZone timeZoneWithName:@"GMT"] 
+																							  locale:nil];
+			*/
 		}
 			
 		//Apply the font attributes
