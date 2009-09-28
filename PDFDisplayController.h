@@ -22,7 +22,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "Slide.h"
+#import "PSSlide.h"
 #import "PDFSlideAnnotatedView.h"
 #import "PDFSlideController.h"
 
@@ -34,7 +34,7 @@ extern NSString * const DisplaySlideNumberNotification;
 @interface PDFDisplayController : NSWindowController {
 	IBOutlet PDFSlideAnnotatedView *pdfSlides;
 	
-	Slide *slides;
+	PSSlide *slides;
 	NSUInteger displayScreen;
 	NSUInteger intialSlideNumber;
 }

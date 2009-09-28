@@ -24,12 +24,12 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "Slide.h"
+#import "PSSlide.h"
 
 extern NSString * const PDFViewKeyPressNotification;
 
 @interface PDFSlideView : NSView {
-	Slide *slide;
+	PSSlide *slide;
 	NSUInteger slideNumber;
 	
 	NSRect pagebounds;	//bounds od the PDF that was drawn
@@ -37,7 +37,7 @@ extern NSString * const PDFViewKeyPressNotification;
 
 @property(readwrite) NSUInteger slideNumber;
 
-- (void)setSlide:(Slide *)newSlide;
+- (void)setSlide:(PSSlide *)newSlide;
 
 - (IBAction)incrSlide:(id)sender;
 - (IBAction)decrSlide:(id)sender;

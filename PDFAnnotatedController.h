@@ -40,7 +40,7 @@
 - (IBAction)choosePointerTool:(id)sender;
 - (IBAction)clearPaths:(id)sender;
 
-- (void)setSlides:(Slide*)slides slideNumber:(NSUInteger)slideNumber;
+- (void)setSlides:(PSSlide*)slides slideNumber:(NSUInteger)slideNumber;
 - (void)setSlideNumber:(NSUInteger)slideNumber;
 
 @end

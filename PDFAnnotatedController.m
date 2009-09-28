@@ -118,7 +118,7 @@
 
 #pragma mark Slide Control
 
-- (void)setSlides:(Slide*)slides slideNumber:(NSUInteger)slideNumber {
+- (void)setSlides:(PSSlide*)slides slideNumber:(NSUInteger)slideNumber {
 	[annotatedView setSlide:slides];
 	[annotatedView setSlideNumber:slideNumber];
 }

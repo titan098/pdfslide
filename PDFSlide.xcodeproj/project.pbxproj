@@ -23,9 +23,9 @@
 
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
+		630C88BF10714951004F8983 /* PSSlide.m in Sources */ = {isa = PBXBuildFile; fileRef = 630C88BE10714951004F8983 /* PSSlide.m */; };
 		630D89AB0FE5254F00A85A6C /* PSPassword.icns in Resources */ = {isa = PBXBuildFile; fileRef = 630D89A90FE5254F00A85A6C /* PSPassword.icns */; };
 		630D89AC0FE5254F00A85A6C /* PSUpdate.icns in Resources */ = {isa = PBXBuildFile; fileRef = 630D89AA0FE5254F00A85A6C /* PSUpdate.icns */; };
-		631039FA0FC01F2100355C3D /* Slide.m in Sources */ = {isa = PBXBuildFile; fileRef = 631039F90FC01F2100355C3D /* Slide.m */; };
 		631A3F3A0FEAC20E00417160 /* TBPointer.icns in Resources */ = {isa = PBXBuildFile; fileRef = 631A3F390FEAC20E00417160 /* TBPointer.icns */; };
 		6321040A0FE52FE100CFACBA /* PSAnnotate.icns in Resources */ = {isa = PBXBuildFile; fileRef = 632104090FE52FE100CFACBA /* PSAnnotate.icns */; };
 		633268F50FDE92C200382285 /* DBPrefsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 633268F40FDE92C200382285 /* DBPrefsWindowController.m */; };
@@ -96,10 +96,10 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32CA4F630368D1EE00C91783 /* PDFSlide_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFSlide_Prefix.pch; sourceTree = "<group>"; };
+		630C88BD10714951004F8983 /* PSSlide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSSlide.h; sourceTree = "<group>"; };
+		630C88BE10714951004F8983 /* PSSlide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSSlide.m; sourceTree = "<group>"; };
 		630D89A90FE5254F00A85A6C /* PSPassword.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = PSPassword.icns; path = icons/PSPassword.icns; sourceTree = "<group>"; };
 		630D89AA0FE5254F00A85A6C /* PSUpdate.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = PSUpdate.icns; path = icons/PSUpdate.icns; sourceTree = "<group>"; };
-		631039F80FC01F2100355C3D /* Slide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Slide.h; sourceTree = "<group>"; };
-		631039F90FC01F2100355C3D /* Slide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Slide.m; sourceTree = "<group>"; };
 		631A3F390FEAC20E00417160 /* TBPointer.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = TBPointer.icns; path = icons/TBPointer.icns; sourceTree = "<group>"; };
 		632104090FE52FE100CFACBA /* PSAnnotate.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = PSAnnotate.icns; path = icons/PSAnnotate.icns; sourceTree = "<group>"; };
 		633268F30FDE92C200382285 /* DBPrefsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPrefsWindowController.h; sourceTree = "<group>"; };
@@ -176,14 +176,14 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				630C88BD10714951004F8983 /* PSSlide.h */,
+				630C88BE10714951004F8983 /* PSSlide.m */,
 				633268F30FDE92C200382285 /* DBPrefsWindowController.h */,
 				633268F40FDE92C200382285 /* DBPrefsWindowController.m */,
 				6365A3C70FBF2C0F00895D69 /* PDFSlideController.h */,
 				6365A3C80FBF2C0F00895D69 /* PDFSlideController.m */,
 				6365A4130FBF355000895D69 /* PDFSlideView.h */,
 				6365A4140FBF355000895D69 /* PDFSlideView.m */,
-				631039F80FC01F2100355C3D /* Slide.h */,
-				631039F90FC01F2100355C3D /* Slide.m */,
 				63F6E9970FC0A06A006BC158 /* PDFDisplayController.h */,
 				63F6E9980FC0A06A006BC158 /* PDFDisplayController.m */,
 				638762B50FC96FB300276EC5 /* TimerView.h */,
@@ -447,7 +447,6 @@
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				6365A3C90FBF2C0F00895D69 /* PDFSlideController.m in Sources */,
 				6365A4150FBF355000895D69 /* PDFSlideView.m in Sources */,
-				631039FA0FC01F2100355C3D /* Slide.m in Sources */,
 				63F6E9990FC0A06A006BC158 /* PDFDisplayController.m in Sources */,
 				638762B70FC96FB300276EC5 /* TimerView.m in Sources */,
 				63C2A7DA0FCDBD71009DE783 /* MultiClickRemoteBehavior.m in Sources */,
@@ -462,6 +461,7 @@
 				63398C940FE3D4C1007B0E91 /* PDFSlideAnnotatedView.m in Sources */,
 				63FBF9830FE4FC2A007577B6 /* PDFAnnotatedController.m in Sources */,
 				6335E5D80FF2A6630072D428 /* PSBezierPath.m in Sources */,
+				630C88BF10714951004F8983 /* PSSlide.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

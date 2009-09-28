@@ -129,7 +129,7 @@ NSString * const DisplaySlideNumberNotification = @"DisplaySlideNumberChanged";
  */
 - (void)handleSlideObjChange:(NSNotification *)note {
 	NSLog(@"Notify Display: Slide Object Change Notification Recieved");
-	Slide *newSlides = [[note userInfo] objectForKey:@"SlideObject"];
+	PSSlide *newSlides = [[note userInfo] objectForKey:@"SlideObject"];
 	
 	slides = newSlides;
 	[pdfSlides setSlide:slides];

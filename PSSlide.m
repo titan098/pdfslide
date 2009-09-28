@@ -21,10 +21,10 @@
 // along with PDFSlide.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "Slide.h"
+#import "PSSlide.h"
 
 
-@implementation Slide
+@implementation PSSlide
 
 //initialse the Slide object with a pdf
 - (id)initWithURL:(NSURL *)url {

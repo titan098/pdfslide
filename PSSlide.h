@@ -1,5 +1,5 @@
 //
-//  Slide.h
+//  PSSlide.h
 //  PDFSlide
 //
 //  Created by David on 2009/05/17.
@@ -24,7 +24,7 @@
 #import <Cocoa/Cocoa.h>
 #import <Quartz/Quartz.h>
 
-@interface Slide : NSObject {
+@interface PSSlide : NSObject {
 	PDFDocument *document;
 }
 

@@ -135,7 +135,7 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 	//add the filename to the reciently opened menu
 	[[NSDocumentController sharedDocumentController] noteNewRecentDocumentURL:[NSURL fileURLWithPath:filename]];
 	
-	slides = [[Slide alloc] initWithURL:[NSURL fileURLWithPath:filename]];
+	slides = [[PSSlide alloc] initWithURL:[NSURL fileURLWithPath:filename]];
 	
 	//display the window if needed
 	[[self window] makeKeyAndOrderFront:self];

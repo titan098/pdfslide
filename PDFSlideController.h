@@ -23,7 +23,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "AppleRemote/AppleRemote.h"
-#import "Slide.h"
+#import "PSSlide.h"
 #import "PDFSlideView.h"
 #import "PDFSlideAnnotatedView.h"
 #import "TimerView.h"
@@ -53,7 +53,7 @@ extern NSString * const ControllerSlideStopNotification;
 	
 	IBOutlet NSButton* annotatedButton;
 	
-	Slide *slides;
+	PSSlide *slides;
 	NSWindowController *pdfDisplay;
 	AboutController *aboutWindow;
 	

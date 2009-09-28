@@ -104,7 +104,7 @@ NSString * const PDFViewKeyPressNotification = @"PDFViewKeyPressed";
 /**
  * Sets the Slide object to display from
  */
-- (void)setSlide:(Slide *)newSlide {
+- (void)setSlide:(PSSlide *)newSlide {
 	slide = newSlide;
 }
 
