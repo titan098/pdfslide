@@ -21,10 +21,10 @@
 // along with PDFSlide.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "AboutController.h"
+#import "PDFAboutController.h"
 
 
-@implementation AboutController
+@implementation PDFAboutController
 
 - (id)init {
 	if (![super initWithWindowNibName:@"About"])

@@ -40,7 +40,7 @@
 		6365A4150FBF355000895D69 /* PDFSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6365A4140FBF355000895D69 /* PDFSlideView.m */; };
 		638762B70FC96FB300276EC5 /* PSTimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 638762B60FC96FB300276EC5 /* PSTimerView.m */; };
 		638A52110FD05FCB00F090AC /* About.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638A52100FD05FCB00F090AC /* About.xib */; };
-		638A521A0FD0645900F090AC /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638A52190FD0645900F090AC /* AboutController.m */; };
+		638A521A0FD0645900F090AC /* PDFAboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638A52190FD0645900F090AC /* PDFAboutController.m */; };
 		638A52CE0FD071A900F090AC /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 638A52CD0FD071A900F090AC /* Credits.rtf */; };
 		63993FC90FFE469500A1B35C /* PDFSlide.icns in Resources */ = {isa = PBXBuildFile; fileRef = 63993FC80FFE469500A1B35C /* PDFSlide.icns */; };
 		63BCBBCF0FD5B340009CB2ED /* COPYING in Resources */ = {isa = PBXBuildFile; fileRef = 63BCBBCE0FD5B340009CB2ED /* COPYING */; };
@@ -120,8 +120,8 @@
 		638762B50FC96FB300276EC5 /* PSTimerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTimerView.h; sourceTree = "<group>"; };
 		638762B60FC96FB300276EC5 /* PSTimerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTimerView.m; sourceTree = "<group>"; };
 		638A52100FD05FCB00F090AC /* About.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = About.xib; sourceTree = "<group>"; };
-		638A52180FD0645900F090AC /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
-		638A52190FD0645900F090AC /* AboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutController.m; sourceTree = "<group>"; };
+		638A52180FD0645900F090AC /* PDFAboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFAboutController.h; sourceTree = "<group>"; };
+		638A52190FD0645900F090AC /* PDFAboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFAboutController.m; sourceTree = "<group>"; };
 		638A52CD0FD071A900F090AC /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		63993FC80FFE469500A1B35C /* PDFSlide.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = PDFSlide.icns; path = icons/PDFSlide.icns; sourceTree = "<group>"; };
 		63BCBBCE0FD5B340009CB2ED /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
@@ -188,8 +188,8 @@
 				63F6E9980FC0A06A006BC158 /* PDFDisplayController.m */,
 				638762B50FC96FB300276EC5 /* PSTimerView.h */,
 				638762B60FC96FB300276EC5 /* PSTimerView.m */,
-				638A52180FD0645900F090AC /* AboutController.h */,
-				638A52190FD0645900F090AC /* AboutController.m */,
+				638A52180FD0645900F090AC /* PDFAboutController.h */,
+				638A52190FD0645900F090AC /* PDFAboutController.m */,
 				6361634A0FDBD0D40063BFA4 /* PreferencesController.h */,
 				6361634B0FDBD0D40063BFA4 /* PreferencesController.m */,
 				63398C920FE3D4C1007B0E91 /* PDFSlideAnnotatedView.h */,
@@ -455,7 +455,7 @@
 				63C2A7E90FCDBDB7009DE783 /* AppleRemote.m in Sources */,
 				63C2A7EB0FCDBDB7009DE783 /* KeyspanFrontRowControl.m in Sources */,
 				63C2A7EC0FCDBDB7009DE783 /* RemoteControlContainer.m in Sources */,
-				638A521A0FD0645900F090AC /* AboutController.m in Sources */,
+				638A521A0FD0645900F090AC /* PDFAboutController.m in Sources */,
 				6361634C0FDBD0D40063BFA4 /* PreferencesController.m in Sources */,
 				633268F50FDE92C200382285 /* DBPrefsWindowController.m in Sources */,
 				63398C940FE3D4C1007B0E91 /* PDFSlideAnnotatedView.m in Sources */,

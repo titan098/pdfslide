@@ -185,7 +185,7 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
  * Shows the About window
  */
 - (IBAction)showAboutWindow:(id)sender {
-	aboutWindow = [[AboutController alloc] init];
+	aboutWindow = [[PDFAboutController alloc] init];
 	[aboutWindow showWindow:self];
 }
 

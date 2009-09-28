@@ -28,7 +28,7 @@
 #import "PDFSlideAnnotatedView.h"
 #import "PSTimerView.h"
 #import "PDFDisplayController.h"
-#import "AboutController.h"
+#import "PDFAboutController.h"
 #import "PreferencesController.h"
 #import "PDFAnnotatedController.h"
 
@@ -55,7 +55,7 @@ extern NSString * const ControllerSlideStopNotification;
 	
 	PSSlide *slides;
 	NSWindowController *pdfDisplay;
-	AboutController *aboutWindow;
+	PDFAboutController *aboutWindow;
 	
 	PDFAnnotatedController *annotatedWindow;
 	

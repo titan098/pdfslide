@@ -24,7 +24,7 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface AboutController : NSWindowController {
+@interface PDFAboutController : NSWindowController {
 	IBOutlet NSTextField *productName;
 	IBOutlet NSTextField *versionNumber;
 	IBOutlet NSTextField *copyrightInfo;
