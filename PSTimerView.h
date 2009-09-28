@@ -24,7 +24,7 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface TimerView : NSView {
+@interface PSTimerView : NSView {
 	NSFont* font;
 	NSTimer* timer;
 	

@@ -21,10 +21,10 @@
 // along with PDFSlide.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "TimerView.h"
+#import "PSTimerView.h"
 
 
-@implementation TimerView
+@implementation PSTimerView
 
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];

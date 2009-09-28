@@ -26,7 +26,7 @@
 #import "PSSlide.h"
 #import "PDFSlideView.h"
 #import "PDFSlideAnnotatedView.h"
-#import "TimerView.h"
+#import "PSTimerView.h"
 #import "PDFDisplayController.h"
 #import "AboutController.h"
 #import "PreferencesController.h"
@@ -43,8 +43,8 @@ extern NSString * const ControllerSlideStopNotification;
 	IBOutlet NSTextView	*tvNotes;
 	IBOutlet NSPopUpButton *displayMenu;
 	
-	IBOutlet TimerView *currentTime;
-	IBOutlet TimerView *counterView;
+	IBOutlet PSTimerView *currentTime;
+	IBOutlet PSTimerView *counterView;
 	IBOutlet PDFSlideView *currentSlide;
 	IBOutlet PDFSlideView *nextSlide;
 	

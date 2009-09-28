@@ -38,7 +38,7 @@
 		6361634C0FDBD0D40063BFA4 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6361634B0FDBD0D40063BFA4 /* PreferencesController.m */; };
 		6365A3C90FBF2C0F00895D69 /* PDFSlideController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6365A3C80FBF2C0F00895D69 /* PDFSlideController.m */; };
 		6365A4150FBF355000895D69 /* PDFSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6365A4140FBF355000895D69 /* PDFSlideView.m */; };
-		638762B70FC96FB300276EC5 /* TimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 638762B60FC96FB300276EC5 /* TimerView.m */; };
+		638762B70FC96FB300276EC5 /* PSTimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 638762B60FC96FB300276EC5 /* PSTimerView.m */; };
 		638A52110FD05FCB00F090AC /* About.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638A52100FD05FCB00F090AC /* About.xib */; };
 		638A521A0FD0645900F090AC /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638A52190FD0645900F090AC /* AboutController.m */; };
 		638A52CE0FD071A900F090AC /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 638A52CD0FD071A900F090AC /* Credits.rtf */; };
@@ -117,8 +117,8 @@
 		6365A3C80FBF2C0F00895D69 /* PDFSlideController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFSlideController.m; sourceTree = "<group>"; };
 		6365A4130FBF355000895D69 /* PDFSlideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFSlideView.h; sourceTree = "<group>"; };
 		6365A4140FBF355000895D69 /* PDFSlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFSlideView.m; sourceTree = "<group>"; };
-		638762B50FC96FB300276EC5 /* TimerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerView.h; sourceTree = "<group>"; };
-		638762B60FC96FB300276EC5 /* TimerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerView.m; sourceTree = "<group>"; };
+		638762B50FC96FB300276EC5 /* PSTimerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTimerView.h; sourceTree = "<group>"; };
+		638762B60FC96FB300276EC5 /* PSTimerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTimerView.m; sourceTree = "<group>"; };
 		638A52100FD05FCB00F090AC /* About.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = About.xib; sourceTree = "<group>"; };
 		638A52180FD0645900F090AC /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
 		638A52190FD0645900F090AC /* AboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutController.m; sourceTree = "<group>"; };
@@ -186,8 +186,8 @@
 				6365A4140FBF355000895D69 /* PDFSlideView.m */,
 				63F6E9970FC0A06A006BC158 /* PDFDisplayController.h */,
 				63F6E9980FC0A06A006BC158 /* PDFDisplayController.m */,
-				638762B50FC96FB300276EC5 /* TimerView.h */,
-				638762B60FC96FB300276EC5 /* TimerView.m */,
+				638762B50FC96FB300276EC5 /* PSTimerView.h */,
+				638762B60FC96FB300276EC5 /* PSTimerView.m */,
 				638A52180FD0645900F090AC /* AboutController.h */,
 				638A52190FD0645900F090AC /* AboutController.m */,
 				6361634A0FDBD0D40063BFA4 /* PreferencesController.h */,
@@ -448,7 +448,7 @@
 				6365A3C90FBF2C0F00895D69 /* PDFSlideController.m in Sources */,
 				6365A4150FBF355000895D69 /* PDFSlideView.m in Sources */,
 				63F6E9990FC0A06A006BC158 /* PDFDisplayController.m in Sources */,
-				638762B70FC96FB300276EC5 /* TimerView.m in Sources */,
+				638762B70FC96FB300276EC5 /* PSTimerView.m in Sources */,
 				63C2A7DA0FCDBD71009DE783 /* MultiClickRemoteBehavior.m in Sources */,
 				63C2A7DD0FCDBD86009DE783 /* HIDRemoteControlDevice.m in Sources */,
 				63C2A7E00FCDBD9C009DE783 /* RemoteControl.m in Sources */,
