@@ -29,7 +29,7 @@
 #import "PSTimerView.h"
 #import "PDFDisplayController.h"
 #import "PDFAboutController.h"
-#import "PreferencesController.h"
+#import "PDFPreferencesController.h"
 #import "PDFAnnotatedController.h"
 
 //define notifications

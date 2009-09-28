@@ -22,10 +22,10 @@
 // along with PDFSlide.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#import "PreferencesController.h"
+#import "PDFPreferencesController.h"
 
 
-@implementation PreferencesController
+@implementation PDFPreferencesController
 
 - (void)setupToolbar {
 	[self addView:annotateView label:@"Annotate" image:[NSImage imageNamed:@"PSAnnotate.icns"]];

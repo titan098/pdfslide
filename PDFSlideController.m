@@ -194,7 +194,7 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
  */
 - (IBAction)showPreferencesWindow:(id)sender {
 	[[self window] makeKeyWindow];	//make the controller the key window
-	[[PreferencesController sharedPrefsWindowController] showWindow:nil];
+	[[PDFPreferencesController sharedPrefsWindowController] showWindow:nil];
 }
 
 /**

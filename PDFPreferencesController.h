@@ -26,7 +26,7 @@
 #import "DBPrefsWindowController.h"
 
 
-@interface PreferencesController : DBPrefsWindowController {
+@interface PDFPreferencesController : DBPrefsWindowController {
 	IBOutlet NSView* updateView;
 	IBOutlet NSView* annotateView;
 }
