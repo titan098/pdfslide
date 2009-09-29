@@ -29,6 +29,7 @@
 @interface PDFPreferencesController : DBPrefsWindowController {
 	IBOutlet NSView* updateView;
 	IBOutlet NSView* annotateView;
+	IBOutlet NSView* generalView;
 }
 
 @end

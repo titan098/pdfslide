@@ -28,6 +28,7 @@
 @implementation PDFPreferencesController
 
 - (void)setupToolbar {
+	[self addView:generalView label:@"General" image:[NSImage imageNamed:@"NSPreferencesGeneral"]];
 	[self addView:annotateView label:@"Annotate" image:[NSImage imageNamed:@"PSAnnotate.icns"]];
 	[self addView:updateView label:@"Updates" image:[NSImage imageNamed:@"PSUpdate.icns"]];
 }

@@ -50,6 +50,7 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 	[appDefaults setObject:[NSNumber numberWithInt:0] forKey:@"PSPointerStyle"];
 	[appDefaults setObject:[NSNumber numberWithInt:1] forKey:@"PSAnnotatePenSize"];
 	[appDefaults setObject:[NSNumber numberWithInt:0] forKey:@"PSAnnotateTool"];
+	[appDefaults setObject:[NSNumber numberWithBool:FALSE] forKey:@"PSAutoScreen"];
 	[defaults registerDefaults:appDefaults];
 	
 	slides = nil;
@@ -266,6 +267,7 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 - (IBAction)detectDisplays:(id)sender {
 	//get the screen information in the display toolbar item
 	NSArray *screens = [NSScreen screens];
+	NSUserDefaults *sharedDefaults = [NSUserDefaults standardUserDefaults];
 	
 	[displayMenu removeAllItems];
 	NSUInteger i, count = [screens count];
@@ -274,6 +276,12 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 		[popup addItemWithTitle:[NSString stringWithFormat:@"Screen %u",i]
 						 action:nil 
 				  keyEquivalent:@""];
+	}
+	
+	//if PSAutoScreen option is set... set to screen 1 automatically
+	BOOL autoScreen = [sharedDefaults boolForKey:@"PSAutoScreen"];
+	if (autoScreen && count >= 2) {
+		[displayMenu selectItemAtIndex:1];
 	}
 }
 
