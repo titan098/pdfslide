@@ -176,9 +176,12 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 /**
  * Open a document when the reciently opened document is chosen.
  */
+// TODO: Fix Open Recent menu
+/*
 - (BOOL)application:(NSApplication *)theApplication openFile:(NSString *)filename {
 	return [self performOpenPDF:filename];
 }
+ */
 
 #pragma mark Window Actions
 
