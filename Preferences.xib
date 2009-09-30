@@ -790,8 +790,8 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 										<reference key="NSSuperview" ref="1012435478"/>
 										<bool key="NSEnabled">YES</bool>
 										<object class="NSTextFieldCell" key="NSCell" id="507171265">
-											<int key="NSCellFlags">-1804468672</int>
-											<int key="NSCellFlags2">138544128</int>
+											<int key="NSCellFlags">-2072904127</int>
+											<int key="NSCellFlags2">138548224</int>
 											<string key="NSContents"/>
 											<reference key="NSSupport" ref="26"/>
 											<reference key="NSControlView" ref="846083322"/>
@@ -808,8 +808,8 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 										<reference key="NSSuperview" ref="1012435478"/>
 										<bool key="NSEnabled">YES</bool>
 										<object class="NSTextFieldCell" key="NSCell" id="57114499">
-											<int key="NSCellFlags">-1804468672</int>
-											<int key="NSCellFlags2">138544128</int>
+											<int key="NSCellFlags">-2072904127</int>
+											<int key="NSCellFlags2">138548224</int>
 											<string key="NSContents"/>
 											<reference key="NSSupport" ref="26"/>
 											<reference key="NSControlView" ref="1069113785"/>
@@ -826,8 +826,8 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 										<reference key="NSSuperview" ref="1012435478"/>
 										<bool key="NSEnabled">YES</bool>
 										<object class="NSTextFieldCell" key="NSCell" id="310037628">
-											<int key="NSCellFlags">-1804468672</int>
-											<int key="NSCellFlags2">138544128</int>
+											<int key="NSCellFlags">-2072904127</int>
+											<int key="NSCellFlags2">138548224</int>
 											<string key="NSContents"/>
 											<reference key="NSSupport" ref="26"/>
 											<reference key="NSControlView" ref="865014109"/>
@@ -890,6 +890,15 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 				<string key="NSClassName">NSView</string>
 			</object>
 			<object class="NSUserDefaultsController" id="207070929">
+				<object class="NSMutableArray" key="NSDeclaredKeys">
+					<bool key="EncodedWithXMLCoder">YES</bool>
+					<string>PSKeys.Advance</string>
+					<string>PSKeys.Previous</string>
+					<string>PSKeys.Fade</string>
+					<string>PSKeysAdvance</string>
+					<string>PSKeysPrevious</string>
+					<string>PSKeysFade</string>
+				</object>
 				<bool key="NSSharedInstance">YES</bool>
 			</object>
 		</object>
@@ -1119,6 +1128,93 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 						<reference key="destination" ref="480663514"/>
 					</object>
 					<int key="connectionID">190</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.PSKeysFade</string>
+						<reference key="source" ref="865014109"/>
+						<reference key="destination" ref="207070929"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="865014109"/>
+							<reference key="NSDestination" ref="207070929"/>
+							<string key="NSLabel">value: values.PSKeysFade</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.PSKeysFade</string>
+							<object class="NSDictionary" key="NSOptions">
+								<bool key="EncodedWithXMLCoder">YES</bool>
+								<object class="NSArray" key="dict.sortedKeys">
+									<bool key="EncodedWithXMLCoder">YES</bool>
+									<string>NSContinuouslyUpdatesValue</string>
+									<string>NSValidatesImmediately</string>
+								</object>
+								<object class="NSMutableArray" key="dict.values">
+									<bool key="EncodedWithXMLCoder">YES</bool>
+									<boolean value="YES"/>
+									<boolean value="YES"/>
+								</object>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">247</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.PSKeysPrevious</string>
+						<reference key="source" ref="1069113785"/>
+						<reference key="destination" ref="207070929"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="1069113785"/>
+							<reference key="NSDestination" ref="207070929"/>
+							<string key="NSLabel">value: values.PSKeysPrevious</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.PSKeysPrevious</string>
+							<object class="NSDictionary" key="NSOptions">
+								<bool key="EncodedWithXMLCoder">YES</bool>
+								<object class="NSArray" key="dict.sortedKeys">
+									<bool key="EncodedWithXMLCoder">YES</bool>
+									<string>NSContinuouslyUpdatesValue</string>
+									<string>NSValidatesImmediately</string>
+								</object>
+								<object class="NSMutableArray" key="dict.values">
+									<bool key="EncodedWithXMLCoder">YES</bool>
+									<boolean value="YES"/>
+									<boolean value="YES"/>
+								</object>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">248</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: values.PSKeysAdvance</string>
+						<reference key="source" ref="846083322"/>
+						<reference key="destination" ref="207070929"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="846083322"/>
+							<reference key="NSDestination" ref="207070929"/>
+							<string key="NSLabel">value: values.PSKeysAdvance</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">values.PSKeysAdvance</string>
+							<object class="NSDictionary" key="NSOptions">
+								<bool key="EncodedWithXMLCoder">YES</bool>
+								<object class="NSArray" key="dict.sortedKeys">
+									<bool key="EncodedWithXMLCoder">YES</bool>
+									<string>NSContinuouslyUpdatesValue</string>
+									<string>NSValidatesImmediately</string>
+								</object>
+								<object class="NSMutableArray" key="dict.values">
+									<bool key="EncodedWithXMLCoder">YES</bool>
+									<boolean value="YES"/>
+									<boolean value="YES"/>
+								</object>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">249</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1553,8 +1649,8 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 							<reference ref="606194025"/>
 							<reference ref="1027517057"/>
 							<reference ref="846083322"/>
-							<reference ref="1069113785"/>
 							<reference ref="865014109"/>
+							<reference ref="1069113785"/>
 						</object>
 						<reference key="parent" ref="480663514"/>
 					</object>
@@ -1836,7 +1932,7 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">236</int>
+			<int key="maxID">249</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
