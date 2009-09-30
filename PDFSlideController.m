@@ -134,7 +134,8 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 
 - (BOOL)performOpenPDF:(NSString *)filename {
 	//add the filename to the reciently opened menu
-	[[NSDocumentController sharedDocumentController] noteNewRecentDocumentURL:[NSURL fileURLWithPath:filename]];
+	// TODO: fix open recent
+	//[[NSDocumentController sharedDocumentController] noteNewRecentDocumentURL:[NSURL fileURLWithPath:filename]];
 	
 	slides = [[PSSlide alloc] initWithURL:[NSURL fileURLWithPath:filename]];
 	
