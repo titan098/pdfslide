@@ -43,6 +43,7 @@
 		638A521A0FD0645900F090AC /* PDFAboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638A52190FD0645900F090AC /* PDFAboutController.m */; };
 		638A52CE0FD071A900F090AC /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 638A52CD0FD071A900F090AC /* Credits.rtf */; };
 		63993FC90FFE469500A1B35C /* PDFSlide.icns in Resources */ = {isa = PBXBuildFile; fileRef = 63993FC80FFE469500A1B35C /* PDFSlide.icns */; };
+		639E5D361073D5AB000DA856 /* PSShotcutField.m in Sources */ = {isa = PBXBuildFile; fileRef = 639E5D351073D5AB000DA856 /* PSShotcutField.m */; };
 		63BCBBCF0FD5B340009CB2ED /* COPYING in Resources */ = {isa = PBXBuildFile; fileRef = 63BCBBCE0FD5B340009CB2ED /* COPYING */; };
 		63C2A7BF0FCDBC95009DE783 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C2A77F0FCDBAB6009DE783 /* Carbon.framework */; };
 		63C2A7C00FCDBC95009DE783 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C2A7800FCDBAB6009DE783 /* IOKit.framework */; };
@@ -124,6 +125,8 @@
 		638A52190FD0645900F090AC /* PDFAboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFAboutController.m; sourceTree = "<group>"; };
 		638A52CD0FD071A900F090AC /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		63993FC80FFE469500A1B35C /* PDFSlide.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = PDFSlide.icns; path = icons/PDFSlide.icns; sourceTree = "<group>"; };
+		639E5D341073D5AB000DA856 /* PSShotcutField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSShotcutField.h; sourceTree = "<group>"; };
+		639E5D351073D5AB000DA856 /* PSShotcutField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSShotcutField.m; sourceTree = "<group>"; };
 		63BCBBCE0FD5B340009CB2ED /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
 		63C2A77F0FCDBAB6009DE783 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		63C2A7800FCDBAB6009DE783 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
@@ -198,6 +201,8 @@
 				63FBF9820FE4FC2A007577B6 /* PDFAnnotatedController.m */,
 				6335E5D60FF2A6630072D428 /* PSBezierPath.h */,
 				6335E5D70FF2A6630072D428 /* PSBezierPath.m */,
+				639E5D341073D5AB000DA856 /* PSShotcutField.h */,
+				639E5D351073D5AB000DA856 /* PSShotcutField.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -462,6 +467,7 @@
 				63FBF9830FE4FC2A007577B6 /* PDFAnnotatedController.m in Sources */,
 				6335E5D80FF2A6630072D428 /* PSBezierPath.m in Sources */,
 				630C88BF10714951004F8983 /* PSSlide.m in Sources */,
+				639E5D361073D5AB000DA856 /* PSShotcutField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
