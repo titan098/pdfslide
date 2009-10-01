@@ -44,6 +44,11 @@
 		638A52CE0FD071A900F090AC /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 638A52CD0FD071A900F090AC /* Credits.rtf */; };
 		63993FC90FFE469500A1B35C /* PDFSlide.icns in Resources */ = {isa = PBXBuildFile; fileRef = 63993FC80FFE469500A1B35C /* PDFSlide.icns */; };
 		639E5D361073D5AB000DA856 /* PSShotcutField.m in Sources */ = {isa = PBXBuildFile; fileRef = 639E5D351073D5AB000DA856 /* PSShotcutField.m */; };
+		63B87433107516400047632F /* SRCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B8742A107516400047632F /* SRCommon.m */; };
+		63B87434107516400047632F /* SRKeyCodeTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B8742C107516400047632F /* SRKeyCodeTransformer.m */; };
+		63B87435107516400047632F /* SRRecorderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B8742E107516400047632F /* SRRecorderCell.m */; };
+		63B87436107516400047632F /* SRRecorderControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B87430107516400047632F /* SRRecorderControl.m */; };
+		63B87437107516400047632F /* SRValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B87432107516400047632F /* SRValidator.m */; };
 		63BCBBCF0FD5B340009CB2ED /* COPYING in Resources */ = {isa = PBXBuildFile; fileRef = 63BCBBCE0FD5B340009CB2ED /* COPYING */; };
 		63C2A7BF0FCDBC95009DE783 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C2A77F0FCDBAB6009DE783 /* Carbon.framework */; };
 		63C2A7C00FCDBC95009DE783 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C2A7800FCDBAB6009DE783 /* IOKit.framework */; };
@@ -127,6 +132,16 @@
 		63993FC80FFE469500A1B35C /* PDFSlide.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = PDFSlide.icns; path = icons/PDFSlide.icns; sourceTree = "<group>"; };
 		639E5D341073D5AB000DA856 /* PSShotcutField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSShotcutField.h; sourceTree = "<group>"; };
 		639E5D351073D5AB000DA856 /* PSShotcutField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSShotcutField.m; sourceTree = "<group>"; };
+		63B87429107516400047632F /* SRCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRCommon.h; sourceTree = "<group>"; };
+		63B8742A107516400047632F /* SRCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRCommon.m; sourceTree = "<group>"; };
+		63B8742B107516400047632F /* SRKeyCodeTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRKeyCodeTransformer.h; sourceTree = "<group>"; };
+		63B8742C107516400047632F /* SRKeyCodeTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKeyCodeTransformer.m; sourceTree = "<group>"; };
+		63B8742D107516400047632F /* SRRecorderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRRecorderCell.h; sourceTree = "<group>"; };
+		63B8742E107516400047632F /* SRRecorderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRRecorderCell.m; sourceTree = "<group>"; };
+		63B8742F107516400047632F /* SRRecorderControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRRecorderControl.h; sourceTree = "<group>"; };
+		63B87430107516400047632F /* SRRecorderControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRRecorderControl.m; sourceTree = "<group>"; };
+		63B87431107516400047632F /* SRValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRValidator.h; sourceTree = "<group>"; };
+		63B87432107516400047632F /* SRValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRValidator.m; sourceTree = "<group>"; };
 		63BCBBCE0FD5B340009CB2ED /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
 		63C2A77F0FCDBAB6009DE783 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		63C2A7800FCDBAB6009DE783 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
@@ -238,6 +253,7 @@
 		29B97314FDCFA39411CA2CEA /* PDFSlide */ = {
 			isa = PBXGroup;
 			children = (
+				63B87428107516400047632F /* SRRecorder */,
 				63C2A7570FCDB9D6009DE783 /* AppleRemote */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -295,6 +311,23 @@
 				63FBFACD0FE524A1007577B6 /* PSOk.icns */,
 			);
 			name = Icons;
+			sourceTree = "<group>";
+		};
+		63B87428107516400047632F /* SRRecorder */ = {
+			isa = PBXGroup;
+			children = (
+				63B87429107516400047632F /* SRCommon.h */,
+				63B8742A107516400047632F /* SRCommon.m */,
+				63B8742B107516400047632F /* SRKeyCodeTransformer.h */,
+				63B8742C107516400047632F /* SRKeyCodeTransformer.m */,
+				63B8742D107516400047632F /* SRRecorderCell.h */,
+				63B8742E107516400047632F /* SRRecorderCell.m */,
+				63B8742F107516400047632F /* SRRecorderControl.h */,
+				63B87430107516400047632F /* SRRecorderControl.m */,
+				63B87431107516400047632F /* SRValidator.h */,
+				63B87432107516400047632F /* SRValidator.m */,
+			);
+			path = SRRecorder;
 			sourceTree = "<group>";
 		};
 		63C2A7570FCDB9D6009DE783 /* AppleRemote */ = {
@@ -468,6 +501,11 @@
 				6335E5D80FF2A6630072D428 /* PSBezierPath.m in Sources */,
 				630C88BF10714951004F8983 /* PSSlide.m in Sources */,
 				639E5D361073D5AB000DA856 /* PSShotcutField.m in Sources */,
+				63B87433107516400047632F /* SRCommon.m in Sources */,
+				63B87434107516400047632F /* SRKeyCodeTransformer.m in Sources */,
+				63B87435107516400047632F /* SRRecorderCell.m in Sources */,
+				63B87436107516400047632F /* SRRecorderControl.m in Sources */,
+				63B87437107516400047632F /* SRValidator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,6 +568,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../../../source/shortcutrecorder-read-only/build/Debug\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -551,6 +590,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../../../source/shortcutrecorder-read-only/build/Debug\"",
 				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
