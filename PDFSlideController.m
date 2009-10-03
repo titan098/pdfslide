@@ -315,7 +315,8 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
  */
 - (void)handleKeyPress:(NSNotification *)note {
 	NSLog(@"Nofity Controller: Display key pressed");
-	[self manageKeyDown:[[[note userInfo] objectForKey:@"KeyCode"] intValue]];
+	[self manageKeyDown: [[[note userInfo] objectForKey:@"KeyCode"] intValue]
+			  modifiersFlags: [[[note userInfo] objectForKey:@"ModifierFlags"] intValue]];
 }
 
 
@@ -558,46 +559,79 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 /*
  * Manage the keydown event.
  */
-- (void)manageKeyDown:(NSUInteger)keycode {
+- (void)manageKeyDown:(NSUInteger)keycode modifiersFlags:(NSUInteger)modifiers {
+	//get the keycodes and modifiers from the preferences
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	KeyCombo advanceSRKeys, previousSRKeys, fadeSRKeys;
+	
+	//get the keycombos
+	advanceSRKeys = SRMakeKeyCombo([defaults integerForKey:@"PSAdvanceKey"], 
+								   [defaults integerForKey:@"PSAdvanceKeyFlags"]);
+	previousSRKeys = SRMakeKeyCombo([defaults integerForKey:@"PSPreviousKey"], 
+								   [defaults integerForKey:@"PSPreviousKeyFlags"]);
+	fadeSRKeys = SRMakeKeyCombo([defaults integerForKey:@"PSFadeKey"], 
+								   [defaults integerForKey:@"PSFadeKeyFlags"]);
+	
+	//convert to Carbon Flags (SRRecorder stores as carbon flags)
+	NSUInteger carbonFlags = SRCocoaToCarbonFlags(modifiers);
+	
 	//are we faded out - if so fade in
-	if (pdfDisplay && faded && keycode!=11)
+	if (pdfDisplay && faded && !(keycode==fadeSRKeys.code && keycode==fadeSRKeys.flags))
 		[self fadeIn];
 	
-	switch (keycode) {
-		case 125:   /* DOWN ARROW */
-		case 123:	/* LEFT ARROW */
-			NSLog(@"Keydown Event - Left/Down Arrow");
-			[self reverseSlides:self];
-			break;
-		case 126:	/*UP ARROW*/
-		case 124:	/*RIGHT ARROW*/
-			NSLog(@"Keydown Event - Right/Up Arrow");
-			[self advanceSlides:self];
-			break;
-		case 12:	/* Q KEY */
-			[self stopSlides:self];
-			break;
-		case 11:	/* B KEY */
-			if (pdfDisplay)
-				if (!faded)
-					[self fadeOut];
-				else
-					[self fadeIn];
-			
-			break;
-			
-		default:
-			NSLog(@"Keydown Event - %d", keycode);
-			break;
+	//execute command for the keypress
+	if ((keycode == advanceSRKeys.code) && (carbonFlags == advanceSRKeys.flags))
+		[self advanceSlides:self];
+	
+	if ((keycode == previousSRKeys.code) && (carbonFlags == advanceSRKeys.flags))
+		[self reverseSlides:self];
+	
+	if ((keycode == fadeSRKeys.code) && (carbonFlags == fadeSRKeys.flags)) {
+		if (pdfDisplay && !faded) {
+			[self fadeOut];
+		}
+		else {
+			[self fadeIn];
+		}
+
 	}
+		
+//	switch (keycode) {
+//		case 125:   /* DOWN ARROW */
+//		case 123:	/* LEFT ARROW */
+//			NSLog(@"Keydown Event - Left/Down Arrow");
+//			[self reverseSlides:self];
+//			break;
+//		case 126:	/*UP ARROW*/
+//		case 124:	/*RIGHT ARROW*/
+//			NSLog(@"Keydown Event - Right/Up Arrow");
+//			[self advanceSlides:self];
+//			break;
+//		case 12:	/* Q KEY */
+//			[self stopSlides:self];
+//			break;
+//		case 11:	/* B KEY */
+//			if (pdfDisplay)
+//				if (!faded)
+//					[self fadeOut];
+//				else
+//					[self fadeIn];
+//			
+//			break;
+//			
+//		default:
+//			NSLog(@"Keydown Event - %d", keycode);
+//			break;
+//	}
+	
 }
 
 /*
  *	Handle the keydown events on the main window
  */
 - (void)keyDown:(NSEvent *)theEvent {
-	unsigned int keycode = [theEvent keyCode];
-	[self manageKeyDown:keycode];
+	[self manageKeyDown: [theEvent keyCode]
+			  modifiersFlags: [theEvent modifierFlags]];
 }
 
 #pragma mark Control Handlers

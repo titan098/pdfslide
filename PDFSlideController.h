@@ -23,6 +23,8 @@
 
 #import <Cocoa/Cocoa.h>
 #import "AppleRemote/AppleRemote.h"
+#import "SRRecorder/SRRecorderControl.h"
+
 #import "PSSlide.h"
 #import "PDFSlideView.h"
 #import "PDFSlideAnnotatedView.h"
@@ -98,7 +100,7 @@ extern NSString * const ControllerSlideStopNotification;
 - (void)postSlideObjectChangeNotification;
 - (void)postSlideStopNotification;
 
-- (void)manageKeyDown:(NSUInteger)keycode;
+- (void)manageKeyDown:(NSUInteger)keycode modifiersFlags:(NSUInteger)modifiers;
 - (void)keyDown:(NSEvent *)theEvent;
 
 @end
