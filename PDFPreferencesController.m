@@ -27,10 +27,59 @@
 
 @implementation PDFPreferencesController
 
+/*
+ * Set up the views on the toolbar
+ */
 - (void)setupToolbar {
 	[self addView:generalView label:@"General" image:[NSImage imageNamed:@"NSPreferencesGeneral"]];
 	[self addView:annotateView label:@"Annotate" image:[NSImage imageNamed:@"PSAnnotate.icns"]];
 	[self addView:updateView label:@"Updates" image:[NSImage imageNamed:@"PSUpdate.icns"]];
+}
+
+/*
+ * Setup the controls
+ */
+-(void) awakeFromNib {
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	
+	//setup the shortcut recorders
+	KeyCombo advanceSRKeys, previousSRKeys, fadeSRKeys;
+	advanceSRKeys.code = [defaults integerForKey:@"PSAdvanceKey"];
+	advanceSRKeys.flags = [defaults integerForKey:@"PSAdvanceKeyFlags"];
+	previousSRKeys.code = [defaults integerForKey:@"PSPreviousKey"];
+	previousSRKeys.flags = [defaults integerForKey:@"PSPreviousKeyFlags"];
+	fadeSRKeys.code = [defaults integerForKey:@"PSFadeKey"];
+	fadeSRKeys.flags = [defaults integerForKey:@"PSFadeKeyFlags"];
+	
+	[advanceRecorder setKeyCombo:advanceSRKeys];
+	[previousRecorder setKeyCombo:previousSRKeys];
+	[fadeRecorder setKeyCombo:fadeSRKeys];
+	
+	//set the options for the shortcut Recorders
+	[advanceRecorder setAllowsKeyOnly:TRUE escapeKeysRecord:TRUE];
+	[previousRecorder setAllowsKeyOnly:TRUE escapeKeysRecord:TRUE];
+	[fadeRecorder setAllowsKeyOnly:TRUE escapeKeysRecord:TRUE];
+	
+	//set the delegates for the Shortcut Recorders
+	[advanceRecorder setDelegate:self];
+	[previousRecorder setDelegate:self];
+	[fadeRecorder setDelegate:self];
+}
+
+- (void)shortcutRecorder:(SRRecorderControl *)aRecorder keyComboDidChange:(KeyCombo)newKeyCombo {
+	NSString *SRPreferenceCode = @"";
+	NSString *SRPreferenceFlags = @"";
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	
+	//set preference for approperate recorder
+	if (aRecorder == advanceRecorder) SRPreferenceCode = @"PSAdvanceKey";
+	if (aRecorder == previousRecorder) SRPreferenceCode = @"PSPreviousKey";
+	if (aRecorder == fadeRecorder) SRPreferenceCode = @"PSFadeKey";
+	SRPreferenceFlags = [SRPreferenceCode stringByAppendingString:@"Flags"];
+	
+	//save the key in shared preferences
+	[defaults setInteger:newKeyCombo.code forKey:SRPreferenceCode];
+	[defaults setInteger:newKeyCombo.flags forKey:SRPreferenceFlags];
 }
 
 @end

@@ -51,6 +51,14 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 	[appDefaults setObject:[NSNumber numberWithInt:1] forKey:@"PSAnnotatePenSize"];
 	[appDefaults setObject:[NSNumber numberWithInt:0] forKey:@"PSAnnotateTool"];
 	[appDefaults setObject:[NSNumber numberWithBool:FALSE] forKey:@"PSAutoScreen"];
+	
+	[appDefaults setObject:[NSNumber numberWithInt:124] forKey:@"PSAdvanceKey"];
+	[appDefaults setObject:[NSNumber numberWithInt:8388608] forKey:@"PSAdvanceKeyFlags"];
+	[appDefaults setObject:[NSNumber numberWithInt:123] forKey:@"PSPreviousKey"];
+	[appDefaults setObject:[NSNumber numberWithInt:8388608] forKey:@"PSPreviousKeyFlags"];
+	[appDefaults setObject:[NSNumber numberWithInt:11] forKey:@"PSFadeKey"];
+	[appDefaults setObject:[NSNumber numberWithInt:0] forKey:@"PSFadeKeyFlags"];
+
 	[defaults registerDefaults:appDefaults];
 	
 	slides = nil;

@@ -24,12 +24,19 @@
 
 #import <Cocoa/Cocoa.h>
 #import "DBPrefsWindowController.h"
+#import "SRRecorderControl.h"
 
 
 @interface PDFPreferencesController : DBPrefsWindowController {
 	IBOutlet NSView* updateView;
 	IBOutlet NSView* annotateView;
 	IBOutlet NSView* generalView;
+	
+	//Shortcut Recorder Controls
+	IBOutlet SRRecorderControl* advanceRecorder;
+	IBOutlet SRRecorderControl* previousRecorder;
+	IBOutlet SRRecorderControl* fadeRecorder;
+	
 }
 
 @end
