@@ -71,6 +71,10 @@
 	[stopRecorder setDelegate:self];
 }
 
+/*
+ * Delegate which is called when the keycombo is changed on a recorder.
+ * Will save the new keycombo as a preference
+ */
 - (void)shortcutRecorder:(SRRecorderControl *)aRecorder keyComboDidChange:(KeyCombo)newKeyCombo {
 	NSString *SRPreferenceCode = @"";
 	NSString *SRPreferenceFlags = @"";
