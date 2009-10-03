@@ -556,12 +556,14 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 		[self fadeIn];
 	
 	switch (keycode) {
+		case 125:   /* DOWN ARROW */
 		case 123:	/* LEFT ARROW */
-			NSLog(@"Keydown Event - Left Arrow");
+			NSLog(@"Keydown Event - Left/Down Arrow");
 			[self reverseSlides:self];
 			break;
+		case 126:	/*UP ARROW*/
 		case 124:	/*RIGHT ARROW*/
-			NSLog(@"Keydown Event - Right Arrow");
+			NSLog(@"Keydown Event - Right/Up Arrow");
 			[self advanceSlides:self];
 			break;
 		case 12:	/* Q KEY */
