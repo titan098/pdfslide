@@ -42,6 +42,6 @@ extern NSString * const PDFViewKeyPressNotification;
 - (IBAction)incrSlide:(id)sender;
 - (IBAction)decrSlide:(id)sender;
 
-- (void)postKeyPressedNotification:(NSUInteger)keycode;
+- (void)postKeyPressedNotification:(NSUInteger)keycode modifierFlags:(NSUInteger)modifierFlags;
 
 @end

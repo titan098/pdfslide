@@ -43,27 +43,32 @@
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	
 	//setup the shortcut recorders
-	KeyCombo advanceSRKeys, previousSRKeys, fadeSRKeys;
+	KeyCombo advanceSRKeys, previousSRKeys, fadeSRKeys, stopSRKeys;
 	advanceSRKeys.code = [defaults integerForKey:@"PSAdvanceKey"];
 	advanceSRKeys.flags = [defaults integerForKey:@"PSAdvanceKeyFlags"];
 	previousSRKeys.code = [defaults integerForKey:@"PSPreviousKey"];
 	previousSRKeys.flags = [defaults integerForKey:@"PSPreviousKeyFlags"];
 	fadeSRKeys.code = [defaults integerForKey:@"PSFadeKey"];
 	fadeSRKeys.flags = [defaults integerForKey:@"PSFadeKeyFlags"];
+	stopSRKeys.code = [defaults integerForKey:@"PSStopKey"];
+	stopSRKeys.flags = [defaults integerForKey:@"PSStopKeyFlags"];
 	
 	[advanceRecorder setKeyCombo:advanceSRKeys];
 	[previousRecorder setKeyCombo:previousSRKeys];
 	[fadeRecorder setKeyCombo:fadeSRKeys];
+	[stopRecorder setKeyCombo:stopSRKeys];
 	
 	//set the options for the shortcut Recorders
 	[advanceRecorder setAllowsKeyOnly:TRUE escapeKeysRecord:TRUE];
 	[previousRecorder setAllowsKeyOnly:TRUE escapeKeysRecord:TRUE];
 	[fadeRecorder setAllowsKeyOnly:TRUE escapeKeysRecord:TRUE];
+	[stopRecorder setAllowsKeyOnly:TRUE escapeKeysRecord:TRUE];
 	
 	//set the delegates for the Shortcut Recorders
 	[advanceRecorder setDelegate:self];
 	[previousRecorder setDelegate:self];
 	[fadeRecorder setDelegate:self];
+	[stopRecorder setDelegate:self];
 }
 
 - (void)shortcutRecorder:(SRRecorderControl *)aRecorder keyComboDidChange:(KeyCombo)newKeyCombo {
@@ -75,6 +80,7 @@
 	if (aRecorder == advanceRecorder) SRPreferenceCode = @"PSAdvanceKey";
 	if (aRecorder == previousRecorder) SRPreferenceCode = @"PSPreviousKey";
 	if (aRecorder == fadeRecorder) SRPreferenceCode = @"PSFadeKey";
+	if (aRecorder == stopRecorder) SRPreferenceCode = @"PSStopKey";
 	SRPreferenceFlags = [SRPreferenceCode stringByAppendingString:@"Flags"];
 	
 	//save the key in shared preferences

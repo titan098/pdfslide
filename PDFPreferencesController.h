@@ -36,6 +36,7 @@
 	IBOutlet SRRecorderControl* advanceRecorder;
 	IBOutlet SRRecorderControl* previousRecorder;
 	IBOutlet SRRecorderControl* fadeRecorder;
+	IBOutlet SRRecorderControl* stopRecorder;
 	
 }
 

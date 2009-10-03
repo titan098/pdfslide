@@ -171,8 +171,13 @@ NSString * const DisplaySlideNumberNotification = @"DisplaySlideNumberChanged";
 	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
 	NSLog(@"Notify Display: Key Pressed");
 	
-	NSDictionary *d = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:keycode] 
-												  forKey:@"KeyCode"];
+	//NSDictionary *d = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:keycode] 
+	//											  forKey:@"KeyCode"];
+	
+	NSDictionary *d = [NSDictionary dictionaryWithObjectsAndKeys:
+					   [NSNumber numberWithInt:keycode], @"KeyCode",
+					   [NSNumber numberWithInt:modifierFlags], @"ModifierFlags",
+					   nil];
 	
 	[nc postNotificationName:PDFViewKeyPressNotification
 					  object:self

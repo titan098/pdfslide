@@ -130,13 +130,15 @@ NSString * const PDFViewKeyPressNotification = @"PDFViewKeyPressed";
 /*
  * Post a notification informating objservers that a key was pressed.
  */
-- (void)postKeyPressedNotification:(NSUInteger)keycode {
+- (void)postKeyPressedNotification:(NSUInteger)keycode modifierFlags:(NSUInteger)modifierFlags {
 	//Send a notification to the main window that the slide has changed
 	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
 	NSLog(@"Notify Display: Key Pressed");
 	
-	NSDictionary *d = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:keycode] 
-												  forKey:@"KeyCode"];
+	NSDictionary *d = [NSDictionary dictionaryWithObjectsAndKeys:
+					   [NSNumber numberWithInt:keycode], @"KeyCode",
+					   [NSNumber numberWithInt:modifierFlags], @"ModifierFlags",
+					   nil];
 	
 	[nc postNotificationName:PDFViewKeyPressNotification
 					  object:self
@@ -147,8 +149,8 @@ NSString * const PDFViewKeyPressNotification = @"PDFViewKeyPressed";
  * Handle any keypresses that are sent to the view
  */
 - (void)keyDown:(NSEvent *)theEvent {
-	NSUInteger keycode = [theEvent keyCode];
-	[self postKeyPressedNotification:keycode];
+	[self postKeyPressedNotification: [theEvent keyCode]
+					   modifierFlags: [theEvent modifierFlags]];
 }
 
 @end

@@ -58,6 +58,8 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 	[appDefaults setObject:[NSNumber numberWithInt:8388608] forKey:@"PSPreviousKeyFlags"];
 	[appDefaults setObject:[NSNumber numberWithInt:11] forKey:@"PSFadeKey"];
 	[appDefaults setObject:[NSNumber numberWithInt:0] forKey:@"PSFadeKeyFlags"];
+	[appDefaults setObject:[NSNumber numberWithInt:12] forKey:@"PSStopKey"];
+	[appDefaults setObject:[NSNumber numberWithInt:0] forKey:@"PSStopKeyFlags"];
 
 	[defaults registerDefaults:appDefaults];
 	
@@ -562,7 +564,7 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 - (void)manageKeyDown:(NSUInteger)keycode modifiersFlags:(NSUInteger)modifiers {
 	//get the keycodes and modifiers from the preferences
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	KeyCombo advanceSRKeys, previousSRKeys, fadeSRKeys;
+	KeyCombo advanceSRKeys, previousSRKeys, fadeSRKeys, stopSRKeys;
 	
 	//get the keycombos
 	advanceSRKeys = SRMakeKeyCombo([defaults integerForKey:@"PSAdvanceKey"], 
@@ -571,6 +573,8 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 								   [defaults integerForKey:@"PSPreviousKeyFlags"]);
 	fadeSRKeys = SRMakeKeyCombo([defaults integerForKey:@"PSFadeKey"], 
 								   [defaults integerForKey:@"PSFadeKeyFlags"]);
+	stopSRKeys = SRMakeKeyCombo([defaults integerForKey:@"PSStopKey"], 
+								[defaults integerForKey:@"PSStopKeyFlags"]);
 	
 	//convert to Carbon Flags (SRRecorder stores as carbon flags)
 	NSUInteger carbonFlags = SRCocoaToCarbonFlags(modifiers);
@@ -586,6 +590,9 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 	if ((keycode == previousSRKeys.code) && (carbonFlags == advanceSRKeys.flags))
 		[self reverseSlides:self];
 	
+	if ((keycode == stopSRKeys.code) && (carbonFlags == stopSRKeys.flags))
+		[self stopSlides:self];
+	
 	if ((keycode == fadeSRKeys.code) && (carbonFlags == fadeSRKeys.flags)) {
 		if (pdfDisplay && !faded) {
 			[self fadeOut];
@@ -593,37 +600,7 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 		else {
 			[self fadeIn];
 		}
-
 	}
-		
-//	switch (keycode) {
-//		case 125:   /* DOWN ARROW */
-//		case 123:	/* LEFT ARROW */
-//			NSLog(@"Keydown Event - Left/Down Arrow");
-//			[self reverseSlides:self];
-//			break;
-//		case 126:	/*UP ARROW*/
-//		case 124:	/*RIGHT ARROW*/
-//			NSLog(@"Keydown Event - Right/Up Arrow");
-//			[self advanceSlides:self];
-//			break;
-//		case 12:	/* Q KEY */
-//			[self stopSlides:self];
-//			break;
-//		case 11:	/* B KEY */
-//			if (pdfDisplay)
-//				if (!faded)
-//					[self fadeOut];
-//				else
-//					[self fadeIn];
-//			
-//			break;
-//			
-//		default:
-//			NSLog(@"Keydown Event - %d", keycode);
-//			break;
-//	}
-	
 }
 
 /*
