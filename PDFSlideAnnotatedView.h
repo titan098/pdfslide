@@ -66,7 +66,7 @@ extern NSString * const AnnotationNotification;
 - (void)setPointerLocation:(NSPoint)pointer;
 - (void)setPointerSize:(NSUInteger)size;
 
-- (NSMutableArray *)createNewPath;
+- (NSMutableArray *)newPath;
 - (NSRect)currentPathBounds;
 - (BOOL)addPointToPath:(NSPoint)point;
 - (void)clearPaths;

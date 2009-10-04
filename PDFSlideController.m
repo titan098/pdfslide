@@ -62,6 +62,7 @@ CGGammaValue redMin, redMax, redGamma, greenMin, greenMax, greenGamma,blueMin, b
 	[appDefaults setObject:[NSNumber numberWithInt:0] forKey:@"PSStopKeyFlags"];
 
 	[defaults registerDefaults:appDefaults];
+	[appDefaults release];
 	
 	slides = nil;
 	faded = NO;

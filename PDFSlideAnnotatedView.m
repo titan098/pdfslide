@@ -111,7 +111,7 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 /**
  * Creates a new path for this slide
  */
-- (NSMutableArray *)createNewPath {
+- (NSMutableArray *)newPath {
 	NSMutableArray *pageArray = [pathDict objectForKey:[NSNumber numberWithInt:slideNumber]];
 
 	//if doesn't exist -- create it
@@ -189,7 +189,7 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 	
 	//check to see if the array exists
 	if (!pageArray) {
-		pageArray = [self createNewPath];
+		pageArray = [self newPath];
 		return NO;
 	}
 	
@@ -205,7 +205,7 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 		sendPath = YES;
 		[self postAnnotationNotification];	//send the finished current path to the recievers
 		
-		[self createNewPath];
+		[self newPath];
 		return [self addPointToPath:point];		
 	} else {
 		[currentPath lineToPoint:point];
@@ -315,7 +315,7 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 /**
  * Scale a NSBezierPath by the bounds of the page
  */
-- (PSBezierPath *)scaleDownPSBezierPath:(PSBezierPath *)path {
+- (PSBezierPath *)newPSBezierPathScaleDown:(PSBezierPath *)path {
 	NSAffineTransform* xform = [NSAffineTransform transform];
 	[xform scaleXBy:(1/pagebounds.size.width)
 				yBy:(1/pagebounds.size.height)];
@@ -334,7 +334,7 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 /**
  * Scale up a NSBezierPath by the bounds of the page
  */
-- (PSBezierPath *)scaleUpPSBezierPath:(PSBezierPath *)path {
+- (PSBezierPath *)newPSBezierPathScaleUp:(PSBezierPath *)path {
 	NSAffineTransform* xform = [NSAffineTransform transform];
 	[xform translateXBy:pagebounds.origin.x
 					yBy:pagebounds.origin.y];
@@ -377,7 +377,7 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 			break;
 		case ANNOTATE_PEN:
 			if (sendPath) {
-				[d setObject:[self scaleDownPSBezierPath:[self getCurrentPath]] forKey:@"PenPath"];
+				[d setObject:[self newPSBezierPathScaleDown:[self getCurrentPath]] forKey:@"PenPath"];
 				sendPath = NO;
 			}
 			break;
@@ -420,7 +420,7 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 			//create a new path if the sender created a new path
 			path = [[note userInfo] objectForKey:@"PenPath"];
 			if (path) {
-				[self addPath:[self scaleUpPSBezierPath:path]];
+				[self addPath:[self newPSBezierPathScaleUp:path]];
 				newBounds = pagebounds;
 			}
 			break;
@@ -454,7 +454,7 @@ NSString * const AnnotationNotification = @"AnnotationNotification";
 			break;
 		case ANNOTATE_PEN:
 			//create a new path
-			[self createNewPath];
+			[self newPath];
 			[self addPointToPath:viewPoint];
 			newBounds = [self currentPathBounds];
 			oldBounds = newBounds;
