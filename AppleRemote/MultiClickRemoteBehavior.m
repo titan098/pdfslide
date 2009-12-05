@@ -15,7 +15,7 @@
  * The above copyright notice and this permission notice shall be included
  * in all copies or substantial portions of the Software.
  *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL 
  * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
@@ -92,6 +92,10 @@ const NSTimeInterval HOLD_RECOGNITION_TIME_INTERVAL=0.4;
 	maxClickTimeDifference = timeDiff;
 }
 
+- (void) sendPressedDownEventToMainThread: (NSNumber*) event {
+	[delegate remoteButton:[event intValue] pressedDown:YES clickCount:1];
+}
+
 - (void) sendSimulatedHoldEvent: (id) time {
 	BOOL startSimulateHold = NO;
 	RemoteControlEventIdentifier event = lastHoldEvent;
@@ -101,7 +105,7 @@ const NSTimeInterval HOLD_RECOGNITION_TIME_INTERVAL=0.4;
 	if (startSimulateHold) {
 		lastEventSimulatedHold = YES;
 		event = (event << EVENT_TO_HOLD_EVENT_OFFSET);
-		[delegate remoteButton:event pressedDown: YES clickCount: 1];
+		[self performSelectorOnMainThread:@selector(sendPressedDownEventToMainThread:) withObject:[NSNumber numberWithInt:event] waitUntilDone:NO];
 	}
 }
 

@@ -15,7 +15,7 @@
  * The above copyright notice and this permission notice shall be included
  * in all copies or substantial portions of the Software.
  *
- * THE SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * THE SOFTWARE IS PROVIDED ‚ÄúAS IS‚Äù, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL 
  * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
@@ -38,9 +38,9 @@
 	IOHIDQueueInterface**  queue;
 	NSMutableArray*		   allCookies;
 	NSMutableDictionary*   cookieToButtonMapping;
-	CFRunLoopSourceRef	   eventSource;
 	
-	BOOL fixSecureEventInputBug;
+	__strong CFRunLoopSourceRef	   eventSource;
+	
 	BOOL openInExclusiveMode;
 	BOOL processesBacklog;	
 	
@@ -54,11 +54,18 @@
 - (BOOL) processesBacklog;
 - (void) setProcessesBacklog: (BOOL) value;
 
-// methods that should be overwritten by subclasses
+// methods that should be overridden by subclasses
 - (void) setCookieMappingInDictionary: (NSMutableDictionary*) cookieToButtonMapping;
 
 - (void) sendRemoteButtonEvent: (RemoteControlEventIdentifier) event pressedDown: (BOOL) pressedDown;
 
++ (const char*) remoteControlDeviceName;
+
+// protected methods
+- (void) openRemoteControlDevice;
+- (void) closeRemoteControlDevice: (BOOL) shallSendNotifications;
+
++ (io_object_t) findRemoteDevice;
 + (BOOL) isRemoteAvailable;
 
 @end
