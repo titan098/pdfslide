@@ -23,12 +23,11 @@
 
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
+		630D10A6116CBC56005555FD /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 630D10A5116CBC56005555FD /* Sparkle.framework */; };
 		630D89AB0FE5254F00A85A6C /* PSPassword.icns in Resources */ = {isa = PBXBuildFile; fileRef = 630D89A90FE5254F00A85A6C /* PSPassword.icns */; };
 		630D89AC0FE5254F00A85A6C /* PSUpdate.icns in Resources */ = {isa = PBXBuildFile; fileRef = 630D89AA0FE5254F00A85A6C /* PSUpdate.icns */; };
 		631A3F3A0FEAC20E00417160 /* TBPointer.icns in Resources */ = {isa = PBXBuildFile; fileRef = 631A3F390FEAC20E00417160 /* TBPointer.icns */; };
 		6321040A0FE52FE100CFACBA /* PSAnnotate.icns in Resources */ = {isa = PBXBuildFile; fileRef = 632104090FE52FE100CFACBA /* PSAnnotate.icns */; };
-		633880170FDBEFE800B08026 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 633880160FDBEFE800B08026 /* Sparkle.framework */; };
-		633880310FDBF02800B08026 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 633880160FDBEFE800B08026 /* Sparkle.framework */; };
 		633880CF0FDC0F8B00B08026 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 633880450FDC048D00B08026 /* dsa_pub.pem */; };
 		633A09B4116CB80E0078ED8D /* DBPrefsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A099F116CB80E0078ED8D /* DBPrefsWindowController.m */; };
 		633A09B5116CB80E0078ED8D /* PDFAboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A09A1116CB80E0078ED8D /* PDFAboutController.m */; };
@@ -84,7 +83,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				633880310FDBF02800B08026 /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,11 +97,11 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32CA4F630368D1EE00C91783 /* PDFSlide_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFSlide_Prefix.pch; sourceTree = "<group>"; };
+		630D10A5116CBC56005555FD /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = lib/Sparkle.framework; sourceTree = "<group>"; };
 		630D89A90FE5254F00A85A6C /* PSPassword.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = PSPassword.icns; path = icons/PSPassword.icns; sourceTree = "<group>"; };
 		630D89AA0FE5254F00A85A6C /* PSUpdate.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = PSUpdate.icns; path = icons/PSUpdate.icns; sourceTree = "<group>"; };
 		631A3F390FEAC20E00417160 /* TBPointer.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = TBPointer.icns; path = icons/TBPointer.icns; sourceTree = "<group>"; };
 		632104090FE52FE100CFACBA /* PSAnnotate.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = PSAnnotate.icns; path = icons/PSAnnotate.icns; sourceTree = "<group>"; };
-		633880160FDBEFE800B08026 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		633880450FDC048D00B08026 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		633A099E116CB80E0078ED8D /* DBPrefsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBPrefsWindowController.h; path = src/DBPrefsWindowController.h; sourceTree = "<group>"; };
 		633A099F116CB80E0078ED8D /* DBPrefsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBPrefsWindowController.m; path = src/DBPrefsWindowController.m; sourceTree = "<group>"; };
@@ -171,7 +169,7 @@
 				63C2A7BF0FCDBC95009DE783 /* Carbon.framework in Frameworks */,
 				63C2A7C00FCDBC95009DE783 /* IOKit.framework in Frameworks */,
 				63C2A7C10FCDBC95009DE783 /* System.framework in Frameworks */,
-				633880170FDBEFE800B08026 /* Sparkle.framework in Frameworks */,
+				630D10A6116CBC56005555FD /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,8 +208,8 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				633880160FDBEFE800B08026 /* Sparkle.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+				630D10A5116CBC56005555FD /* Sparkle.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -512,6 +510,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/lib\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -533,6 +532,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/lib\"",
 				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
