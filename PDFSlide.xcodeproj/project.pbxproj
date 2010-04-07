@@ -23,43 +23,43 @@
 
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
-		630C88BF10714951004F8983 /* PSSlide.m in Sources */ = {isa = PBXBuildFile; fileRef = 630C88BE10714951004F8983 /* PSSlide.m */; };
 		630D89AB0FE5254F00A85A6C /* PSPassword.icns in Resources */ = {isa = PBXBuildFile; fileRef = 630D89A90FE5254F00A85A6C /* PSPassword.icns */; };
 		630D89AC0FE5254F00A85A6C /* PSUpdate.icns in Resources */ = {isa = PBXBuildFile; fileRef = 630D89AA0FE5254F00A85A6C /* PSUpdate.icns */; };
 		631A3F3A0FEAC20E00417160 /* TBPointer.icns in Resources */ = {isa = PBXBuildFile; fileRef = 631A3F390FEAC20E00417160 /* TBPointer.icns */; };
 		6321040A0FE52FE100CFACBA /* PSAnnotate.icns in Resources */ = {isa = PBXBuildFile; fileRef = 632104090FE52FE100CFACBA /* PSAnnotate.icns */; };
-		632991A010CA74EC009D6DAB /* AppleRemote.m in Sources */ = {isa = PBXBuildFile; fileRef = 6329919910CA74EC009D6DAB /* AppleRemote.m */; };
-		632991A110CA74EC009D6DAB /* HIDRemoteControlDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 6329919B10CA74EC009D6DAB /* HIDRemoteControlDevice.m */; };
-		632991A210CA74EC009D6DAB /* MultiClickRemoteBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 6329919D10CA74EC009D6DAB /* MultiClickRemoteBehavior.m */; };
-		632991A310CA74EC009D6DAB /* RemoteControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 6329919F10CA74EC009D6DAB /* RemoteControl.m */; };
-		633268F50FDE92C200382285 /* DBPrefsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 633268F40FDE92C200382285 /* DBPrefsWindowController.m */; };
-		6335E5D80FF2A6630072D428 /* PSBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 6335E5D70FF2A6630072D428 /* PSBezierPath.m */; };
 		633880170FDBEFE800B08026 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 633880160FDBEFE800B08026 /* Sparkle.framework */; };
 		633880310FDBF02800B08026 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 633880160FDBEFE800B08026 /* Sparkle.framework */; };
 		633880CF0FDC0F8B00B08026 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 633880450FDC048D00B08026 /* dsa_pub.pem */; };
-		63398C940FE3D4C1007B0E91 /* PDFSlideAnnotatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63398C930FE3D4C1007B0E91 /* PDFSlideAnnotatedView.m */; };
+		633A09B4116CB80E0078ED8D /* DBPrefsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A099F116CB80E0078ED8D /* DBPrefsWindowController.m */; };
+		633A09B5116CB80E0078ED8D /* PDFAboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A09A1116CB80E0078ED8D /* PDFAboutController.m */; };
+		633A09B6116CB80E0078ED8D /* PDFAnnotatedController.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A09A3116CB80E0078ED8D /* PDFAnnotatedController.m */; };
+		633A09B7116CB80E0078ED8D /* PDFDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A09A5116CB80E0078ED8D /* PDFDisplayController.m */; };
+		633A09B8116CB80E0078ED8D /* PDFPreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A09A7116CB80E0078ED8D /* PDFPreferencesController.m */; };
+		633A09B9116CB80E0078ED8D /* PDFSlideAnnotatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A09A9116CB80E0078ED8D /* PDFSlideAnnotatedView.m */; };
+		633A09BA116CB80E0078ED8D /* PDFSlideController.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A09AB116CB80E0078ED8D /* PDFSlideController.m */; };
+		633A09BB116CB80E0078ED8D /* PDFSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A09AD116CB80E0078ED8D /* PDFSlideView.m */; };
+		633A09BC116CB80E0078ED8D /* PSBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A09AF116CB80E0078ED8D /* PSBezierPath.m */; };
+		633A09BD116CB80E0078ED8D /* PSSlide.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A09B1116CB80E0078ED8D /* PSSlide.m */; };
+		633A09BE116CB80E0078ED8D /* PSTimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A09B3116CB80E0078ED8D /* PSTimerView.m */; };
+		633A09F4116CB8CB0078ED8D /* AppleRemote.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A09E2116CB8CB0078ED8D /* AppleRemote.m */; };
+		633A09F5116CB8CB0078ED8D /* HIDRemoteControlDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A09E4116CB8CB0078ED8D /* HIDRemoteControlDevice.m */; };
+		633A09F6116CB8CB0078ED8D /* MultiClickRemoteBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A09E6116CB8CB0078ED8D /* MultiClickRemoteBehavior.m */; };
+		633A09F7116CB8CB0078ED8D /* RemoteControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A09E8116CB8CB0078ED8D /* RemoteControl.m */; };
+		633A09F8116CB8CB0078ED8D /* SRCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A09EB116CB8CB0078ED8D /* SRCommon.m */; };
+		633A09F9116CB8CB0078ED8D /* SRKeyCodeTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A09ED116CB8CB0078ED8D /* SRKeyCodeTransformer.m */; };
+		633A09FA116CB8CB0078ED8D /* SRRecorderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A09EF116CB8CB0078ED8D /* SRRecorderCell.m */; };
+		633A09FB116CB8CB0078ED8D /* SRRecorderControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A09F1116CB8CB0078ED8D /* SRRecorderControl.m */; };
+		633A09FC116CB8CB0078ED8D /* SRValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 633A09F3116CB8CB0078ED8D /* SRValidator.m */; };
 		636163480FDBD0AD0063BFA4 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 636163470FDBD0AD0063BFA4 /* Preferences.xib */; };
-		6361634C0FDBD0D40063BFA4 /* PDFPreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6361634B0FDBD0D40063BFA4 /* PDFPreferencesController.m */; };
-		6365A3C90FBF2C0F00895D69 /* PDFSlideController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6365A3C80FBF2C0F00895D69 /* PDFSlideController.m */; };
-		6365A4150FBF355000895D69 /* PDFSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6365A4140FBF355000895D69 /* PDFSlideView.m */; };
-		638762B70FC96FB300276EC5 /* PSTimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 638762B60FC96FB300276EC5 /* PSTimerView.m */; };
 		638A52110FD05FCB00F090AC /* About.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638A52100FD05FCB00F090AC /* About.xib */; };
-		638A521A0FD0645900F090AC /* PDFAboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638A52190FD0645900F090AC /* PDFAboutController.m */; };
 		638A52CE0FD071A900F090AC /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 638A52CD0FD071A900F090AC /* Credits.rtf */; };
 		63993FC90FFE469500A1B35C /* PDFSlide.icns in Resources */ = {isa = PBXBuildFile; fileRef = 63993FC80FFE469500A1B35C /* PDFSlide.icns */; };
-		63B87433107516400047632F /* SRCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B8742A107516400047632F /* SRCommon.m */; };
-		63B87434107516400047632F /* SRKeyCodeTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B8742C107516400047632F /* SRKeyCodeTransformer.m */; };
-		63B87435107516400047632F /* SRRecorderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B8742E107516400047632F /* SRRecorderCell.m */; };
-		63B87436107516400047632F /* SRRecorderControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B87430107516400047632F /* SRRecorderControl.m */; };
-		63B87437107516400047632F /* SRValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B87432107516400047632F /* SRValidator.m */; };
 		63BCBBCF0FD5B340009CB2ED /* COPYING in Resources */ = {isa = PBXBuildFile; fileRef = 63BCBBCE0FD5B340009CB2ED /* COPYING */; };
 		63C2A7BF0FCDBC95009DE783 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C2A77F0FCDBAB6009DE783 /* Carbon.framework */; };
 		63C2A7C00FCDBC95009DE783 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C2A7800FCDBAB6009DE783 /* IOKit.framework */; };
 		63C2A7C10FCDBC95009DE783 /* System.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C2A7840FCDBADE009DE783 /* System.framework */; };
 		63F6E9930FC09FB0006BC158 /* PDFDisplay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F6E9920FC09FB0006BC158 /* PDFDisplay.xib */; };
-		63F6E9990FC0A06A006BC158 /* PDFDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F6E9980FC0A06A006BC158 /* PDFDisplayController.m */; };
 		63FBF97C0FE4FB13007577B6 /* Annotate.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63FBF97B0FE4FB13007577B6 /* Annotate.xib */; };
-		63FBF9830FE4FC2A007577B6 /* PDFAnnotatedController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63FBF9820FE4FC2A007577B6 /* PDFAnnotatedController.m */; };
 		63FBFACE0FE524A1007577B6 /* PSOk.icns in Resources */ = {isa = PBXBuildFile; fileRef = 63FBFACD0FE524A1007577B6 /* PSOk.icns */; };
 		63FCE6540FC02634001E634B /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63FCE6530FC02634001E634B /* Quartz.framework */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -99,62 +99,62 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32CA4F630368D1EE00C91783 /* PDFSlide_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFSlide_Prefix.pch; sourceTree = "<group>"; };
-		630C88BD10714951004F8983 /* PSSlide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSSlide.h; sourceTree = "<group>"; };
-		630C88BE10714951004F8983 /* PSSlide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSSlide.m; sourceTree = "<group>"; };
 		630D89A90FE5254F00A85A6C /* PSPassword.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = PSPassword.icns; path = icons/PSPassword.icns; sourceTree = "<group>"; };
 		630D89AA0FE5254F00A85A6C /* PSUpdate.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = PSUpdate.icns; path = icons/PSUpdate.icns; sourceTree = "<group>"; };
 		631A3F390FEAC20E00417160 /* TBPointer.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = TBPointer.icns; path = icons/TBPointer.icns; sourceTree = "<group>"; };
 		632104090FE52FE100CFACBA /* PSAnnotate.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = PSAnnotate.icns; path = icons/PSAnnotate.icns; sourceTree = "<group>"; };
-		6329919810CA74EC009D6DAB /* AppleRemote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppleRemote.h; path = AppleRemote/AppleRemote.h; sourceTree = "<group>"; };
-		6329919910CA74EC009D6DAB /* AppleRemote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppleRemote.m; path = AppleRemote/AppleRemote.m; sourceTree = "<group>"; };
-		6329919A10CA74EC009D6DAB /* HIDRemoteControlDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HIDRemoteControlDevice.h; path = AppleRemote/HIDRemoteControlDevice.h; sourceTree = "<group>"; };
-		6329919B10CA74EC009D6DAB /* HIDRemoteControlDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HIDRemoteControlDevice.m; path = AppleRemote/HIDRemoteControlDevice.m; sourceTree = "<group>"; };
-		6329919C10CA74EC009D6DAB /* MultiClickRemoteBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MultiClickRemoteBehavior.h; path = AppleRemote/MultiClickRemoteBehavior.h; sourceTree = "<group>"; };
-		6329919D10CA74EC009D6DAB /* MultiClickRemoteBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MultiClickRemoteBehavior.m; path = AppleRemote/MultiClickRemoteBehavior.m; sourceTree = "<group>"; };
-		6329919E10CA74EC009D6DAB /* RemoteControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RemoteControl.h; path = AppleRemote/RemoteControl.h; sourceTree = "<group>"; };
-		6329919F10CA74EC009D6DAB /* RemoteControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RemoteControl.m; path = AppleRemote/RemoteControl.m; sourceTree = "<group>"; };
-		633268F30FDE92C200382285 /* DBPrefsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPrefsWindowController.h; sourceTree = "<group>"; };
-		633268F40FDE92C200382285 /* DBPrefsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBPrefsWindowController.m; sourceTree = "<group>"; };
-		6335E5D60FF2A6630072D428 /* PSBezierPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSBezierPath.h; sourceTree = "<group>"; };
-		6335E5D70FF2A6630072D428 /* PSBezierPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSBezierPath.m; sourceTree = "<group>"; };
 		633880160FDBEFE800B08026 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		633880450FDC048D00B08026 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
-		63398C920FE3D4C1007B0E91 /* PDFSlideAnnotatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFSlideAnnotatedView.h; sourceTree = "<group>"; };
-		63398C930FE3D4C1007B0E91 /* PDFSlideAnnotatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFSlideAnnotatedView.m; sourceTree = "<group>"; };
+		633A099E116CB80E0078ED8D /* DBPrefsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBPrefsWindowController.h; path = src/DBPrefsWindowController.h; sourceTree = "<group>"; };
+		633A099F116CB80E0078ED8D /* DBPrefsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBPrefsWindowController.m; path = src/DBPrefsWindowController.m; sourceTree = "<group>"; };
+		633A09A0116CB80E0078ED8D /* PDFAboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFAboutController.h; path = src/PDFAboutController.h; sourceTree = "<group>"; };
+		633A09A1116CB80E0078ED8D /* PDFAboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFAboutController.m; path = src/PDFAboutController.m; sourceTree = "<group>"; };
+		633A09A2116CB80E0078ED8D /* PDFAnnotatedController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFAnnotatedController.h; path = src/PDFAnnotatedController.h; sourceTree = "<group>"; };
+		633A09A3116CB80E0078ED8D /* PDFAnnotatedController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFAnnotatedController.m; path = src/PDFAnnotatedController.m; sourceTree = "<group>"; };
+		633A09A4116CB80E0078ED8D /* PDFDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFDisplayController.h; path = src/PDFDisplayController.h; sourceTree = "<group>"; };
+		633A09A5116CB80E0078ED8D /* PDFDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFDisplayController.m; path = src/PDFDisplayController.m; sourceTree = "<group>"; };
+		633A09A6116CB80E0078ED8D /* PDFPreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFPreferencesController.h; path = src/PDFPreferencesController.h; sourceTree = "<group>"; };
+		633A09A7116CB80E0078ED8D /* PDFPreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFPreferencesController.m; path = src/PDFPreferencesController.m; sourceTree = "<group>"; };
+		633A09A8116CB80E0078ED8D /* PDFSlideAnnotatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFSlideAnnotatedView.h; path = src/PDFSlideAnnotatedView.h; sourceTree = "<group>"; };
+		633A09A9116CB80E0078ED8D /* PDFSlideAnnotatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFSlideAnnotatedView.m; path = src/PDFSlideAnnotatedView.m; sourceTree = "<group>"; };
+		633A09AA116CB80E0078ED8D /* PDFSlideController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFSlideController.h; path = src/PDFSlideController.h; sourceTree = "<group>"; };
+		633A09AB116CB80E0078ED8D /* PDFSlideController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFSlideController.m; path = src/PDFSlideController.m; sourceTree = "<group>"; };
+		633A09AC116CB80E0078ED8D /* PDFSlideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFSlideView.h; path = src/PDFSlideView.h; sourceTree = "<group>"; };
+		633A09AD116CB80E0078ED8D /* PDFSlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFSlideView.m; path = src/PDFSlideView.m; sourceTree = "<group>"; };
+		633A09AE116CB80E0078ED8D /* PSBezierPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSBezierPath.h; path = src/PSBezierPath.h; sourceTree = "<group>"; };
+		633A09AF116CB80E0078ED8D /* PSBezierPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSBezierPath.m; path = src/PSBezierPath.m; sourceTree = "<group>"; };
+		633A09B0116CB80E0078ED8D /* PSSlide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSSlide.h; path = src/PSSlide.h; sourceTree = "<group>"; };
+		633A09B1116CB80E0078ED8D /* PSSlide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSSlide.m; path = src/PSSlide.m; sourceTree = "<group>"; };
+		633A09B2116CB80E0078ED8D /* PSTimerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSTimerView.h; path = src/PSTimerView.h; sourceTree = "<group>"; };
+		633A09B3116CB80E0078ED8D /* PSTimerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSTimerView.m; path = src/PSTimerView.m; sourceTree = "<group>"; };
+		633A09E1116CB8CB0078ED8D /* AppleRemote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppleRemote.h; sourceTree = "<group>"; };
+		633A09E2116CB8CB0078ED8D /* AppleRemote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppleRemote.m; sourceTree = "<group>"; };
+		633A09E3116CB8CB0078ED8D /* HIDRemoteControlDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HIDRemoteControlDevice.h; sourceTree = "<group>"; };
+		633A09E4116CB8CB0078ED8D /* HIDRemoteControlDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HIDRemoteControlDevice.m; sourceTree = "<group>"; };
+		633A09E5116CB8CB0078ED8D /* MultiClickRemoteBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiClickRemoteBehavior.h; sourceTree = "<group>"; };
+		633A09E6116CB8CB0078ED8D /* MultiClickRemoteBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiClickRemoteBehavior.m; sourceTree = "<group>"; };
+		633A09E7116CB8CB0078ED8D /* RemoteControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteControl.h; sourceTree = "<group>"; };
+		633A09E8116CB8CB0078ED8D /* RemoteControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoteControl.m; sourceTree = "<group>"; };
+		633A09EA116CB8CB0078ED8D /* SRCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRCommon.h; sourceTree = "<group>"; };
+		633A09EB116CB8CB0078ED8D /* SRCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRCommon.m; sourceTree = "<group>"; };
+		633A09EC116CB8CB0078ED8D /* SRKeyCodeTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRKeyCodeTransformer.h; sourceTree = "<group>"; };
+		633A09ED116CB8CB0078ED8D /* SRKeyCodeTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKeyCodeTransformer.m; sourceTree = "<group>"; };
+		633A09EE116CB8CB0078ED8D /* SRRecorderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRRecorderCell.h; sourceTree = "<group>"; };
+		633A09EF116CB8CB0078ED8D /* SRRecorderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRRecorderCell.m; sourceTree = "<group>"; };
+		633A09F0116CB8CB0078ED8D /* SRRecorderControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRRecorderControl.h; sourceTree = "<group>"; };
+		633A09F1116CB8CB0078ED8D /* SRRecorderControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRRecorderControl.m; sourceTree = "<group>"; };
+		633A09F2116CB8CB0078ED8D /* SRValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRValidator.h; sourceTree = "<group>"; };
+		633A09F3116CB8CB0078ED8D /* SRValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRValidator.m; sourceTree = "<group>"; };
 		636163470FDBD0AD0063BFA4 /* Preferences.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
-		6361634A0FDBD0D40063BFA4 /* PDFPreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFPreferencesController.h; sourceTree = "<group>"; };
-		6361634B0FDBD0D40063BFA4 /* PDFPreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFPreferencesController.m; sourceTree = "<group>"; };
-		6365A3C70FBF2C0F00895D69 /* PDFSlideController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFSlideController.h; sourceTree = "<group>"; };
-		6365A3C80FBF2C0F00895D69 /* PDFSlideController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFSlideController.m; sourceTree = "<group>"; };
-		6365A4130FBF355000895D69 /* PDFSlideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFSlideView.h; sourceTree = "<group>"; };
-		6365A4140FBF355000895D69 /* PDFSlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFSlideView.m; sourceTree = "<group>"; };
-		638762B50FC96FB300276EC5 /* PSTimerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTimerView.h; sourceTree = "<group>"; };
-		638762B60FC96FB300276EC5 /* PSTimerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTimerView.m; sourceTree = "<group>"; };
 		638A52100FD05FCB00F090AC /* About.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = About.xib; sourceTree = "<group>"; };
-		638A52180FD0645900F090AC /* PDFAboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFAboutController.h; sourceTree = "<group>"; };
-		638A52190FD0645900F090AC /* PDFAboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFAboutController.m; sourceTree = "<group>"; };
 		638A52CD0FD071A900F090AC /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		63993FC80FFE469500A1B35C /* PDFSlide.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = PDFSlide.icns; path = icons/PDFSlide.icns; sourceTree = "<group>"; };
-		63B87429107516400047632F /* SRCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRCommon.h; sourceTree = "<group>"; };
-		63B8742A107516400047632F /* SRCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRCommon.m; sourceTree = "<group>"; };
-		63B8742B107516400047632F /* SRKeyCodeTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRKeyCodeTransformer.h; sourceTree = "<group>"; };
-		63B8742C107516400047632F /* SRKeyCodeTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRKeyCodeTransformer.m; sourceTree = "<group>"; };
-		63B8742D107516400047632F /* SRRecorderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRRecorderCell.h; sourceTree = "<group>"; };
-		63B8742E107516400047632F /* SRRecorderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRRecorderCell.m; sourceTree = "<group>"; };
-		63B8742F107516400047632F /* SRRecorderControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRRecorderControl.h; sourceTree = "<group>"; };
-		63B87430107516400047632F /* SRRecorderControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRRecorderControl.m; sourceTree = "<group>"; };
-		63B87431107516400047632F /* SRValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRValidator.h; sourceTree = "<group>"; };
-		63B87432107516400047632F /* SRValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRValidator.m; sourceTree = "<group>"; };
 		63BCBBCE0FD5B340009CB2ED /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
 		63C2A77F0FCDBAB6009DE783 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		63C2A7800FCDBAB6009DE783 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
 		63C2A7840FCDBADE009DE783 /* System.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = System.framework; path = /System/Library/Frameworks/System.framework; sourceTree = "<absolute>"; };
 		63F6E9920FC09FB0006BC158 /* PDFDisplay.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PDFDisplay.xib; sourceTree = "<group>"; };
-		63F6E9970FC0A06A006BC158 /* PDFDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFDisplayController.h; sourceTree = "<group>"; };
-		63F6E9980FC0A06A006BC158 /* PDFDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFDisplayController.m; sourceTree = "<group>"; };
 		63FBF97B0FE4FB13007577B6 /* Annotate.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Annotate.xib; sourceTree = "<group>"; };
-		63FBF9810FE4FC2A007577B6 /* PDFAnnotatedController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFAnnotatedController.h; sourceTree = "<group>"; };
-		63FBF9820FE4FC2A007577B6 /* PDFAnnotatedController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFAnnotatedController.m; sourceTree = "<group>"; };
 		63FBFACD0FE524A1007577B6 /* PSOk.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = PSOk.icns; path = icons/PSOk.icns; sourceTree = "<group>"; };
 		63FCE6530FC02634001E634B /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = /System/Library/Frameworks/Quartz.framework; sourceTree = "<absolute>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -181,28 +181,28 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				630C88BD10714951004F8983 /* PSSlide.h */,
-				630C88BE10714951004F8983 /* PSSlide.m */,
-				633268F30FDE92C200382285 /* DBPrefsWindowController.h */,
-				633268F40FDE92C200382285 /* DBPrefsWindowController.m */,
-				6365A3C70FBF2C0F00895D69 /* PDFSlideController.h */,
-				6365A3C80FBF2C0F00895D69 /* PDFSlideController.m */,
-				6365A4130FBF355000895D69 /* PDFSlideView.h */,
-				6365A4140FBF355000895D69 /* PDFSlideView.m */,
-				63F6E9970FC0A06A006BC158 /* PDFDisplayController.h */,
-				63F6E9980FC0A06A006BC158 /* PDFDisplayController.m */,
-				638762B50FC96FB300276EC5 /* PSTimerView.h */,
-				638762B60FC96FB300276EC5 /* PSTimerView.m */,
-				638A52180FD0645900F090AC /* PDFAboutController.h */,
-				638A52190FD0645900F090AC /* PDFAboutController.m */,
-				6361634A0FDBD0D40063BFA4 /* PDFPreferencesController.h */,
-				6361634B0FDBD0D40063BFA4 /* PDFPreferencesController.m */,
-				63398C920FE3D4C1007B0E91 /* PDFSlideAnnotatedView.h */,
-				63398C930FE3D4C1007B0E91 /* PDFSlideAnnotatedView.m */,
-				63FBF9810FE4FC2A007577B6 /* PDFAnnotatedController.h */,
-				63FBF9820FE4FC2A007577B6 /* PDFAnnotatedController.m */,
-				6335E5D60FF2A6630072D428 /* PSBezierPath.h */,
-				6335E5D70FF2A6630072D428 /* PSBezierPath.m */,
+				633A099E116CB80E0078ED8D /* DBPrefsWindowController.h */,
+				633A099F116CB80E0078ED8D /* DBPrefsWindowController.m */,
+				633A09A0116CB80E0078ED8D /* PDFAboutController.h */,
+				633A09A1116CB80E0078ED8D /* PDFAboutController.m */,
+				633A09A2116CB80E0078ED8D /* PDFAnnotatedController.h */,
+				633A09A3116CB80E0078ED8D /* PDFAnnotatedController.m */,
+				633A09A4116CB80E0078ED8D /* PDFDisplayController.h */,
+				633A09A5116CB80E0078ED8D /* PDFDisplayController.m */,
+				633A09A6116CB80E0078ED8D /* PDFPreferencesController.h */,
+				633A09A7116CB80E0078ED8D /* PDFPreferencesController.m */,
+				633A09A8116CB80E0078ED8D /* PDFSlideAnnotatedView.h */,
+				633A09A9116CB80E0078ED8D /* PDFSlideAnnotatedView.m */,
+				633A09AA116CB80E0078ED8D /* PDFSlideController.h */,
+				633A09AB116CB80E0078ED8D /* PDFSlideController.m */,
+				633A09AC116CB80E0078ED8D /* PDFSlideView.h */,
+				633A09AD116CB80E0078ED8D /* PDFSlideView.m */,
+				633A09AE116CB80E0078ED8D /* PSBezierPath.h */,
+				633A09AF116CB80E0078ED8D /* PSBezierPath.m */,
+				633A09B0116CB80E0078ED8D /* PSSlide.h */,
+				633A09B1116CB80E0078ED8D /* PSSlide.m */,
+				633A09B2116CB80E0078ED8D /* PSTimerView.h */,
+				633A09B3116CB80E0078ED8D /* PSTimerView.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -241,8 +241,7 @@
 		29B97314FDCFA39411CA2CEA /* PDFSlide */ = {
 			isa = PBXGroup;
 			children = (
-				63B87428107516400047632F /* SRRecorder */,
-				63C2A7570FCDB9D6009DE783 /* AppleRemote */,
+				633A09DF116CB8BA0078ED8D /* Libraries */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -288,6 +287,49 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		633A09DF116CB8BA0078ED8D /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				633A09E0116CB8CB0078ED8D /* AppleRemote */,
+				633A09E9116CB8CB0078ED8D /* SRRecorder */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		633A09E0116CB8CB0078ED8D /* AppleRemote */ = {
+			isa = PBXGroup;
+			children = (
+				633A09E1116CB8CB0078ED8D /* AppleRemote.h */,
+				633A09E2116CB8CB0078ED8D /* AppleRemote.m */,
+				633A09E3116CB8CB0078ED8D /* HIDRemoteControlDevice.h */,
+				633A09E4116CB8CB0078ED8D /* HIDRemoteControlDevice.m */,
+				633A09E5116CB8CB0078ED8D /* MultiClickRemoteBehavior.h */,
+				633A09E6116CB8CB0078ED8D /* MultiClickRemoteBehavior.m */,
+				633A09E7116CB8CB0078ED8D /* RemoteControl.h */,
+				633A09E8116CB8CB0078ED8D /* RemoteControl.m */,
+			);
+			name = AppleRemote;
+			path = lib/AppleRemote;
+			sourceTree = "<group>";
+		};
+		633A09E9116CB8CB0078ED8D /* SRRecorder */ = {
+			isa = PBXGroup;
+			children = (
+				633A09EA116CB8CB0078ED8D /* SRCommon.h */,
+				633A09EB116CB8CB0078ED8D /* SRCommon.m */,
+				633A09EC116CB8CB0078ED8D /* SRKeyCodeTransformer.h */,
+				633A09ED116CB8CB0078ED8D /* SRKeyCodeTransformer.m */,
+				633A09EE116CB8CB0078ED8D /* SRRecorderCell.h */,
+				633A09EF116CB8CB0078ED8D /* SRRecorderCell.m */,
+				633A09F0116CB8CB0078ED8D /* SRRecorderControl.h */,
+				633A09F1116CB8CB0078ED8D /* SRRecorderControl.m */,
+				633A09F2116CB8CB0078ED8D /* SRValidator.h */,
+				633A09F3116CB8CB0078ED8D /* SRValidator.m */,
+			);
+			name = SRRecorder;
+			path = lib/SRRecorder;
+			sourceTree = "<group>";
+		};
 		634833030FD847E80062544D /* Icons */ = {
 			isa = PBXGroup;
 			children = (
@@ -299,38 +341,6 @@
 				63FBFACD0FE524A1007577B6 /* PSOk.icns */,
 			);
 			name = Icons;
-			sourceTree = "<group>";
-		};
-		63B87428107516400047632F /* SRRecorder */ = {
-			isa = PBXGroup;
-			children = (
-				63B87429107516400047632F /* SRCommon.h */,
-				63B8742A107516400047632F /* SRCommon.m */,
-				63B8742B107516400047632F /* SRKeyCodeTransformer.h */,
-				63B8742C107516400047632F /* SRKeyCodeTransformer.m */,
-				63B8742D107516400047632F /* SRRecorderCell.h */,
-				63B8742E107516400047632F /* SRRecorderCell.m */,
-				63B8742F107516400047632F /* SRRecorderControl.h */,
-				63B87430107516400047632F /* SRRecorderControl.m */,
-				63B87431107516400047632F /* SRValidator.h */,
-				63B87432107516400047632F /* SRValidator.m */,
-			);
-			path = SRRecorder;
-			sourceTree = "<group>";
-		};
-		63C2A7570FCDB9D6009DE783 /* AppleRemote */ = {
-			isa = PBXGroup;
-			children = (
-				6329919810CA74EC009D6DAB /* AppleRemote.h */,
-				6329919910CA74EC009D6DAB /* AppleRemote.m */,
-				6329919A10CA74EC009D6DAB /* HIDRemoteControlDevice.h */,
-				6329919B10CA74EC009D6DAB /* HIDRemoteControlDevice.m */,
-				6329919C10CA74EC009D6DAB /* MultiClickRemoteBehavior.h */,
-				6329919D10CA74EC009D6DAB /* MultiClickRemoteBehavior.m */,
-				6329919E10CA74EC009D6DAB /* RemoteControl.h */,
-				6329919F10CA74EC009D6DAB /* RemoteControl.m */,
-			);
-			name = AppleRemote;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -420,26 +430,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
-				6365A3C90FBF2C0F00895D69 /* PDFSlideController.m in Sources */,
-				6365A4150FBF355000895D69 /* PDFSlideView.m in Sources */,
-				63F6E9990FC0A06A006BC158 /* PDFDisplayController.m in Sources */,
-				638762B70FC96FB300276EC5 /* PSTimerView.m in Sources */,
-				638A521A0FD0645900F090AC /* PDFAboutController.m in Sources */,
-				6361634C0FDBD0D40063BFA4 /* PDFPreferencesController.m in Sources */,
-				633268F50FDE92C200382285 /* DBPrefsWindowController.m in Sources */,
-				63398C940FE3D4C1007B0E91 /* PDFSlideAnnotatedView.m in Sources */,
-				63FBF9830FE4FC2A007577B6 /* PDFAnnotatedController.m in Sources */,
-				6335E5D80FF2A6630072D428 /* PSBezierPath.m in Sources */,
-				630C88BF10714951004F8983 /* PSSlide.m in Sources */,
-				63B87433107516400047632F /* SRCommon.m in Sources */,
-				63B87434107516400047632F /* SRKeyCodeTransformer.m in Sources */,
-				63B87435107516400047632F /* SRRecorderCell.m in Sources */,
-				63B87436107516400047632F /* SRRecorderControl.m in Sources */,
-				63B87437107516400047632F /* SRValidator.m in Sources */,
-				632991A010CA74EC009D6DAB /* AppleRemote.m in Sources */,
-				632991A110CA74EC009D6DAB /* HIDRemoteControlDevice.m in Sources */,
-				632991A210CA74EC009D6DAB /* MultiClickRemoteBehavior.m in Sources */,
-				632991A310CA74EC009D6DAB /* RemoteControl.m in Sources */,
+				633A09B4116CB80E0078ED8D /* DBPrefsWindowController.m in Sources */,
+				633A09B5116CB80E0078ED8D /* PDFAboutController.m in Sources */,
+				633A09B6116CB80E0078ED8D /* PDFAnnotatedController.m in Sources */,
+				633A09B7116CB80E0078ED8D /* PDFDisplayController.m in Sources */,
+				633A09B8116CB80E0078ED8D /* PDFPreferencesController.m in Sources */,
+				633A09B9116CB80E0078ED8D /* PDFSlideAnnotatedView.m in Sources */,
+				633A09BA116CB80E0078ED8D /* PDFSlideController.m in Sources */,
+				633A09BB116CB80E0078ED8D /* PDFSlideView.m in Sources */,
+				633A09BC116CB80E0078ED8D /* PSBezierPath.m in Sources */,
+				633A09BD116CB80E0078ED8D /* PSSlide.m in Sources */,
+				633A09BE116CB80E0078ED8D /* PSTimerView.m in Sources */,
+				633A09F4116CB8CB0078ED8D /* AppleRemote.m in Sources */,
+				633A09F5116CB8CB0078ED8D /* HIDRemoteControlDevice.m in Sources */,
+				633A09F6116CB8CB0078ED8D /* MultiClickRemoteBehavior.m in Sources */,
+				633A09F7116CB8CB0078ED8D /* RemoteControl.m in Sources */,
+				633A09F8116CB8CB0078ED8D /* SRCommon.m in Sources */,
+				633A09F9116CB8CB0078ED8D /* SRKeyCodeTransformer.m in Sources */,
+				633A09FA116CB8CB0078ED8D /* SRRecorderCell.m in Sources */,
+				633A09FB116CB8CB0078ED8D /* SRRecorderControl.m in Sources */,
+				633A09FC116CB8CB0078ED8D /* SRValidator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,6 +552,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = ./lib/;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx10.5;
@@ -556,6 +567,7 @@
 				GCC_ENABLE_OBJC_GC = supported;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = ./lib/;
 				PREBINDING = NO;
 				SDKROOT = macosx10.5;
 			};
